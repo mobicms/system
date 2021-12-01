@@ -35,7 +35,12 @@
     "prefer-stable": true,
     "require": {
         "php": "~8.0.0 || ~8.1.0",
-        "ext-pdo": "*"
+        "ext-pdo": "*",
+        "laminas/laminas-diactoros": "^2.8",
+        "laminas/laminas-servicemanager": "^3.10",
+        "mezzio/mezzio": "^3.6",
+        "mezzio/mezzio-helpers": "^5.7",
+        "mobicms/render": "dev-main"
     },
     "require-dev": {
         "mockery/mockery": "^1.4",
