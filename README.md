@@ -1,10 +1,15 @@
 # `mobicms/system`
+This package is not an independent component and is used exclusively as part of [mobiCMS](https://github.com/mobicms/mobicms).
 
 [![GitHub](https://img.shields.io/github/license/mobicms/system?color=green)](https://github.com/mobicms/system/blob/develop/LICENSE)
 [![GitHub release (latest SemVer)](https://img.shields.io/github/v/release/mobicms/system)](https://github.com/mobicms/system/releases)
 [![Packagist](https://img.shields.io/packagist/dt/mobicms/system)](https://packagist.org/packages/mobicms/system)
 
-This package is not an independent component and is used exclusively as part of [mobiCMS](https://github.com/mobicms/mobicms).
+[![CI-Analysis](https://github.com/mobicms/system/workflows/Analysis/badge.svg)](https://github.com/mobicms/system/actions?query=workflow%3AAnalysis)
+[![CI-Tests](https://github.com/mobicms/system/workflows/Security/badge.svg)](https://github.com/mobicms/system/actions?query=workflow%3ASecurity)
+[![CI-Tests](https://github.com/mobicms/system/workflows/Tests/badge.svg)](https://github.com/mobicms/system/actions?query=workflow%3ATests)
+[![Code Coverage](https://scrutinizer-ci.com/g/mobicms/system/badges/coverage.png)](https://scrutinizer-ci.com/g/mobicms/system/code-structure/main/code-coverage)
+[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/mobicms/system/badges/quality-score.png)](https://scrutinizer-ci.com/g/mobicms/system)
 
 
 ## Contributing
