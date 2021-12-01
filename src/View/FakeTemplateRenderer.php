@@ -20,9 +20,9 @@ class FakeTemplateRenderer implements TemplateRendererInterface
 
     public function __invoke(ContainerInterface $container): TemplateRendererInterface
     {
-        /** @var Engine $engine */
-        $engine = $container->get(Engine::class);
-        $this->engine = $engine;
+        /** @var Engine $engineObj */
+        $engineObj = $container->get(Engine::class);
+        $this->engine = $engineObj;
 
         return $this;
     }
@@ -38,6 +38,7 @@ class FakeTemplateRenderer implements TemplateRendererInterface
     // @codeCoverageIgnoreStart
     public function addPath(string $path, ?string $namespace = null): void
     {
+        // This is a fake method and is not used
     }
 
     public function getPaths(): array
@@ -47,6 +48,7 @@ class FakeTemplateRenderer implements TemplateRendererInterface
 
     public function addDefaultParam(?string $templateName, string $param, $value): void
     {
+        // This is a fake method and is not used
     }
     // @codeCoverageIgnoreEnd
 }
