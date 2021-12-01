@@ -1,0 +1,77 @@
+{
+    "name": "mobicms/system",
+    "description": "mobiCMS core framework",
+    "type": "library",
+    "license": "GPL-3.0-only",
+    "keywords": [
+        "mobicms",
+        "cms",
+        "middleware",
+        "psr-7",
+        "psr-11",
+        "psr-15",
+        "mysql"
+    ],
+    "authors": [
+        {
+            "name": "Oleg Kasyanov",
+            "role": "Team Lead, Developer",
+            "homepage": "https://github.com/batumibiz",
+            "email": "oleg@mobicms.org"
+        },
+        {
+            "name": "mobiCMS Contributors",
+            "homepage": "https://github.com/mobicms/system/graphs/contributors"
+        }
+    ],
+    "support": {
+        "source": "https://github.com/mobicms/system",
+        "issues": "https://github.com/mobicms/system/issues"
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "require": {
+        "php": "~8.0.0 || ~8.1.0",
+        "ext-pdo": "*"
+    },
+    "require-dev": {
+        "mockery/mockery": "^1.4",
+        "phpunit/phpunit": "^9.5",
+        "psalm/plugin-mockery": "^0.9",
+        "psalm/plugin-phpunit": "^0.16",
+        "roave/security-advisories": "dev-master",
+        "slevomat/coding-standard": "^7.0",
+        "squizlabs/php_codesniffer": "^3.6",
+        "vimeo/psalm": "^4.13"
+    },
+    "autoload": {
+        "psr-4": {
+            "Mobicms\\System\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "MobicmsTest\\System\\": "tests/unit/"
+        }
+    },
+    "scripts": {
+        "check": [
+            "@cs-check",
+            "@static-analysis",
+            "@security-analysis",
+            "@test"
+        ],
+        "cs-check": "phpcs",
+        "cs-fix": "phpcbf",
+        "static-analysis": "psalm --show-info=true",
+        "security-analysis": "psalm --taint-analysis --show-info=true --report=results.sarif",
+        "test": "phpunit --colors=always",
+        "test-coverage": [
+            "@putenv XDEBUG_MODE=coverage",
+            "phpunit --colors=always --coverage-clover clover.xml"
+        ]
+    }
+}
