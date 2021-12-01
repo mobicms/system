@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "0f7a7fbb198bf23e73c05ca1a556bf59",
+    "content-hash": "fabb2ae1949abba20c8b25c683a30dc7",
     "packages": [
         {
             "name": "container-interop/container-interop",
@@ -2134,6 +2134,65 @@
                 "source": "https://github.com/hamcrest/hamcrest-php/tree/v2.0.1"
             },
             "time": "2020-07-09T08:09:16+00:00"
+        },
+        {
+            "name": "mobicms/testutils",
+            "version": "dev-main",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/mobicms/testutils.git",
+                "reference": "61cafee52721a8fdc78a4f59f79b253561915a18"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/mobicms/testutils/zipball/61cafee52721a8fdc78a4f59f79b253561915a18",
+                "reference": "61cafee52721a8fdc78a4f59f79b253561915a18",
+                "shasum": ""
+            },
+            "require": {
+                "ext-pdo": "*",
+                "php": "~8.0.0 || ~8.1.0",
+                "phpunit/phpunit": "^9.5"
+            },
+            "require-dev": {
+                "slevomat/coding-standard": "^7.0",
+                "squizlabs/php_codesniffer": "^3.6",
+                "vimeo/psalm": "^4.13"
+            },
+            "default-branch": true,
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Mobicms\\Testutils\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Oleg Kasyanov",
+                    "email": "oleg@mobicms.org",
+                    "homepage": "https://github.com/batumibiz",
+                    "role": "Team Lead, Developer"
+                },
+                {
+                    "name": "mobiCMS Contributors",
+                    "homepage": "https://github.com/mobicms/testutils/graphs/contributors"
+                }
+            ],
+            "description": "mobiCMS test utilities",
+            "keywords": [
+                "mobicms",
+                "test",
+                "utilities"
+            ],
+            "support": {
+                "issues": "https://github.com/mobicms/testutils/issues",
+                "source": "https://github.com/mobicms/testutils"
+            },
+            "time": "2021-12-01T17:04:29+00:00"
         },
         {
             "name": "mockery/mockery",
@@ -5689,6 +5748,7 @@
     "minimum-stability": "dev",
     "stability-flags": {
         "mobicms/render": 20,
+        "mobicms/testutils": 20,
         "roave/security-advisories": 20
     },
     "prefer-stable": true,

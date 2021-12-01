@@ -43,6 +43,7 @@
         "mobicms/render": "dev-main"
     },
     "require-dev": {
+        "mobicms/testutils": "dev-main",
         "mockery/mockery": "^1.4",
         "phpunit/phpunit": "^9.5",
         "psalm/plugin-mockery": "^0.9",
