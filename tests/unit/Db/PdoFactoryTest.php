@@ -24,10 +24,6 @@ class PdoFactoryTest extends MockeryTestCase
 
     public function setUp(): void
     {
-        if (null === self::$pdo) {
-            $this->markTestSkipped('Need database to test.');
-        }
-
         $this->container = Mockery::mock(ContainerInterface::class);
         $this->container
             ->shouldReceive('has')
