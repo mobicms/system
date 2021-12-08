@@ -12,6 +12,10 @@ This package is not an independent component and is used exclusively as part of 
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/mobicms/system/badges/quality-score.png)](https://scrutinizer-ci.com/g/mobicms/system)
 
 
+## Usage
+For system requirements and installation instructions  see [mobicms/mobicms](https://github.com/mobicms/mobicms).
+
+
 ## Contributing
 Contributions are welcome! Please read [CONTRIBUTING](https://github.com/mobicms/system/blob/develop/.github/CONTRIBUTING.md) for details.
 
