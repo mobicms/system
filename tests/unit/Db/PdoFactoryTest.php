@@ -11,24 +11,24 @@ use Mobicms\System\Db\Exception\MissingConfigException;
 use Mobicms\System\Db\Exception\UnableToConnectException;
 use Mobicms\System\Db\PdoFactory;
 use Mobicms\Testutils\DbHelpersTrait;
-use Mockery;
-use Mockery\Adapter\Phpunit\MockeryTestCase;
 use PDO;
+use PHPUnit\Framework\MockObject\MockObject;
+use PHPUnit\Framework\TestCase;
 use Psr\Container\ContainerInterface;
 
-class PdoFactoryTest extends MockeryTestCase
+class PdoFactoryTest extends TestCase
 {
     use DbHelpersTrait;
 
-    private Mockery\MockInterface $container;
+    private MockObject $container;
 
     public function setUp(): void
     {
-        $this->container = Mockery::mock(ContainerInterface::class);
+        $this->container = $this->createMock(ContainerInterface::class);
         $this->container
-            ->shouldReceive('has')
+            ->method('has')
             ->with('database')
-            ->andReturn(true);
+            ->willReturn(true);
     }
 
     /**
@@ -37,9 +37,9 @@ class PdoFactoryTest extends MockeryTestCase
     public function testFactoryReturnsInstanceOfPdo(): void
     {
         $this->container
-            ->shouldReceive('get')
+            ->method('get')
             ->with('database')
-            ->andReturn(
+            ->willReturn(
                 [
                     'host'   => self::$dbHost,
                     'port'   => self::$dbPort,
@@ -59,9 +59,9 @@ class PdoFactoryTest extends MockeryTestCase
     public function testFactoryReturnsInstanceOfPdoUsingDsn(): void
     {
         $this->container
-            ->shouldReceive('get')
+            ->method('get')
             ->with('database')
-            ->andReturn(
+            ->willReturn(
                 [
                     'dsn'  => self::$dsn,
                     'user' => self::$dbUser,
@@ -79,9 +79,9 @@ class PdoFactoryTest extends MockeryTestCase
     public function testInvalidPasswordThrowInvalidCredentialsException(): void
     {
         $this->container
-            ->shouldReceive('get')
+            ->method('get')
             ->with('database')
-            ->andReturn(
+            ->willReturn(
                 [
                     'dsn'  => self::$dsn,
                     'user' => self::$dbUser,
@@ -99,9 +99,9 @@ class PdoFactoryTest extends MockeryTestCase
     public function testInvalidUserThrowInvalidCredentialsException(): void
     {
         $this->container
-            ->shouldReceive('get')
+            ->method('get')
             ->with('database')
-            ->andReturn(
+            ->willReturn(
                 [
                     'dsn'  => self::$dsn,
                     'user' => 'invalid_user',
@@ -119,9 +119,9 @@ class PdoFactoryTest extends MockeryTestCase
     public function testInvalidDatabaseNameThrowInvalidDatabaseException(): void
     {
         $this->container
-            ->shouldReceive('get')
+            ->method('get')
             ->with('database')
-            ->andReturn(
+            ->willReturn(
                 [
                     'host'   => self::$dbHost,
                     'port'   => self::$dbPort,
@@ -141,9 +141,9 @@ class PdoFactoryTest extends MockeryTestCase
     public function testInvalidHostThrowUnableToConnectException(): void
     {
         $this->container
-            ->shouldReceive('get')
+            ->method('get')
             ->with('database')
-            ->andReturn(
+            ->willReturn(
                 [
                     'host'   => 'invalid_host',
                     'port'   => self::$dbPort,
@@ -163,9 +163,9 @@ class PdoFactoryTest extends MockeryTestCase
     public function testInvalidPortThrowUnableToConnectException(): void
     {
         $this->container
-            ->shouldReceive('get')
+            ->method('get')
             ->with('database')
-            ->andReturn(
+            ->willReturn(
                 [
                     'host'   => self::$dbHost,
                     'port'   => 9999999999,
@@ -185,9 +185,9 @@ class PdoFactoryTest extends MockeryTestCase
     public function testInvalidDsnThrowCommonException(): void
     {
         $this->container
-            ->shouldReceive('get')
+            ->method('get')
             ->with('database')
-            ->andReturn(
+            ->willReturn(
                 [
                     'dsn'  => 'invalid_dsn',
                     'user' => self::$dbUser,
@@ -204,11 +204,11 @@ class PdoFactoryTest extends MockeryTestCase
      */
     public function testMissingConfigThrowMissingConfigException(): void
     {
-        $container = Mockery::mock(ContainerInterface::class);
+        $container = $this->createMock(ContainerInterface::class);
         $container
-            ->shouldReceive('has')
+            ->method('has')
             ->with('database')
-            ->andReturn(false);
+            ->willReturn(false);
         $this->expectException(MissingConfigException::class);
         (new PdoFactory())($container);
     }
