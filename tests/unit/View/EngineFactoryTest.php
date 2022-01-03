@@ -8,26 +8,30 @@ use Mezzio\Helper\ServerUrlHelper;
 use Mezzio\Helper\UrlHelper;
 use Mobicms\Render\Engine;
 use Mobicms\System\View\EngineFactory;
-use Mockery;
-use Mockery\Adapter\Phpunit\MockeryTestCase;
+use PHPUnit\Framework\TestCase;
 use Psr\Container\ContainerInterface;
 
-class EngineFactoryTest extends MockeryTestCase
+class EngineFactoryTest extends TestCase
 {
     private ContainerInterface $container;
 
     public function setUp(): void
     {
-        $container = Mockery::mock(ContainerInterface::class);
-        $serverUrlHelper = Mockery::mock(ServerUrlHelper::class);
-        $urlHelper = Mockery::mock(UrlHelper::class);
-
-        $container->shouldReceive('get')->with(ServerUrlHelper::class)->andReturn($serverUrlHelper);
-        $container->shouldReceive('get')->with(UrlHelper::class)->andReturn($urlHelper);
+        $serverUrlHelper = $this->createMock(ServerUrlHelper::class);
+        $urlHelper = $this->createMock(UrlHelper::class);
+        $container = $this->createMock(ContainerInterface::class);
         $container
-            ->shouldReceive('get')
-            ->with('config')
-            ->andReturn(['templates' => ['paths' => ['test' => [__DIR__],],],]);
+            ->method('get')
+            ->withConsecutive(
+                [UrlHelper::class],
+                [ServerUrlHelper::class],
+                ['config']
+            )
+            ->willReturn(
+                $urlHelper,
+                $serverUrlHelper,
+                ['templates' => ['paths' => ['test' => [__DIR__],],],]
+            );
         $this->container = $container;
     }
 
