@@ -7,33 +7,35 @@ namespace MobicmsTest\System\View;
 use Mezzio\Template\TemplateRendererInterface;
 use Mobicms\Render\Engine;
 use Mobicms\System\View\FakeTemplateRenderer;
-use Mockery;
-use Mockery\Adapter\Phpunit\MockeryTestCase;
+use PHPUnit\Framework\TestCase;
 use Psr\Container\ContainerInterface;
 
-class FakeTemplateRendererTest extends MockeryTestCase
+class FakeTemplateRendererTest extends TestCase
 {
     public function testInvoke(): void
     {
-        $engine = Mockery::mock(Engine::class);
-        $container = Mockery::mock(ContainerInterface::class);
-        $container->shouldReceive('get')
+        $engine = $this->createMock(Engine::class);
+        $container = $this->createMock(ContainerInterface::class);
+        $container
+            ->method('get')
             ->with(Engine::class)
-            ->andReturn($engine);
+            ->willReturn($engine);
         $renderer = (new FakeTemplateRenderer())($container);
         $this->assertInstanceOf(TemplateRendererInterface::class, $renderer);
     }
 
     public function testRender(): void
     {
-        $engine = Mockery::mock(Engine::class);
-        $engine->shouldReceive('render')
-            ->once()
+        $engine = $this->createMock(Engine::class);
+        $engine
+            ->expects($this->once())
+            ->method('render')
             ->with('test::test', []);
-        $container = Mockery::mock(ContainerInterface::class);
-        $container->shouldReceive('get')
+        $container = $this->createMock(ContainerInterface::class);
+        $container
+            ->method('get')
             ->with(Engine::class)
-            ->andReturn($engine);
+            ->willReturn($engine);
         $renderer = (new FakeTemplateRenderer())($container);
         $renderer->render('test::test');
     }
