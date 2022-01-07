@@ -44,9 +44,7 @@
     },
     "require-dev": {
         "mobicms/testutils": "dev-main",
-        "mockery/mockery": "^1.4",
         "phpunit/phpunit": "^9.5",
-        "psalm/plugin-mockery": "^0.9",
         "psalm/plugin-phpunit": "^0.16",
         "roave/security-advisories": "dev-master",
         "slevomat/coding-standard": "^7.0",
