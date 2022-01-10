@@ -164,20 +164,6 @@ class IpAndUserAgentMiddlewareTest extends TestCase
         $this->assertSame(str_repeat('a', 255), $middleware->determineUserAgent($this->request));
     }
 
-    public function testDetermineUserAgentSanitizeSpecialChars(): void
-    {
-        $this->request
-            ->method('hasHeader')
-            ->with('User-Agent')
-            ->willReturn(true);
-        $this->request
-            ->method('getHeaderLine')
-            ->with('User-Agent')
-            ->willReturn('&"\'<>');
-        $middleware = new IpAndUserAgentMiddleware();
-        $this->assertSame('&amp;&quot;&#039;&lt;&gt;', $middleware->determineUserAgent($this->request));
-    }
-
     public function testDetermineUserAgentWithoutRequiredHeaders(): void
     {
         $this->request

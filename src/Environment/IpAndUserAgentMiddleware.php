@@ -85,12 +85,9 @@ class IpAndUserAgentMiddleware implements MiddlewareInterface
 
     public function determineUserAgent(ServerRequestInterface $request): ?string
     {
-        if ($request->hasHeader('User-Agent')) {
-            $userAgent = mb_substr($request->getHeaderLine('User-Agent'), 0, 255);
-            return htmlspecialchars($userAgent, ENT_QUOTES | ENT_SUBSTITUTE, 'UTF-8');
-        }
-
-        return null;
+        return $request->hasHeader('User-Agent')
+            ? mb_substr($request->getHeaderLine('User-Agent'), 0, 255)
+            : null;
     }
 
     public function isValidIp(string $ip): bool
