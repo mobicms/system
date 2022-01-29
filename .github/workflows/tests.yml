@@ -46,4 +46,25 @@ jobs:
 
       - name: PhpUnit test-coverage
         if: matrix.php-versions == '8.1'
-        run: composer test-coverage
+        working-directory: ./
+        run: |
+          composer test-coverage
+          sed -i 's/\/home\/runner\/work\/system\/system\//\/github\/workspace\//g' report.xml
+          sed -i 's/\/home\/runner\/work\/system\/system\//\/github\/workspace\//g' clover.xml
+
+      - name: Upload coverage report
+        if: matrix.php-versions == '8.1'
+        uses: SonarSource/sonarcloud-github-action@master
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+        with:
+          args: >
+            -Dsonar.organization=mobicms
+            -Dsonar.projectName=system
+            -Dsonar.projectKey=mobicms_system
+            -Dsonar.sources=./src
+            -Dsonar.tests=./tests
+            -Dsonar.sourceEncoding=UTF-8
+            -Dsonar.php.tests.reportPath=report.xml
+            -Dsonar.php.coverage.reportPaths=clover.xml
