@@ -5,7 +5,7 @@ jobs:
   tests:
     strategy:
       matrix:
-        php-versions: ['8.0', '8.1']
+        php-versions: ['8.1']
 
     runs-on: ubuntu-latest
 
@@ -40,10 +40,10 @@ jobs:
         run: composer install --no-progress --no-suggest --no-interaction
 
       - name: PhpUnit test
-        if: matrix.php-versions != '8.0'
+        if: matrix.php-versions != '8.1'
         run: composer test
         continue-on-error: true
 
       - name: PhpUnit test-coverage
-        if: matrix.php-versions == '8.0'
+        if: matrix.php-versions == '8.1'
         run: composer test-coverage

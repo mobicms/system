@@ -29,12 +29,15 @@
         "issues": "https://github.com/mobicms/system/issues"
     },
     "config": {
-        "sort-packages": true
+        "sort-packages": true,
+        "allow-plugins": {
+            "dealerdirect/phpcodesniffer-composer-installer": true
+        }
     },
     "minimum-stability": "dev",
     "prefer-stable": true,
     "require": {
-        "php": "~8.0.0 || ~8.1.0",
+        "php": "~8.1.0",
         "ext-pdo": "*",
         "laminas/laminas-diactoros": "^2.8",
         "laminas/laminas-servicemanager": "^3.10",
@@ -49,7 +52,7 @@
         "roave/security-advisories": "dev-master",
         "slevomat/coding-standard": "^7.0",
         "squizlabs/php_codesniffer": "^3.6",
-        "vimeo/psalm": "^4.18"
+        "vimeo/psalm": "^4.19"
     },
     "autoload": {
         "psr-4": {
