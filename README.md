@@ -8,8 +8,6 @@ This package is not an independent component and is used exclusively as part of 
 [![CI-Analysis](https://github.com/mobicms/system/workflows/Analysis/badge.svg)](https://github.com/mobicms/system/actions?query=workflow%3AAnalysis)
 [![CI-Tests](https://github.com/mobicms/system/workflows/Security/badge.svg)](https://github.com/mobicms/system/actions?query=workflow%3ASecurity)
 [![CI-Tests](https://github.com/mobicms/system/workflows/Tests/badge.svg)](https://github.com/mobicms/system/actions?query=workflow%3ATests)
-[![Code Coverage](https://scrutinizer-ci.com/g/mobicms/system/badges/coverage.png)](https://scrutinizer-ci.com/g/mobicms/system/code-structure/main/code-coverage)
-[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/mobicms/system/badges/quality-score.png)](https://scrutinizer-ci.com/g/mobicms/system)
 
 
 ## Usage
