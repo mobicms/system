@@ -8,6 +8,7 @@ This package is not an independent component and is used exclusively as part of 
 [![CI-Analysis](https://github.com/mobicms/system/workflows/Analysis/badge.svg)](https://github.com/mobicms/system/actions?query=workflow%3AAnalysis)
 [![CI-Tests](https://github.com/mobicms/system/workflows/Security/badge.svg)](https://github.com/mobicms/system/actions?query=workflow%3ASecurity)
 [![CI-Tests](https://github.com/mobicms/system/workflows/Tests/badge.svg)](https://github.com/mobicms/system/actions?query=workflow%3ATests)
+[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=mobicms_system&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=mobicms_system)
 
 
 ## Usage
