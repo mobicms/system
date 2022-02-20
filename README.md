@@ -1,5 +1,4 @@
 # `mobicms/system`
-This package is not an independent component and is used exclusively as part of [mobiCMS](https://github.com/mobicms/mobicms).
 
 [![GitHub](https://img.shields.io/github/license/mobicms/system?color=green)](https://github.com/mobicms/system/blob/develop/LICENSE)
 [![GitHub release (latest SemVer)](https://img.shields.io/github/v/release/mobicms/system)](https://github.com/mobicms/system/releases)
@@ -8,10 +7,11 @@ This package is not an independent component and is used exclusively as part of 
 [![CI-Analysis](https://github.com/mobicms/system/workflows/Analysis/badge.svg)](https://github.com/mobicms/system/actions?query=workflow%3AAnalysis)
 [![CI-Tests](https://github.com/mobicms/system/workflows/Security/badge.svg)](https://github.com/mobicms/system/actions?query=workflow%3ASecurity)
 [![CI-Tests](https://github.com/mobicms/system/workflows/Tests/badge.svg)](https://github.com/mobicms/system/actions?query=workflow%3ATests)
-[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=mobicms_system&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=mobicms_system)
+[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=mobicms_system&metric=alert_status)](https://sonarcloud.io/summary/overall?id=mobicms_system)
 
 
 ## Usage
+This package is not an independent component and is used exclusively as part of **mobiCMS**.  
 For system requirements and installation instructions  see [mobicms/mobicms](https://github.com/mobicms/mobicms).
 
 
