@@ -10,20 +10,19 @@ use Mobicms\System\Db\Exception\InvalidDatabaseException;
 use Mobicms\System\Db\Exception\MissingConfigException;
 use Mobicms\System\Db\Exception\UnableToConnectException;
 use Mobicms\System\Db\PdoFactory;
-use Mobicms\Testutils\DbHelpersTrait;
+use Mobicms\Testutils\MysqlTestCase;
 use PDO;
 use PHPUnit\Framework\MockObject\MockObject;
-use PHPUnit\Framework\TestCase;
 use Psr\Container\ContainerInterface;
 
-class PdoFactoryTest extends TestCase
+class PdoFactoryTest extends MysqlTestCase
 {
-    use DbHelpersTrait;
-
     private MockObject $container;
+    private string $dsn;
 
     public function setUp(): void
     {
+        $this->dsn = 'mysql:host=' . self::$dbHost . ';dbname=' . self::$dbName;
         $this->container = $this->createMock(ContainerInterface::class);
         $this->container
             ->method('has')
@@ -63,7 +62,7 @@ class PdoFactoryTest extends TestCase
             ->with('database')
             ->willReturn(
                 [
-                    'dsn'  => self::$dsn,
+                    'dsn'  => $this->dsn,
                     'user' => self::$dbUser,
                     'pass' => self::$dbPass,
                 ]
@@ -83,7 +82,7 @@ class PdoFactoryTest extends TestCase
             ->with('database')
             ->willReturn(
                 [
-                    'dsn'  => self::$dsn,
+                    'dsn'  => $this->dsn,
                     'user' => self::$dbUser,
                     'pass' => 'invalid_password',
                 ]
@@ -103,7 +102,7 @@ class PdoFactoryTest extends TestCase
             ->with('database')
             ->willReturn(
                 [
-                    'dsn'  => self::$dsn,
+                    'dsn'  => $this->dsn,
                     'user' => 'invalid_user',
                     'pass' => self::$dbPass,
                 ]
