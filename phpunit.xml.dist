@@ -23,9 +23,10 @@
     </coverage>
 
     <php>
-        <var name="DB_HOST" value="127.0.0.1"/>
-        <var name="DB_USER" value="root"/>
-        <var name="DB_PASS" value="root"/>
-        <var name="TEST_DB_NAME" value="mobicmstest"/>
+        <const name="TEST_DB_HOST" value="127.0.0.1"/>
+        <const name="TEST_DB_PORT" value="3306"/>
+        <const name="TEST_DB_USER" value="root"/>
+        <const name="TEST_DB_PASS" value="root"/>
+        <const name="TEST_DB_NAME" value="tmp_test_database"/>
     </php>
 </phpunit>

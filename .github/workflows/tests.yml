@@ -1,22 +1,19 @@
 name: Tests
-on: [push, pull_request]
+on: [ push, pull_request ]
 
 jobs:
   tests:
     strategy:
       matrix:
-        php-versions: ['8.1']
+        php-versions: [ '8.1' ]
 
     runs-on: ubuntu-latest
 
-    name: PHP ${{ matrix.php-versions }}
+    name: Test on PHP ${{ matrix.php-versions }}
 
     steps:
       - name: Checkout
         uses: actions/checkout@v2
-
-      - name: Start MySQL
-        run: sudo /etc/init.d/mysql start
 
       - name: Setup PHP
         uses: shivammathur/setup-php@v2
@@ -38,6 +35,9 @@ jobs:
 
       - name: Install dependencies
         run: composer install --no-progress --no-suggest --no-interaction
+
+      - name: Start MySQL
+        run: sudo /etc/init.d/mysql start
 
       - name: PhpUnit test
         if: matrix.php-versions != '8.1'
