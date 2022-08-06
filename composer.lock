@@ -4,8 +4,658 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "e97580167b64b4b9524267b04075b1cb",
+    "content-hash": "d10b011acc3df4b18098f2e1ca093201",
     "packages": [
+        {
+            "name": "devanych/di-container",
+            "version": "2.1.5",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/devanych/di-container.git",
+                "reference": "0bd1caf2bdf3bd11039f2616a590edf6ae4ca4ca"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/devanych/di-container/zipball/0bd1caf2bdf3bd11039f2616a590edf6ae4ca4ca",
+                "reference": "0bd1caf2bdf3bd11039f2616a590edf6ae4ca4ca",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^7.4|^8.0",
+                "psr/container": "^1.0"
+            },
+            "provide": {
+                "psr/container-implementation": "1.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^9.5",
+                "squizlabs/php_codesniffer": "^3.5",
+                "vimeo/psalm": "^4.3"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Devanych\\Di\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Evgeniy Zyubin",
+                    "email": "mail@devanych.ru",
+                    "homepage": "https://devanych.ru/",
+                    "role": "Founder and lead developer"
+                }
+            ],
+            "description": "Simple implementation of a PSR-11 dependency injection container",
+            "keywords": [
+                "Autowiring",
+                "PSR-11",
+                "autowire",
+                "container",
+                "di",
+                "php"
+            ],
+            "support": {
+                "issues": "https://github.com/devanych/di-container/issues?state=open",
+                "source": "https://github.com/devanych/di-container"
+            },
+            "time": "2020-12-12T18:28:54+00:00"
+        },
+        {
+            "name": "httpsoft/http-basis",
+            "version": "1.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/httpsoft/http-basis.git",
+                "reference": "aa9fc0c3f8ecab448338404a835df74eece416f6"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/httpsoft/http-basis/zipball/aa9fc0c3f8ecab448338404a835df74eece416f6",
+                "reference": "aa9fc0c3f8ecab448338404a835df74eece416f6",
+                "shasum": ""
+            },
+            "require": {
+                "httpsoft/http-cookie": "^1.0",
+                "httpsoft/http-emitter": "^1.0",
+                "httpsoft/http-error-handler": "^1.0",
+                "httpsoft/http-message": "^1.0",
+                "httpsoft/http-response": "^1.0",
+                "httpsoft/http-router": "^1.0",
+                "httpsoft/http-runner": "^1.0",
+                "httpsoft/http-server-request": "^1.0",
+                "php": "^7.4|^8.0",
+                "psr/container": "^1.0",
+                "psr/http-factory": "^1.0",
+                "psr/http-message": "^1.0",
+                "psr/http-server-handler": "^1.0",
+                "psr/http-server-middleware": "^1.0",
+                "psr/log": "^1.1"
+            },
+            "provide": {
+                "psr/http-message-implementation": "1.0",
+                "psr/http-server-handler-implementation": "1.0",
+                "psr/http-server-middleware-implementation": "1.0"
+            },
+            "require-dev": {
+                "devanych/di-container": "^2.1",
+                "devanych/view-renderer": "^1.0",
+                "phpunit/phpunit": "^9.5",
+                "squizlabs/php_codesniffer": "^3.5",
+                "vimeo/psalm": "^4.3"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "HttpSoft\\Basis\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Evgeniy Zyubin",
+                    "email": "mail@devanych.ru",
+                    "homepage": "https://devanych.ru/",
+                    "role": "Founder and lead developer"
+                }
+            ],
+            "description": "Simple and fast HTTP microframework implementing PSR standards",
+            "homepage": "https://httpsoft.org/",
+            "keywords": [
+                "PSR-11",
+                "http",
+                "http-framework",
+                "microframework",
+                "php",
+                "psr-15",
+                "psr-7"
+            ],
+            "support": {
+                "docs": "https://httpsoft.org/docs/basis",
+                "issues": "https://github.com/httpsoft/http-basis/issues",
+                "source": "https://github.com/httpsoft/http-basis"
+            },
+            "time": "2020-12-12T18:07:32+00:00"
+        },
+        {
+            "name": "httpsoft/http-cookie",
+            "version": "1.0.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/httpsoft/http-cookie.git",
+                "reference": "0b4f5d3822e6b816bda98f5b22ca32c357b5992f"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/httpsoft/http-cookie/zipball/0b4f5d3822e6b816bda98f5b22ca32c357b5992f",
+                "reference": "0b4f5d3822e6b816bda98f5b22ca32c357b5992f",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^7.4|^8.0",
+                "psr/http-message": "^1.0",
+                "psr/http-server-handler": "^1.0",
+                "psr/http-server-middleware": "^1.0"
+            },
+            "provide": {
+                "psr/http-message-implementation": "1.0",
+                "psr/http-server-middleware-implementation": "1.0"
+            },
+            "require-dev": {
+                "httpsoft/http-message": "^1.0",
+                "phpunit/phpunit": "^9.5",
+                "squizlabs/php_codesniffer": "^3.6",
+                "vimeo/psalm": "^4.9"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "HttpSoft\\Cookie\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Evgeniy Zyubin",
+                    "email": "mail@devanych.ru",
+                    "homepage": "https://devanych.ru/",
+                    "role": "Founder and lead developer"
+                }
+            ],
+            "description": "Managing cookies with PSR-7 support",
+            "homepage": "https://httpsoft.org/",
+            "keywords": [
+                "cookie",
+                "cookies",
+                "http",
+                "http-cookie",
+                "php",
+                "psr-15",
+                "psr-7"
+            ],
+            "support": {
+                "docs": "https://httpsoft.org/docs/cookie",
+                "issues": "https://github.com/httpsoft/http-cookie/issues",
+                "source": "https://github.com/httpsoft/http-cookie"
+            },
+            "time": "2021-08-31T21:17:16+00:00"
+        },
+        {
+            "name": "httpsoft/http-emitter",
+            "version": "1.0.4",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/httpsoft/http-emitter.git",
+                "reference": "d9ab21168b3243a1c4a080698de326c4c92c82b1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/httpsoft/http-emitter/zipball/d9ab21168b3243a1c4a080698de326c4c92c82b1",
+                "reference": "d9ab21168b3243a1c4a080698de326c4c92c82b1",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^7.4|^8.0",
+                "psr/http-message": "^1.0"
+            },
+            "provide": {
+                "psr/http-message-implementation": "1.0"
+            },
+            "require-dev": {
+                "httpsoft/http-message": "^1.0",
+                "phpunit/phpunit": "^9.5",
+                "squizlabs/php_codesniffer": "^3.5",
+                "vimeo/psalm": "^4.3"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "HttpSoft\\Emitter\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Evgeniy Zyubin",
+                    "email": "mail@devanych.ru",
+                    "homepage": "https://devanych.ru/",
+                    "role": "Founder and lead developer"
+                }
+            ],
+            "description": "Emitting of PSR-7 Response implementation",
+            "homepage": "https://httpsoft.org/",
+            "keywords": [
+                "emitter",
+                "http",
+                "http-emitter",
+                "http-message",
+                "php",
+                "psr-7"
+            ],
+            "support": {
+                "docs": "https://httpsoft.org/docs/emitter",
+                "issues": "https://github.com/httpsoft/http-emitter/issues",
+                "source": "https://github.com/httpsoft/http-emitter"
+            },
+            "time": "2020-12-12T17:45:02+00:00"
+        },
+        {
+            "name": "httpsoft/http-error-handler",
+            "version": "1.0.4",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/httpsoft/http-error-handler.git",
+                "reference": "c9bd924a6c093b5a7a37f2f823aa562129db74d8"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/httpsoft/http-error-handler/zipball/c9bd924a6c093b5a7a37f2f823aa562129db74d8",
+                "reference": "c9bd924a6c093b5a7a37f2f823aa562129db74d8",
+                "shasum": ""
+            },
+            "require": {
+                "httpsoft/http-response": "^1.0",
+                "php": "^7.4|^8.0",
+                "psr/http-server-handler": "^1.0",
+                "psr/http-server-middleware": "^1.0"
+            },
+            "provide": {
+                "psr/http-message-implementation": "1.0",
+                "psr/http-server-handler-implementation": "1.0",
+                "psr/http-server-middleware-implementation": "1.0"
+            },
+            "require-dev": {
+                "httpsoft/http-server-request": "^1.0",
+                "phpunit/phpunit": "^9.5",
+                "squizlabs/php_codesniffer": "^3.5",
+                "vimeo/psalm": "^4.3"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "HttpSoft\\ErrorHandler\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Evgeniy Zyubin",
+                    "email": "mail@devanych.ru",
+                    "homepage": "https://devanych.ru/",
+                    "role": "Founder and lead developer"
+                }
+            ],
+            "description": "Error handling PSR-7 and PSR-15 components",
+            "homepage": "https://httpsoft.org/",
+            "keywords": [
+                "error-handler",
+                "error-middleware",
+                "http",
+                "http-error",
+                "php",
+                "psr-15",
+                "psr-7"
+            ],
+            "support": {
+                "docs": "https://httpsoft.org/docs/error-handler",
+                "issues": "https://github.com/httpsoft/http-error-handler/issues",
+                "source": "https://github.com/httpsoft/http-error-handler"
+            },
+            "time": "2020-12-12T17:41:17+00:00"
+        },
+        {
+            "name": "httpsoft/http-message",
+            "version": "1.0.10",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/httpsoft/http-message.git",
+                "reference": "bb3f88feeb67061949339ee47a5e0b648f2d5c9a"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/httpsoft/http-message/zipball/bb3f88feeb67061949339ee47a5e0b648f2d5c9a",
+                "reference": "bb3f88feeb67061949339ee47a5e0b648f2d5c9a",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^7.4|^8.0",
+                "psr/http-factory": "^1.0",
+                "psr/http-message": "^1.0"
+            },
+            "provide": {
+                "psr/http-factory-implementation": "1.0",
+                "psr/http-message-implementation": "1.0"
+            },
+            "require-dev": {
+                "php-http/psr7-integration-tests": "1.1.1",
+                "phpunit/phpunit": "^9.5",
+                "squizlabs/php_codesniffer": "^3.6",
+                "vimeo/psalm": "^4.8"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "HttpSoft\\Message\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Evgeniy Zyubin",
+                    "email": "mail@devanych.ru",
+                    "homepage": "https://devanych.ru/",
+                    "role": "Founder and lead developer"
+                }
+            ],
+            "description": "Strict and fast implementation of PSR-7 and PSR-17",
+            "homepage": "https://httpsoft.org/",
+            "keywords": [
+                "http",
+                "http-message",
+                "php",
+                "psr-17",
+                "psr-7"
+            ],
+            "support": {
+                "docs": "https://httpsoft.org/docs/message",
+                "issues": "https://github.com/httpsoft/http-message/issues",
+                "source": "https://github.com/httpsoft/http-message"
+            },
+            "time": "2022-07-21T15:28:12+00:00"
+        },
+        {
+            "name": "httpsoft/http-response",
+            "version": "1.0.4",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/httpsoft/http-response.git",
+                "reference": "997a934c6d0cc91166b05ced65639d82be585afb"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/httpsoft/http-response/zipball/997a934c6d0cc91166b05ced65639d82be585afb",
+                "reference": "997a934c6d0cc91166b05ced65639d82be585afb",
+                "shasum": ""
+            },
+            "require": {
+                "httpsoft/http-message": "^1.0",
+                "php": "^7.4|^8.0"
+            },
+            "provide": {
+                "psr/http-message-implementation": "1.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^9.5",
+                "squizlabs/php_codesniffer": "^3.5",
+                "vimeo/psalm": "^4.3"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "HttpSoft\\Response\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Evgeniy Zyubin",
+                    "email": "mail@devanych.ru",
+                    "homepage": "https://devanych.ru/",
+                    "role": "Founder and lead developer"
+                }
+            ],
+            "description": "PSR-7 Response implementations",
+            "homepage": "https://httpsoft.org/",
+            "keywords": [
+                "http",
+                "http-message",
+                "http-response",
+                "php",
+                "psr-7",
+                "responses"
+            ],
+            "support": {
+                "docs": "https://httpsoft.org/docs/response",
+                "issues": "https://github.com/httpsoft/http-response/issues",
+                "source": "https://github.com/httpsoft/http-response"
+            },
+            "time": "2020-12-12T17:03:26+00:00"
+        },
+        {
+            "name": "httpsoft/http-router",
+            "version": "1.0.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/httpsoft/http-router.git",
+                "reference": "5a6c5a6b3f9d1b391be4914b8efd8b8f1ae8c6df"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/httpsoft/http-router/zipball/5a6c5a6b3f9d1b391be4914b8efd8b8f1ae8c6df",
+                "reference": "5a6c5a6b3f9d1b391be4914b8efd8b8f1ae8c6df",
+                "shasum": ""
+            },
+            "require": {
+                "httpsoft/http-runner": "^1.0",
+                "php": "^7.4|^8.0"
+            },
+            "provide": {
+                "psr/http-message-implementation": "1.0",
+                "psr/http-server-middleware-implementation": "1.0"
+            },
+            "require-dev": {
+                "httpsoft/http-message": "^1.0",
+                "phpunit/phpunit": "^9.5",
+                "squizlabs/php_codesniffer": "^3.5",
+                "vimeo/psalm": "^4.3"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "HttpSoft\\Router\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Evgeniy Zyubin",
+                    "email": "mail@devanych.ru",
+                    "homepage": "https://devanych.ru/",
+                    "role": "Founder and lead developer"
+                }
+            ],
+            "description": "Simple and fast HTTP request router providing PSR-7 and PSR-15",
+            "homepage": "https://httpsoft.org/",
+            "keywords": [
+                "http",
+                "http-router",
+                "php",
+                "psr-15",
+                "psr-7",
+                "route",
+                "router"
+            ],
+            "support": {
+                "docs": "https://httpsoft.org/docs/router",
+                "issues": "https://github.com/httpsoft/http-router/issues",
+                "source": "https://github.com/httpsoft/http-router"
+            },
+            "time": "2020-12-12T17:21:46+00:00"
+        },
+        {
+            "name": "httpsoft/http-runner",
+            "version": "1.0.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/httpsoft/http-runner.git",
+                "reference": "dd3c58c3d8ca16a9dc51e4edab7dac881c24a425"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/httpsoft/http-runner/zipball/dd3c58c3d8ca16a9dc51e4edab7dac881c24a425",
+                "reference": "dd3c58c3d8ca16a9dc51e4edab7dac881c24a425",
+                "shasum": ""
+            },
+            "require": {
+                "httpsoft/http-emitter": "^1.0",
+                "php": "^7.4|^8.0",
+                "psr/container": "^1.0",
+                "psr/http-message": "^1.0",
+                "psr/http-server-handler": "^1.0",
+                "psr/http-server-middleware": "^1.0"
+            },
+            "provide": {
+                "psr/http-message-implementation": "1.0",
+                "psr/http-server-handler-implementation": "1.0",
+                "psr/http-server-middleware-implementation": "1.0"
+            },
+            "require-dev": {
+                "devanych/di-container": "^2.1",
+                "httpsoft/http-message": "^1.0",
+                "phpunit/phpunit": "^9.5",
+                "squizlabs/php_codesniffer": "^3.5",
+                "vimeo/psalm": "^4.3"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "HttpSoft\\Runner\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Evgeniy Zyubin",
+                    "email": "mail@devanych.ru",
+                    "homepage": "https://devanych.ru/",
+                    "role": "Founder and lead developer"
+                }
+            ],
+            "description": "Running PSR-7 components and building PSR-15 middleware pipelines",
+            "homepage": "https://httpsoft.org/",
+            "keywords": [
+                "http",
+                "http-middleware",
+                "middleware-pipeline",
+                "php",
+                "psr-15",
+                "psr-7"
+            ],
+            "support": {
+                "docs": "https://httpsoft.org/docs/runner",
+                "issues": "https://github.com/httpsoft/http-runner/issues",
+                "source": "https://github.com/httpsoft/http-runner"
+            },
+            "time": "2020-12-12T17:30:31+00:00"
+        },
+        {
+            "name": "httpsoft/http-server-request",
+            "version": "1.0.5",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/httpsoft/http-server-request.git",
+                "reference": "af04dde0bcbce26c9ecdcab53468f790a2225952"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/httpsoft/http-server-request/zipball/af04dde0bcbce26c9ecdcab53468f790a2225952",
+                "reference": "af04dde0bcbce26c9ecdcab53468f790a2225952",
+                "shasum": ""
+            },
+            "require": {
+                "httpsoft/http-message": "^1.0",
+                "php": "^7.4|^8.0"
+            },
+            "provide": {
+                "psr/http-message-implementation": "1.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^9.5",
+                "squizlabs/php_codesniffer": "^3.6",
+                "vimeo/psalm": "^4.8"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "HttpSoft\\ServerRequest\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Evgeniy Zyubin",
+                    "email": "mail@devanych.ru",
+                    "homepage": "https://devanych.ru/",
+                    "role": "Founder and lead developer"
+                }
+            ],
+            "description": "Infrastructure for creating PSR-7 ServerRequest and UploadedFile",
+            "homepage": "https://httpsoft.org/",
+            "keywords": [
+                "http",
+                "http-message",
+                "http-server-request",
+                "php",
+                "psr-7"
+            ],
+            "support": {
+                "docs": "https://httpsoft.org/docs/server-request",
+                "issues": "https://github.com/httpsoft/http-server-request/issues",
+                "source": "https://github.com/httpsoft/http-server-request"
+            },
+            "time": "2021-07-20T14:36:14+00:00"
+        },
         {
             "name": "mobicms/render",
             "version": "dev-main",
@@ -60,6 +710,326 @@
                 "source": "https://github.com/mobicms/render/tree/main"
             },
             "time": "2022-07-31T12:31:12+00:00"
+        },
+        {
+            "name": "psr/container",
+            "version": "1.1.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/php-fig/container.git",
+                "reference": "513e0666f7216c7459170d56df27dfcefe1689ea"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/php-fig/container/zipball/513e0666f7216c7459170d56df27dfcefe1689ea",
+                "reference": "513e0666f7216c7459170d56df27dfcefe1689ea",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.4.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Psr\\Container\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "PHP-FIG",
+                    "homepage": "https://www.php-fig.org/"
+                }
+            ],
+            "description": "Common Container Interface (PHP FIG PSR-11)",
+            "homepage": "https://github.com/php-fig/container",
+            "keywords": [
+                "PSR-11",
+                "container",
+                "container-interface",
+                "container-interop",
+                "psr"
+            ],
+            "support": {
+                "issues": "https://github.com/php-fig/container/issues",
+                "source": "https://github.com/php-fig/container/tree/1.1.2"
+            },
+            "time": "2021-11-05T16:50:12+00:00"
+        },
+        {
+            "name": "psr/http-factory",
+            "version": "1.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/php-fig/http-factory.git",
+                "reference": "12ac7fcd07e5b077433f5f2bee95b3a771bf61be"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/php-fig/http-factory/zipball/12ac7fcd07e5b077433f5f2bee95b3a771bf61be",
+                "reference": "12ac7fcd07e5b077433f5f2bee95b3a771bf61be",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.0.0",
+                "psr/http-message": "^1.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Psr\\Http\\Message\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "PHP-FIG",
+                    "homepage": "http://www.php-fig.org/"
+                }
+            ],
+            "description": "Common interfaces for PSR-7 HTTP message factories",
+            "keywords": [
+                "factory",
+                "http",
+                "message",
+                "psr",
+                "psr-17",
+                "psr-7",
+                "request",
+                "response"
+            ],
+            "support": {
+                "source": "https://github.com/php-fig/http-factory/tree/master"
+            },
+            "time": "2019-04-30T12:38:16+00:00"
+        },
+        {
+            "name": "psr/http-message",
+            "version": "1.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/php-fig/http-message.git",
+                "reference": "f6561bf28d520154e4b0ec72be95418abe6d9363"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/php-fig/http-message/zipball/f6561bf28d520154e4b0ec72be95418abe6d9363",
+                "reference": "f6561bf28d520154e4b0ec72be95418abe6d9363",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Psr\\Http\\Message\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "PHP-FIG",
+                    "homepage": "http://www.php-fig.org/"
+                }
+            ],
+            "description": "Common interface for HTTP messages",
+            "homepage": "https://github.com/php-fig/http-message",
+            "keywords": [
+                "http",
+                "http-message",
+                "psr",
+                "psr-7",
+                "request",
+                "response"
+            ],
+            "support": {
+                "source": "https://github.com/php-fig/http-message/tree/master"
+            },
+            "time": "2016-08-06T14:39:51+00:00"
+        },
+        {
+            "name": "psr/http-server-handler",
+            "version": "1.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/php-fig/http-server-handler.git",
+                "reference": "aff2f80e33b7f026ec96bb42f63242dc50ffcae7"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/php-fig/http-server-handler/zipball/aff2f80e33b7f026ec96bb42f63242dc50ffcae7",
+                "reference": "aff2f80e33b7f026ec96bb42f63242dc50ffcae7",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.0",
+                "psr/http-message": "^1.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Psr\\Http\\Server\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "PHP-FIG",
+                    "homepage": "http://www.php-fig.org/"
+                }
+            ],
+            "description": "Common interface for HTTP server-side request handler",
+            "keywords": [
+                "handler",
+                "http",
+                "http-interop",
+                "psr",
+                "psr-15",
+                "psr-7",
+                "request",
+                "response",
+                "server"
+            ],
+            "support": {
+                "issues": "https://github.com/php-fig/http-server-handler/issues",
+                "source": "https://github.com/php-fig/http-server-handler/tree/master"
+            },
+            "time": "2018-10-30T16:46:14+00:00"
+        },
+        {
+            "name": "psr/http-server-middleware",
+            "version": "1.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/php-fig/http-server-middleware.git",
+                "reference": "2296f45510945530b9dceb8bcedb5cb84d40c5f5"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/php-fig/http-server-middleware/zipball/2296f45510945530b9dceb8bcedb5cb84d40c5f5",
+                "reference": "2296f45510945530b9dceb8bcedb5cb84d40c5f5",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.0",
+                "psr/http-message": "^1.0",
+                "psr/http-server-handler": "^1.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Psr\\Http\\Server\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "PHP-FIG",
+                    "homepage": "http://www.php-fig.org/"
+                }
+            ],
+            "description": "Common interface for HTTP server-side middleware",
+            "keywords": [
+                "http",
+                "http-interop",
+                "middleware",
+                "psr",
+                "psr-15",
+                "psr-7",
+                "request",
+                "response"
+            ],
+            "support": {
+                "issues": "https://github.com/php-fig/http-server-middleware/issues",
+                "source": "https://github.com/php-fig/http-server-middleware/tree/master"
+            },
+            "time": "2018-10-30T17:12:04+00:00"
+        },
+        {
+            "name": "psr/log",
+            "version": "1.1.4",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/php-fig/log.git",
+                "reference": "d49695b909c3b7628b6289db5479a1c204601f11"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/php-fig/log/zipball/d49695b909c3b7628b6289db5479a1c204601f11",
+                "reference": "d49695b909c3b7628b6289db5479a1c204601f11",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.1.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Psr\\Log\\": "Psr/Log/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "PHP-FIG",
+                    "homepage": "https://www.php-fig.org/"
+                }
+            ],
+            "description": "Common interface for logging libraries",
+            "homepage": "https://github.com/php-fig/log",
+            "keywords": [
+                "log",
+                "psr",
+                "psr-3"
+            ],
+            "support": {
+                "source": "https://github.com/php-fig/log/tree/1.1.4"
+            },
+            "time": "2021-05-03T11:20:27+00:00"
         }
     ],
     "packages-dev": [
@@ -1886,109 +2856,6 @@
             "time": "2022-06-19T12:14:25+00:00"
         },
         {
-            "name": "psr/container",
-            "version": "2.0.2",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/php-fig/container.git",
-                "reference": "c71ecc56dfe541dbd90c5360474fbc405f8d5963"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/php-fig/container/zipball/c71ecc56dfe541dbd90c5360474fbc405f8d5963",
-                "reference": "c71ecc56dfe541dbd90c5360474fbc405f8d5963",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=7.4.0"
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "2.0.x-dev"
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Psr\\Container\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "PHP-FIG",
-                    "homepage": "https://www.php-fig.org/"
-                }
-            ],
-            "description": "Common Container Interface (PHP FIG PSR-11)",
-            "homepage": "https://github.com/php-fig/container",
-            "keywords": [
-                "PSR-11",
-                "container",
-                "container-interface",
-                "container-interop",
-                "psr"
-            ],
-            "support": {
-                "issues": "https://github.com/php-fig/container/issues",
-                "source": "https://github.com/php-fig/container/tree/2.0.2"
-            },
-            "time": "2021-11-05T16:47:00+00:00"
-        },
-        {
-            "name": "psr/log",
-            "version": "3.0.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/php-fig/log.git",
-                "reference": "fe5ea303b0887d5caefd3d431c3e61ad47037001"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/php-fig/log/zipball/fe5ea303b0887d5caefd3d431c3e61ad47037001",
-                "reference": "fe5ea303b0887d5caefd3d431c3e61ad47037001",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=8.0.0"
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "3.x-dev"
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Psr\\Log\\": "src"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "PHP-FIG",
-                    "homepage": "https://www.php-fig.org/"
-                }
-            ],
-            "description": "Common interface for logging libraries",
-            "homepage": "https://github.com/php-fig/log",
-            "keywords": [
-                "log",
-                "psr",
-                "psr-3"
-            ],
-            "support": {
-                "source": "https://github.com/php-fig/log/tree/3.0.0"
-            },
-            "time": "2021-07-14T16:46:02+00:00"
-        },
-        {
             "name": "sebastian/cli-parser",
             "version": "1.0.1",
             "source": {
@@ -3647,21 +4514,22 @@
         },
         {
             "name": "symfony/service-contracts",
-            "version": "v3.1.1",
+            "version": "v2.5.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/service-contracts.git",
-                "reference": "925e713fe8fcacf6bc05e936edd8dd5441a21239"
+                "reference": "4b426aac47d6427cc1a1d0f7e2ac724627f5966c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/service-contracts/zipball/925e713fe8fcacf6bc05e936edd8dd5441a21239",
-                "reference": "925e713fe8fcacf6bc05e936edd8dd5441a21239",
+                "url": "https://api.github.com/repos/symfony/service-contracts/zipball/4b426aac47d6427cc1a1d0f7e2ac724627f5966c",
+                "reference": "4b426aac47d6427cc1a1d0f7e2ac724627f5966c",
                 "shasum": ""
             },
             "require": {
-                "php": ">=8.1",
-                "psr/container": "^2.0"
+                "php": ">=7.2.5",
+                "psr/container": "^1.1",
+                "symfony/deprecation-contracts": "^2.1|^3"
             },
             "conflict": {
                 "ext-psr": "<1.1|>=2"
@@ -3672,7 +4540,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-main": "3.1-dev"
+                    "dev-main": "2.5-dev"
                 },
                 "thanks": {
                     "name": "symfony/contracts",
@@ -3682,10 +4550,7 @@
             "autoload": {
                 "psr-4": {
                     "Symfony\\Contracts\\Service\\": ""
-                },
-                "exclude-from-classmap": [
-                    "/Test/"
-                ]
+                }
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
@@ -3712,7 +4577,7 @@
                 "standards"
             ],
             "support": {
-                "source": "https://github.com/symfony/service-contracts/tree/v3.1.1"
+                "source": "https://github.com/symfony/service-contracts/tree/v2.5.2"
             },
             "funding": [
                 {
@@ -3728,7 +4593,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2022-05-30T19:18:58+00:00"
+            "time": "2022-05-30T19:17:29+00:00"
         },
         {
             "name": "symfony/string",
