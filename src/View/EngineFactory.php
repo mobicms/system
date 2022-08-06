@@ -5,11 +5,12 @@ declare(strict_types=1);
 namespace Mobicms\System\View;
 
 use Devanych\Di\FactoryInterface;
+use Mobicms\Render\Engine;
 use Psr\Container\ContainerInterface;
 
-class RendererFactory implements FactoryInterface
+class EngineFactory implements FactoryInterface
 {
-    public function create(ContainerInterface $container): Renderer
+    public function create(ContainerInterface $container): Engine
     {
         /** @var array $config */
         $config = $container->get('config');
@@ -17,7 +18,7 @@ class RendererFactory implements FactoryInterface
         /** @var array $paths */
         $paths = $config['templates']['paths'] ?? [];
 
-        $engine = new Renderer();
+        $engine = new Engine();
 
         /**
          * @var string $namespace

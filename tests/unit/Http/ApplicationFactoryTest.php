@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace MobicmsTest\System\Http;
 
 use HttpSoft\Basis\Response\CustomResponseFactory;
-use Mobicms\System\Http\ApplicationFactory;
+use Mobicms\System\App\ApplicationFactory;
 use Devanych\Di\Container;
 use Devanych\Di\Exception\NotFoundException;
 use HttpSoft\Basis\Application;

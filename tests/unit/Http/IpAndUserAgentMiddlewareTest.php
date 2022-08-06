@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace MobicmsTest\System\Http;
 
-use Mobicms\System\Http\IpAndUserAgentMiddleware;
+use Mobicms\System\Middleware\IpAndUserAgentMiddleware;
 use PHPUnit\Framework\MockObject\MockObject;
 use PHPUnit\Framework\TestCase;
 use Psr\Http\Message\ResponseInterface;

@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "e2b235b90b2b82f6d661aeba771516b0",
+    "content-hash": "227402ae0d8e70f6ab7cd425c0eddad0",
     "packages": [
         {
             "name": "devanych/di-container",

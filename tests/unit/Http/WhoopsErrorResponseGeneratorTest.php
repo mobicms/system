@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace MobicmsTest\System\Http;
 
-use Mobicms\System\Http\WhoopsErrorResponseGenerator;
+use Mobicms\System\App\WhoopsErrorResponseGenerator;
 use HttpSoft\Basis\Exception\ForbiddenHttpException;
 use HttpSoft\Basis\Exception\InternalServerErrorHttpException;
 use HttpSoft\Message\ServerRequest;

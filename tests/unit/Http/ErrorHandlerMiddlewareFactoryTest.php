@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace MobicmsTest\System\Http;
 
-use Mobicms\System\Http\ErrorHandlerMiddlewareFactory;
+use Mobicms\System\App\ErrorHandlerMiddlewareFactory;
 use Mobicms\System\Log\LoggerFactory;
 use Devanych\Di\Container;
 use Devanych\Di\Exception\NotFoundException;

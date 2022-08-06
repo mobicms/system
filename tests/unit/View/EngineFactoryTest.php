@@ -4,13 +4,12 @@ declare(strict_types=1);
 
 namespace MobicmsTest\System\View;
 
-use HttpSoft\Basis\TemplateRendererInterface;
 use Mobicms\Render\Engine;
-use Mobicms\System\View\RendererFactory;
+use Mobicms\System\View\EngineFactory;
 use PHPUnit\Framework\TestCase;
 use Psr\Container\ContainerInterface;
 
-class RendererFactoryTest extends TestCase
+class EngineFactoryTest extends TestCase
 {
     private ContainerInterface $container;
 
@@ -35,9 +34,8 @@ class RendererFactoryTest extends TestCase
 
     public function testFactoryReturnsInstanceOfEngine(): Engine
     {
-        $engine = (new RendererFactory())->create($this->container);
+        $engine = (new EngineFactory())->create($this->container);
         $this->assertInstanceOf(Engine::class, $engine);
-        $this->assertInstanceOf(TemplateRendererInterface::class, $engine);
         return $engine;
     }
 
