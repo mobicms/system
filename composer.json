@@ -39,6 +39,7 @@
         "ext-pdo": "*",
         "devanych/di-container": "^2.1",
         "mobicms/render": "dev-main",
+        "monolog/monolog": "^2.8",
         "httpsoft/http-basis": "^1.0"
     },
     "require-dev": {
