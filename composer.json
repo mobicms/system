@@ -38,12 +38,12 @@
         "php": "~8.1.0",
         "ext-pdo": "*",
         "devanych/di-container": "^2.1",
+        "filp/whoops": "^2.14",
         "mobicms/render": "dev-main",
         "monolog/monolog": "^2.8",
         "httpsoft/http-basis": "^1.0"
     },
     "require-dev": {
-        "filp/whoops": "^2.14",
         "mobicms/testutils": "dev-main",
         "phpunit/phpunit": "^9.5",
         "slevomat/coding-standard": "^7.2",
