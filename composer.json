@@ -6,7 +6,6 @@
     "keywords": [
         "mobicms",
         "cms",
-        "middleware",
         "psr-7",
         "psr-11",
         "psr-15",
@@ -29,7 +28,6 @@
         "issues": "https://github.com/mobicms/system/issues"
     },
     "config": {
-        "sort-packages": true,
         "allow-plugins": {
             "dealerdirect/phpcodesniffer-composer-installer": true
         }
@@ -39,17 +37,11 @@
     "require": {
         "php": "~8.1.0",
         "ext-pdo": "*",
-        "laminas/laminas-diactoros": "^2.11",
-        "laminas/laminas-servicemanager": "^3.11",
-        "mezzio/mezzio": "^3.10",
-        "mezzio/mezzio-helpers": "^5.8",
         "mobicms/render": "dev-main"
     },
     "require-dev": {
         "mobicms/testutils": "dev-main",
         "phpunit/phpunit": "^9.5",
-        "psalm/plugin-phpunit": "^0.16",
-        "roave/security-advisories": "dev-master",
         "slevomat/coding-standard": "^7.2",
         "squizlabs/php_codesniffer": "^3.6",
         "vimeo/psalm": "^4.23"
