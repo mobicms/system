@@ -43,6 +43,7 @@
         "httpsoft/http-basis": "^1.0"
     },
     "require-dev": {
+        "filp/whoops": "^2.14",
         "mobicms/testutils": "dev-main",
         "phpunit/phpunit": "^9.5",
         "slevomat/coding-standard": "^7.2",
