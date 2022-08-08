@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Mobicms\System\App;
+namespace Mobicms\System\ErrorHandler;
 
 use HttpSoft\Basis\Response\ExtractErrorDataTrait;
 use HttpSoft\ErrorHandler\ErrorResponseGeneratorInterface;

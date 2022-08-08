@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Mobicms\System\Handler;
+namespace Mobicms\System\ErrorHandler;
 
 use HttpSoft\ErrorHandler\ErrorResponseGeneratorInterface;
 use Mobicms\Render\Engine;

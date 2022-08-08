@@ -2,12 +2,12 @@
 
 declare(strict_types=1);
 
-namespace MobicmsTest\System\App;
+namespace MobicmsTest\System\ErrorHandler;
 
 use Devanych\Di\Container;
 use Devanych\Di\Exception\NotFoundException;
 use HttpSoft\ErrorHandler\ErrorHandlerMiddleware;
-use Mobicms\System\Handler\ErrorHandlerMiddlewareFactory;
+use Mobicms\System\ErrorHandler\ErrorHandlerMiddlewareFactory;
 use Mobicms\System\Log\LoggerFactory;
 use PHPUnit\Framework\TestCase;
 use Psr\Http\Server\MiddlewareInterface;

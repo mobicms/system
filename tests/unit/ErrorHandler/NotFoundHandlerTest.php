@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace MobicmsTest\System\Handler;
+namespace MobicmsTest\System\ErrorHandler;
 
 use HttpSoft\Basis\Response\CustomResponseFactory;
 use Mobicms\Render\Engine;
-use Mobicms\System\Handler\NotFoundHandler;
+use Mobicms\System\ErrorHandler\NotFoundHandler;
 use PHPUnit\Framework\TestCase;
 use Psr\Http\Message\ResponseFactoryInterface;
 use Psr\Http\Message\ServerRequestInterface;

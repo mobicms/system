@@ -2,12 +2,12 @@
 
 declare(strict_types=1);
 
-namespace MobicmsTest\System\App;
+namespace MobicmsTest\System\ErrorHandler;
 
 use HttpSoft\Basis\Exception\ForbiddenHttpException;
 use HttpSoft\Basis\Exception\InternalServerErrorHttpException;
 use HttpSoft\Message\ServerRequest;
-use Mobicms\System\App\WhoopsErrorResponseGenerator;
+use Mobicms\System\ErrorHandler\WhoopsErrorResponseGenerator;
 use PHPUnit\Framework\TestCase;
 use Whoops\Handler\JsonResponseHandler;
 use Whoops\Run;
@@ -46,15 +46,17 @@ class WhoopsErrorResponseGeneratorTest extends TestCase
         $this->assertSame($exception->getReasonPhrase(), $response->getReasonPhrase());
         $this->assertSame('application/json', $response->getHeaderLine('content-type'));
 
-        $exceptionData = json_encode([
-                                         'error' => [
-                                             'type'    => $exception::class,
-                                             'message' => $exception->getMessage(),
-                                             'code'    => $exception->getCode(),
-                                             'file'    => $exception->getFile(),
-                                             'line'    => $exception->getLine(),
-                                         ],
-                                     ]);
+        $exceptionData = json_encode(
+            [
+                'error' => [
+                    'type'    => $exception::class,
+                    'message' => $exception->getMessage(),
+                    'code'    => $exception->getCode(),
+                    'file'    => $exception->getFile(),
+                    'line'    => $exception->getLine(),
+                ],
+            ]
+        );
 
         $this->assertSame($exceptionData, (string) $response->getBody());
     }

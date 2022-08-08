@@ -11,7 +11,7 @@ use HttpSoft\Router\RouteCollector;
 use HttpSoft\Runner\MiddlewarePipelineInterface;
 use HttpSoft\Runner\MiddlewareResolverInterface;
 use Mobicms\Render\Engine;
-use Mobicms\System\Handler\NotFoundHandler;
+use Mobicms\System\ErrorHandler\NotFoundHandler;
 use Psr\Container\ContainerInterface;
 use Psr\Http\Message\ResponseFactoryInterface;
 
