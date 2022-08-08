@@ -2,13 +2,12 @@
 
 declare(strict_types=1);
 
-namespace MobicmsTest\System\Http;
+namespace MobicmsTest\System\App;
 
-use HttpSoft\Basis\Response\CustomResponseFactory;
-use Mobicms\System\App\ApplicationFactory;
 use Devanych\Di\Container;
 use Devanych\Di\Exception\NotFoundException;
 use HttpSoft\Basis\Application;
+use HttpSoft\Basis\Response\CustomResponseFactory;
 use HttpSoft\Emitter\EmitterInterface;
 use HttpSoft\Emitter\SapiEmitter;
 use HttpSoft\Router\RouteCollector;
@@ -16,6 +15,7 @@ use HttpSoft\Runner\MiddlewarePipeline;
 use HttpSoft\Runner\MiddlewarePipelineInterface;
 use HttpSoft\Runner\MiddlewareResolver;
 use HttpSoft\Runner\MiddlewareResolverInterface;
+use Mobicms\System\App\ApplicationFactory;
 use PHPUnit\Framework\TestCase;
 use Psr\Http\Message\ResponseFactoryInterface;
 
