@@ -733,12 +733,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/mobicms/render.git",
-                "reference": "e6883a268d625380880e80f8b0564434b474e692"
+                "reference": "5a290946d351cde876a16393140a7eeaf757d983"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/mobicms/render/zipball/e6883a268d625380880e80f8b0564434b474e692",
-                "reference": "e6883a268d625380880e80f8b0564434b474e692",
+                "url": "https://api.github.com/repos/mobicms/render/zipball/5a290946d351cde876a16393140a7eeaf757d983",
+                "reference": "5a290946d351cde876a16393140a7eeaf757d983",
                 "shasum": ""
             },
             "require": {
@@ -780,7 +780,7 @@
                 "issues": "https://github.com/mobicms/render/issues",
                 "source": "https://github.com/mobicms/render/tree/main"
             },
-            "time": "2022-07-31T12:31:12+00:00"
+            "time": "2022-08-09T10:49:41+00:00"
         },
         {
             "name": "monolog/monolog",
@@ -1952,12 +1952,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/mobicms/testutils.git",
-                "reference": "f7133904ce89f8f56612dffeff46980d9cf5e326"
+                "reference": "99b011906ffa4e3c40365beb635b36d58e48876a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/mobicms/testutils/zipball/f7133904ce89f8f56612dffeff46980d9cf5e326",
-                "reference": "f7133904ce89f8f56612dffeff46980d9cf5e326",
+                "url": "https://api.github.com/repos/mobicms/testutils/zipball/99b011906ffa4e3c40365beb635b36d58e48876a",
+                "reference": "99b011906ffa4e3c40365beb635b36d58e48876a",
                 "shasum": ""
             },
             "require": {
@@ -1968,8 +1968,8 @@
             "require-dev": {
                 "psalm/plugin-phpunit": "^0.16",
                 "slevomat/coding-standard": "^7.2",
-                "squizlabs/php_codesniffer": "^3.6",
-                "vimeo/psalm": "^4.23"
+                "squizlabs/php_codesniffer": "^3.7",
+                "vimeo/psalm": "^4.26"
             },
             "default-branch": true,
             "type": "library",
@@ -2004,7 +2004,7 @@
                 "issues": "https://github.com/mobicms/testutils/issues",
                 "source": "https://github.com/mobicms/testutils"
             },
-            "time": "2022-06-06T11:58:27+00:00"
+            "time": "2022-08-20T08:52:22+00:00"
         },
         {
             "name": "myclabs/deep-copy",
@@ -2565,16 +2565,16 @@
         },
         {
             "name": "phpstan/phpdoc-parser",
-            "version": "1.6.4",
+            "version": "1.7.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpstan/phpdoc-parser.git",
-                "reference": "135607f9ccc297d6923d49c2bcf309f509413215"
+                "reference": "367a8d9d5f7da2a0136422d27ce8840583926955"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpstan/phpdoc-parser/zipball/135607f9ccc297d6923d49c2bcf309f509413215",
-                "reference": "135607f9ccc297d6923d49c2bcf309f509413215",
+                "url": "https://api.github.com/repos/phpstan/phpdoc-parser/zipball/367a8d9d5f7da2a0136422d27ce8840583926955",
+                "reference": "367a8d9d5f7da2a0136422d27ce8840583926955",
                 "shasum": ""
             },
             "require": {
@@ -2604,29 +2604,29 @@
             "description": "PHPDoc parser with support for nullable, intersection and generic types",
             "support": {
                 "issues": "https://github.com/phpstan/phpdoc-parser/issues",
-                "source": "https://github.com/phpstan/phpdoc-parser/tree/1.6.4"
+                "source": "https://github.com/phpstan/phpdoc-parser/tree/1.7.0"
             },
-            "time": "2022-06-26T13:09:08+00:00"
+            "time": "2022-08-09T12:23:23+00:00"
         },
         {
             "name": "phpunit/php-code-coverage",
-            "version": "9.2.15",
+            "version": "9.2.16",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/php-code-coverage.git",
-                "reference": "2e9da11878c4202f97915c1cb4bb1ca318a63f5f"
+                "reference": "2593003befdcc10db5e213f9f28814f5aa8ac073"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/php-code-coverage/zipball/2e9da11878c4202f97915c1cb4bb1ca318a63f5f",
-                "reference": "2e9da11878c4202f97915c1cb4bb1ca318a63f5f",
+                "url": "https://api.github.com/repos/sebastianbergmann/php-code-coverage/zipball/2593003befdcc10db5e213f9f28814f5aa8ac073",
+                "reference": "2593003befdcc10db5e213f9f28814f5aa8ac073",
                 "shasum": ""
             },
             "require": {
                 "ext-dom": "*",
                 "ext-libxml": "*",
                 "ext-xmlwriter": "*",
-                "nikic/php-parser": "^4.13.0",
+                "nikic/php-parser": "^4.14",
                 "php": ">=7.3",
                 "phpunit/php-file-iterator": "^3.0.3",
                 "phpunit/php-text-template": "^2.0.2",
@@ -2675,7 +2675,7 @@
             ],
             "support": {
                 "issues": "https://github.com/sebastianbergmann/php-code-coverage/issues",
-                "source": "https://github.com/sebastianbergmann/php-code-coverage/tree/9.2.15"
+                "source": "https://github.com/sebastianbergmann/php-code-coverage/tree/9.2.16"
             },
             "funding": [
                 {
@@ -2683,7 +2683,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2022-03-07T09:28:20+00:00"
+            "time": "2022-08-20T05:26:47+00:00"
         },
         {
             "name": "phpunit/php-file-iterator",
@@ -2928,16 +2928,16 @@
         },
         {
             "name": "phpunit/phpunit",
-            "version": "9.5.21",
+            "version": "9.5.22",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/phpunit.git",
-                "reference": "0e32b76be457de00e83213528f6bb37e2a38fcb1"
+                "reference": "e329ac6e8744f461518272612a479fde958752fe"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/0e32b76be457de00e83213528f6bb37e2a38fcb1",
-                "reference": "0e32b76be457de00e83213528f6bb37e2a38fcb1",
+                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/e329ac6e8744f461518272612a479fde958752fe",
+                "reference": "e329ac6e8744f461518272612a479fde958752fe",
                 "shasum": ""
             },
             "require": {
@@ -3014,7 +3014,7 @@
             ],
             "support": {
                 "issues": "https://github.com/sebastianbergmann/phpunit/issues",
-                "source": "https://github.com/sebastianbergmann/phpunit/tree/9.5.21"
+                "source": "https://github.com/sebastianbergmann/phpunit/tree/9.5.22"
             },
             "funding": [
                 {
@@ -3026,7 +3026,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2022-06-19T12:14:25+00:00"
+            "time": "2022-08-20T08:25:46+00:00"
         },
         {
             "name": "sebastian/cli-parser",
