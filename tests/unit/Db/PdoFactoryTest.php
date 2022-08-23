@@ -9,7 +9,7 @@ use Mobicms\System\Db\Exception\CommonException;
 use Mobicms\System\Db\Exception\InvalidCredentialsException;
 use Mobicms\System\Db\Exception\InvalidDatabaseException;
 use Mobicms\System\Db\PdoFactory;
-use Mobicms\Testutils\Config;
+use Mobicms\Testutils\ConfigLoader;
 use Mobicms\Testutils\MysqlTestCase;
 use PDO;
 use PHPUnit\Framework\MockObject\MockObject;
@@ -17,12 +17,12 @@ use Psr\Container\ContainerInterface;
 
 class PdoFactoryTest extends MysqlTestCase
 {
-    private Config $config;
+    private ConfigLoader $config;
     private MockObject $container;
 
     public function setUp(): void
     {
-        $this->config = new Config();
+        $this->config = new ConfigLoader();
         $this->container = $this->createMock(ContainerInterface::class);
         $this->container
             ->method('has')
