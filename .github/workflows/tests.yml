@@ -36,7 +36,7 @@ jobs:
           restore-keys: ${{ runner.os }}-composer-
 
       - name: Install dependencies
-        run: composer install --no-progress --no-suggest --no-interaction
+        run: composer install --no-progress --no-interaction
 
       - name: Start MySQL
         run: sudo /etc/init.d/mysql start

@@ -34,7 +34,7 @@ jobs:
           restore-keys: ${{ runner.os }}-composer-
 
       - name: Install dependencies
-        run: composer install --no-progress --no-suggest --no-interaction
+        run: composer install --no-progress --no-interaction
 
       - name: Security Analysis using Psalm
         run: composer security-analysis
