@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "227402ae0d8e70f6ab7cd425c0eddad0",
+    "content-hash": "0c509c744d0ba0b99e586bd09962c8d6",
     "packages": [
         {
             "name": "devanych/di-container",
@@ -1948,16 +1948,16 @@
         },
         {
             "name": "mobicms/testutils",
-            "version": "dev-main",
+            "version": "1.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/mobicms/testutils.git",
-                "reference": "b48f4da31dac4e45e5386d572b83432acd639589"
+                "reference": "b1cf44a9d75e8fbb06da90eb0db5ca7e18f64f08"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/mobicms/testutils/zipball/b48f4da31dac4e45e5386d572b83432acd639589",
-                "reference": "b48f4da31dac4e45e5386d572b83432acd639589",
+                "url": "https://api.github.com/repos/mobicms/testutils/zipball/b1cf44a9d75e8fbb06da90eb0db5ca7e18f64f08",
+                "reference": "b1cf44a9d75e8fbb06da90eb0db5ca7e18f64f08",
                 "shasum": ""
             },
             "require": {
@@ -1971,7 +1971,6 @@
                 "squizlabs/php_codesniffer": "^3.7",
                 "vimeo/psalm": "^4.26"
             },
-            "default-branch": true,
             "type": "library",
             "autoload": {
                 "psr-4": {
@@ -2004,7 +2003,7 @@
                 "issues": "https://github.com/mobicms/testutils/issues",
                 "source": "https://github.com/mobicms/testutils"
             },
-            "time": "2022-08-23T15:13:10+00:00"
+            "time": "2022-08-24T11:27:43+00:00"
         },
         {
             "name": "myclabs/deep-copy",
@@ -5052,8 +5051,7 @@
     "aliases": [],
     "minimum-stability": "dev",
     "stability-flags": {
-        "mobicms/render": 20,
-        "mobicms/testutils": 20
+        "mobicms/render": 20
     },
     "prefer-stable": true,
     "prefer-lowest": false,
