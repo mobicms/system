@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Mobicms\System\Db;
 
 use Devanych\Di\FactoryInterface;
+use Mobicms\System\Config\ConfigInterface;
 use Mobicms\System\Db\Exception\CommonException;
 use Mobicms\System\Db\Exception\InvalidDatabaseException;
 use Mobicms\System\Db\Exception\InvalidCredentialsException;
@@ -16,18 +17,20 @@ class PdoFactory implements FactoryInterface
 {
     public function create(ContainerInterface $container): PDO
     {
-        $config = new Config((array) $container->get('config'));
+        /** @var ConfigInterface $configContainer */
+        $configContainer = $container->get(ConfigInterface::class);
+        $config = (array) $configContainer->get('database', []);
 
         try {
             return new PDO(
                 sprintf(
                     'mysql:host=%s;port=%d;dbname=%s;charset=utf8mb4',
-                    $config->host,
-                    $config->port,
-                    $config->dbname
+                    (string) ($config['host'] ?? 'localhost'),
+                    (int) ($config['port'] ?? 3306),
+                    (string) ($config['dbname'] ?? 'mobicms')
                 ),
-                $config->user,
-                $config->pass,
+                (string) ($config['user'] ?? 'root'),
+                (string) ($config['pass'] ?? 'root'),
                 [
                     PDO::ATTR_ERRMODE            => PDO::ERRMODE_EXCEPTION,
                     PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,

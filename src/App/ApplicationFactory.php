@@ -11,6 +11,7 @@ use HttpSoft\Router\RouteCollector;
 use HttpSoft\Runner\MiddlewarePipelineInterface;
 use HttpSoft\Runner\MiddlewareResolverInterface;
 use Mobicms\Render\Engine;
+use Mobicms\System\Config\ConfigInterface;
 use Mobicms\System\ErrorHandler\NotFoundHandler;
 use Psr\Container\ContainerInterface;
 use Psr\Http\Message\ResponseFactoryInterface;
@@ -19,6 +20,9 @@ final class ApplicationFactory implements FactoryInterface
 {
     public function create(ContainerInterface $container): Application
     {
+        /** @var ConfigInterface $configContainer */
+        $configContainer = $container->get(ConfigInterface::class);
+
         /**
          * @psalm-suppress MixedArgument
          * @psalm-suppress MixedArrayAccess
@@ -32,7 +36,7 @@ final class ApplicationFactory implements FactoryInterface
                 $container->get(ResponseFactoryInterface::class),
                 $container->get(Engine::class),
                 'error::404',
-                $container->get('config')['debug']
+                (bool) $configContainer->get('debug')
             )
         );
     }

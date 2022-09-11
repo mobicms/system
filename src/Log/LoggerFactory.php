@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Mobicms\System\Log;
 
 use Devanych\Di\FactoryInterface;
+use Mobicms\System\Config\ConfigInterface;
 use Monolog\Handler\StreamHandler;
 use Monolog\Logger;
 use Psr\Container\ContainerInterface;
@@ -14,17 +15,13 @@ final class LoggerFactory implements FactoryInterface
 {
     public function create(ContainerInterface $container): LoggerInterface
     {
+        /** @var ConfigInterface $configContainer */
+        $configContainer = $container->get(ConfigInterface::class);
+        $logFile = (string) $configContainer->get('log_file');
+        $debug = (bool) $configContainer->get('debug');
+
         $logger = new Logger('App');
-
-        /** @var array $config */
-        $config = $container->get('config');
-
-        $logger->pushHandler(
-            new StreamHandler(
-                (string) $config['log_file'],
-                $config['debug'] ? Logger::DEBUG : Logger::WARNING
-            )
-        );
+        $logger->pushHandler(new StreamHandler($logFile, $debug ? Logger::DEBUG : Logger::WARNING));
 
         return $logger;
     }
