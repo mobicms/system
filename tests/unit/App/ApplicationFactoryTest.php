@@ -16,6 +16,7 @@ use HttpSoft\Runner\MiddlewarePipelineInterface;
 use HttpSoft\Runner\MiddlewareResolver;
 use HttpSoft\Runner\MiddlewareResolverInterface;
 use Mobicms\System\App\ApplicationFactory;
+use Mobicms\System\Config\ConfigInterface;
 use PHPUnit\Framework\TestCase;
 use Psr\Http\Message\ResponseFactoryInterface;
 
@@ -41,10 +42,16 @@ class ApplicationFactoryTest extends TestCase
      */
     public function testCreate(bool $debug): void
     {
+        $config = $this->createMock(ConfigInterface::class);
+        $config
+            ->method('get')
+            ->with('debug')
+            ->willReturn($debug);
+
         $app = $this->factory->create(
             new Container(
                 [
-                    'config'                           => ['debug' => $debug],
+                    ConfigInterface::class             => $config,
                     EmitterInterface::class            => SapiEmitter::class,
                     MiddlewarePipelineInterface::class => MiddlewarePipeline::class,
                     MiddlewareResolverInterface::class => MiddlewareResolver::class,

@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace MobicmsTest\System\Log;
 
+use Mobicms\System\Config\ConfigInterface;
 use Mobicms\System\Log\LoggerFactory;
 use Devanych\Di\Container;
 use Devanych\Di\Exception\NotFoundException;
@@ -26,7 +27,17 @@ class LoggerFactoryTest extends TestCase
      */
     public function testCreate(?bool $debug): void
     {
-        $container = new Container(['config' => ['debug' => $debug, 'log_file' => 'test.log']]);
+        $config = $this->createMock(ConfigInterface::class);
+        $config
+            ->method('get')
+            ->withConsecutive(['log_file'], ['debug'])
+            ->willReturn('test.log', $debug);
+
+        $container = new Container(
+            [
+                ConfigInterface::class => $config,
+            ]
+        );
 
         /** @var Logger $logger */
         $logger = $this->factory->create($container);

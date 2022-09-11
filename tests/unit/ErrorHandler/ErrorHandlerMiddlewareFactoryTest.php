@@ -7,6 +7,7 @@ namespace MobicmsTest\System\ErrorHandler;
 use Devanych\Di\Container;
 use Devanych\Di\Exception\NotFoundException;
 use HttpSoft\ErrorHandler\ErrorHandlerMiddleware;
+use Mobicms\System\Config\ConfigInterface;
 use Mobicms\System\ErrorHandler\ErrorHandlerMiddlewareFactory;
 use Mobicms\System\Log\LoggerFactory;
 use PHPUnit\Framework\TestCase;
@@ -25,7 +26,7 @@ class ErrorHandlerMiddlewareFactoryTest extends TestCase
     public function debugDataProvider(): array
     {
         return [
-            'debug-true' => [true],
+            'debug-true'  => [true],
             'debug-false' => [false],
         ];
     }
@@ -35,10 +36,18 @@ class ErrorHandlerMiddlewareFactoryTest extends TestCase
      */
     public function testCreate(bool $debug): void
     {
-        $container = new Container([
-            'config' => ['debug' => $debug, 'log_file' => 'test.log'],
-            LoggerInterface::class => LoggerFactory::class,
-        ]);
+        $config = $this->createMock(ConfigInterface::class);
+        $config
+            ->method('get')
+            ->withConsecutive(['log_file'], ['debug'])
+            ->willReturn('test.log', $debug);
+
+        $container = new Container(
+            [
+                ConfigInterface::class => $config,
+                LoggerInterface::class => LoggerFactory::class,
+            ]
+        );
 
         $errorHandler = $this->factory->create($container);
         $this->assertInstanceOf(MiddlewareInterface::class, $errorHandler);
