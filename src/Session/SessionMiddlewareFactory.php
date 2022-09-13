@@ -12,11 +12,14 @@ use RuntimeException;
 
 class SessionMiddlewareFactory implements FactoryInterface
 {
+    /**
+     * @psalm-suppress MixedArgument
+     */
     public function create(ContainerInterface $container): SessionMiddleware
     {
         /** @var ConfigInterface $configContainer */
         $configContainer = $container->get(ConfigInterface::class);
-        $config = $configContainer->get('session', []);
+        $config = (array) $configContainer->get('session', []);
 
         return new SessionMiddleware(
             $container->get(PDO::class),

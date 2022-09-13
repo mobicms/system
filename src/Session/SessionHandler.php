@@ -38,7 +38,7 @@ final class SessionHandler implements SessionInterface
             $this->sessionGc();
         }
 
-        $id = $request->getCookieParams()[$this->cookieName] ?? '';
+        $id = (string) ($request->getCookieParams()[$this->cookieName] ?? '');
 
         if (! empty($id)) {
             $this->id = $id;
@@ -134,18 +134,23 @@ final class SessionHandler implements SessionInterface
         return $manager->send($response);
     }
 
+    /**
+     * @psalm-suppress MixedInferredReturnType
+     */
     private function sessionRead(string $id): array
     {
         $stmt = $this->pdo->prepare('SELECT * FROM `system__session` WHERE `session_id` = :id');
         $stmt->bindParam(':id', $id);
         $stmt->execute();
+        /** @var array|false $result */
+        $result = $stmt->fetch();
 
-        if (($result = $stmt->fetch()) !== false) {
+        if ($result !== false) {
             if ($result['modified'] > time() - $this->lifeTime) {
-                return unserialize($result['data'], ['allowed_classes' => false]);
+                return (array) unserialize((string) $result['data'], ['allowed_classes' => false]);
             }
 
-            $this->sessionDestroy($id);
+            $this->sessionDestroy((string) $id);
         }
 
         return [];
