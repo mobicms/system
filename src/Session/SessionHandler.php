@@ -80,7 +80,20 @@ final class SessionHandler implements SessionInterface
         $id = '' === $this->id ? bin2hex(random_bytes(16)) : $this->id;
         $this->sessionWrite($id, $this->data);
 
-        $response = $this->sendCookie($id, $response);
+        $manager = new CookieManager();
+        $manager->set(
+            new Cookie(
+                $this->cookieName,
+                $id,
+                null,
+                $this->cookieDomain,
+                $this->cookiePath,
+                $this->cookieSecure,
+                $this->cookieHttpOnly
+            )
+        );
+
+        $response = $manager->send($response);
         $response = $response->withHeader('Expires', 'Thu, 19 Nov 1981 08:52:00 GMT');
         $response = $response->withHeader('Cache-Control', 'no-store, no-cache, must-revalidate');
 
@@ -112,26 +125,6 @@ final class SessionHandler implements SessionInterface
         if (isset($options['lifetime'])) {
             $this->lifeTime = (int) $options['lifetime'];
         }
-    }
-
-    private function sendCookie(
-        string $id,
-        ResponseInterface $response
-    ): ResponseInterface {
-        $manager = new CookieManager();
-        $manager->set(
-            new Cookie(
-                $this->cookieName,
-                $id,
-                null,
-                $this->cookieDomain,
-                $this->cookiePath,
-                $this->cookieSecure,
-                $this->cookieHttpOnly
-            )
-        );
-
-        return $manager->send($response);
     }
 
     /**
