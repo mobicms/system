@@ -20,8 +20,8 @@ final class ApplicationFactory implements FactoryInterface
 {
     public function create(ContainerInterface $container): Application
     {
-        /** @var ConfigInterface $configContainer */
-        $configContainer = $container->get(ConfigInterface::class);
+        /** @var ConfigInterface $config */
+        $config = $container->get(ConfigInterface::class);
 
         /**
          * @psalm-suppress MixedArgument
@@ -36,7 +36,7 @@ final class ApplicationFactory implements FactoryInterface
                 $container->get(ResponseFactoryInterface::class),
                 $container->get(Engine::class),
                 'error::404',
-                (bool) $configContainer->get('debug')
+                (bool) $config->get('debug')
             )
         );
     }

@@ -31,18 +31,18 @@ class ConfigContainer implements ConfigInterface
             return array_key_exists($key, $this->data) ? $this->data[$key] : $default;
         }
 
-        $data = $this->data;
+        $value = $this->data;
 
         /** @var string $nested */
         foreach ($key as $nested) {
-            if (! is_array($data) || ! array_key_exists($nested, $data)) {
+            if (! is_array($value) || ! array_key_exists($nested, $value)) {
                 return $default;
             }
 
-            $data = $data[$nested];
+            $value = $value[$nested];
         }
 
-        return $data;
+        return $value;
     }
 
     public function set(string $key, mixed $value): void
