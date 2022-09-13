@@ -145,12 +145,8 @@ final class SessionHandler implements SessionInterface
         /** @var array|false $result */
         $result = $stmt->fetch();
 
-        if ($result !== false) {
-            if ($result['modified'] > time() - $this->lifeTime) {
-                return (array) unserialize((string) $result['data'], ['allowed_classes' => false]);
-            }
-
-            $this->sessionDestroy((string) $id);
+        if ($result !== false && $result['modified'] > time() - $this->lifeTime) {
+            return (array) unserialize((string) $result['data'], ['allowed_classes' => false]);
         }
 
         return [];
@@ -170,13 +166,6 @@ final class SessionHandler implements SessionInterface
         $stmt->bindParam(':id', $id);
         $stmt->bindValue(':modified', time(), PDO::PARAM_INT);
         $stmt->bindValue(':data', serialize($data));
-        $stmt->execute();
-    }
-
-    private function sessionDestroy(string $id): void
-    {
-        $stmt = $this->pdo->prepare('DELETE FROM `system__session` WHERE `session_id` = :id');
-        $stmt->bindParam(':id', $id);
         $stmt->execute();
     }
 
