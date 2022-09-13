@@ -8,6 +8,7 @@ use Devanych\Di\FactoryInterface;
 use Mobicms\System\Config\ConfigInterface;
 use PDO;
 use Psr\Container\ContainerInterface;
+use RuntimeException;
 
 class SessionMiddlewareFactory implements FactoryInterface
 {
@@ -15,22 +16,33 @@ class SessionMiddlewareFactory implements FactoryInterface
     {
         /** @var ConfigInterface $configContainer */
         $configContainer = $container->get(ConfigInterface::class);
-        $config = (array) $configContainer->get('session', []);
+        $config = $configContainer->get('session', []);
 
-        $timestampFile = $config['gc_timestamp_file'] ?? __FILE__;
-        $gc = false;
+        return new SessionMiddleware(
+            $container->get(PDO::class),
+            $config,
+            $this->checkNeedGc(
+                $config['gc_timestamp_file'] ?? '',
+                $config['gc_period'] ?? 3600
+            )
+        );
+    }
 
-        if (file_exists($timestampFile)) {
-            if (filemtime($timestampFile) < time() - ($config['gc_period'] ?? 3600)) {
-                $gc = true;
-                touch($timestampFile);
+    public function checkNeedGc(string $file, int $gcPeriod): bool
+    {
+        if (file_exists($file)) {
+            if (filemtime($file) < time() - $gcPeriod) {
+                touch($file);
+                return true;
             }
         } else {
-            if (! touch($timestampFile)) {
-                throw new \RuntimeException('Cannot white session GC timestamp file');
+            if (! is_writable(dirname($file))) {
+                throw new RuntimeException('Cannot white session GC timestamp file ' . $file);
             };
+
+            touch($file);
         }
 
-        return new SessionMiddleware($container->get(PDO::class), $config, $gc);
+        return false;
     }
 }
