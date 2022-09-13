@@ -23,13 +23,11 @@ class EngineFactoryTest extends TestCase
             ->willReturn(true);
         $config
             ->method('get')
-            ->with('templates')
+            ->with(['templates', 'paths'])
             ->willReturn(
                 [
-                    'paths' => [
-                        'test' => ['path1'],
-                        'p2'   => ['path2'],
-                    ],
+                    'test' => ['path1'],
+                    'p2'   => ['path2'],
                 ]
             );
 

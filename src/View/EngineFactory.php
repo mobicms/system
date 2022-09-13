@@ -13,12 +13,9 @@ class EngineFactory implements FactoryInterface
 {
     public function create(ContainerInterface $container): Engine
     {
-        /** @var ConfigInterface $configContainer */
-        $configContainer = $container->get(ConfigInterface::class);
-        /** @var array $config */
-        $config = $configContainer->get('templates');
-        /** @var array $paths */
-        $paths = $config['paths'] ?? [];
+        /** @var ConfigInterface $config */
+        $config = $container->get(ConfigInterface::class);
+        $paths = $config->get(['templates', 'paths'], []);
 
         $engine = new Engine();
 
