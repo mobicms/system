@@ -20,6 +20,11 @@ class ConfigContainerTest extends TestCase
                 'string' => 'foo',
                 'int'    => 123,
                 'bool'   => true,
+                'array'  => [
+                    'string' => 'foo',
+                    'int'    => 123,
+                    'bool'   => true,
+                ],
             ]
         );
     }
@@ -47,6 +52,21 @@ class ConfigContainerTest extends TestCase
         $this->assertSame('bar', $this->instance->get('unknown', 'bar'));
         // Null for non-existent key
         $this->assertNull($this->instance->get('baz'));
+    }
+
+    public function testGetMethodWithNestedArray(): void
+    {
+        // String
+        $this->assertSame('foo', $this->instance->get(['array', 'string']));
+        // Integer
+        $this->assertSame(123, $this->instance->get(['array', 'int']));
+        // Boolean
+        $this->assertSame(true, $this->instance->get(['array', 'bool']));
+        // Default value for non-existent key
+        $this->assertSame('bar', $this->instance->get(['unknown'], 'bar'));
+        $this->assertSame('bar', $this->instance->get(['array', 'unknown'], 'bar'));
+        // Null for non-existent key
+        $this->assertNull($this->instance->get(['array', 'unknown']));
     }
 
     public function testSetMethod(): void
