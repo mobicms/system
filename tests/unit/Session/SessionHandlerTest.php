@@ -9,7 +9,6 @@ use Mobicms\System\Session\SessionHandler;
 use Mobicms\System\Session\SessionInterface;
 use Mobicms\Testutils\MysqlTestCase;
 use Mobicms\Testutils\SqlDumpLoader;
-use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
 
 class SessionHandlerTest extends MysqlTestCase
