@@ -8,20 +8,25 @@ use Mobicms\System\Config\ConfigInterface;
 use Mobicms\System\Session\SessionMiddleware;
 use Mobicms\System\Session\SessionMiddlewareFactory;
 use Mobicms\Testutils\MysqlTestCase;
+use Mobicms\Testutils\SqlDumpLoader;
 use PDO;
 use Psr\Container\ContainerInterface;
 use RuntimeException;
 
 use function is_file;
+use function time;
+use function touch;
 use function unlink;
 
 class SessionMiddlewareFactoryTest extends MysqlTestCase
 {
     private string $file;
+    private SessionMiddlewareFactory $factory;
 
     public function setUp(): void
     {
         $this->file = __DIR__ . '/../../stubs/gc.timestamp';
+        $this->factory = new SessionMiddlewareFactory();
     }
 
     public function tearDown(): void
@@ -33,31 +38,62 @@ class SessionMiddlewareFactoryTest extends MysqlTestCase
 
     public function testExceptionIfTimestampFileIsNotWritable(): void
     {
-        $file = 'unknown/gc.timestamp';
-
-        $factory = new SessionMiddlewareFactory();
         $this->expectException(RuntimeException::class);
-        $factory->checkGc($file, 3600);
+        $this->factory->checkGc(
+            [
+                'gc_timestamp_file' => 'unknown/gc.timestamp',
+                'gc_period'         => 3600,
+            ]
+        );
     }
 
-    public function testNeedGc(): void
+    public function testNeedGarbageCollection(): void
     {
         touch($this->file, time() - 10000);
-        $factory = new SessionMiddlewareFactory();
-        $this->assertTrue($factory->checkGc($this->file, 3600));
+        $this->assertTrue(
+            $this->factory->checkGc(
+                [
+                    'gc_timestamp_file' => $this->file,
+                    'gc_period'         => 3600,
+                ]
+            )
+        );
     }
 
-    public function testNotNeedGc(): void
+    public function testNotNeedGarbageCollection(): void
     {
         touch($this->file);
-        $factory = new SessionMiddlewareFactory();
-        $this->assertFalse($factory->checkGc($this->file, 3600));
+        $this->assertFalse(
+            $this->factory->checkGc(
+                [
+                    'gc_timestamp_file' => $this->file,
+                    'gc_period'         => 3600,
+                ]
+            )
+        );
+    }
+
+    public function testCreateTimestampFile(): void
+    {
+        if (is_file($this->file)) {
+            unlink($this->file);
+        }
+
+        $this->factory->checkGc(['gc_timestamp_file' => $this->file]);
+        $this->assertTrue(is_file($this->file));
     }
 
     public function testFactoryReturnsSessionMiddlewareInstance()
     {
-        $factory = new SessionMiddlewareFactory();
-        $result = $factory->create($this->getContainer(['gc_timestamp_file' => $this->file]));
+        $loader = new SqlDumpLoader(self::getPdo());
+        $loader->loadFile('install/sql/system.sql');
+
+        if ($loader->hasErrors()) {
+            $this->fail(implode("\n", $loader->getErrors()));
+        }
+
+        touch($this->file, time() - 10000);
+        $result = $this->factory->create($this->getContainer(['gc_timestamp_file' => $this->file]));
         $this->assertInstanceOf(SessionMiddleware::class, $result);
     }
 

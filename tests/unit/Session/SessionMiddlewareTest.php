@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace MobicmsTest\System\Session;
 
+use Mobicms\System\Session\SessionHandler;
 use Mobicms\System\Session\SessionMiddleware;
 use Mobicms\Testutils\MysqlTestCase;
 use Psr\Http\Message\ResponseInterface;
@@ -17,7 +18,7 @@ class SessionMiddlewareTest extends MysqlTestCase
 
     public function setUp(): void
     {
-        $this->middleware = new SessionMiddleware(self::getPdo(), [], false);
+        $this->middleware = new SessionMiddleware(new SessionHandler(self::getPdo()));
     }
 
     public function testImplementsMiddlewareInterface(): void

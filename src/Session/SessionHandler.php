@@ -97,16 +97,16 @@ final class SessionHandler implements SessionInterface
         $this->data = [];
     }
 
+    /**
+     * @psalm-suppress MixedArgument
+     */
     public function persistSession(ResponseInterface $response): ResponseInterface
     {
         if ('' === $this->id && [] === $this->data) {
             return $response;
         }
 
-        $id =
-            '' === $this->id
-                ? bin2hex(random_bytes(16))
-                : $this->id;
+        $id = '' === $this->id ? bin2hex(random_bytes(16)) : $this->id;
 
         $stmt = $this->pdo->prepare(
             'INSERT INTO `system__session`
