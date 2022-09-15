@@ -72,6 +72,7 @@
         "cs-fix": "phpcbf",
         "static-analysis": "psalm --show-info=true",
         "security-analysis": "psalm --taint-analysis --show-info=true --report=results.sarif",
+        "psalm-fix": "psalm --alter --issues=MissingParamType --dry-run",
         "test": "phpunit --colors=always",
         "test-coverage": [
             "@putenv XDEBUG_MODE=coverage",
