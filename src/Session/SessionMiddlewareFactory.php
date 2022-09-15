@@ -16,8 +16,11 @@ class SessionMiddlewareFactory implements FactoryInterface
     {
         /** @var ConfigInterface $configContainer */
         $configContainer = $container->get(ConfigInterface::class);
+        /** @var PDO $pdo */
+        $pdo = $container->get(PDO::class);
+
         $config = (array) $configContainer->get('session', []);
-        $session = new SessionHandler($container->get(PDO::class), $config);
+        $session = new SessionHandler($pdo, $config);
 
         if ($this->checkGc($config)) {
             $session->garbageCollector();
