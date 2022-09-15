@@ -25,7 +25,13 @@ class SessionMiddleware implements MiddlewareInterface
 
     public function process(ServerRequestInterface $request, RequestHandlerInterface $handler): ResponseInterface
     {
-        $session = new SessionHandler($this->pdo, $request, $this->options, $this->gc);
+        $session = new SessionHandler($this->pdo, $this->options);
+        $session->startSession($request);
+
+        if ($this->gc) {
+            $session->garbageCollector();
+        }
+
         $response = $handler->handle($request->withAttribute(SessionInterface::class, $session));
 
         return $session->persistSession($response);

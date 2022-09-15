@@ -23,26 +23,28 @@ final class SessionHandler implements SessionInterface
 
     private string $id = '';
     private array $data = [];
-    private array $originalData = [];
 
-    public function __construct(
-        PDO $pdo,
-        ServerRequestInterface $request,
-        array $options = [],
-        bool $gc = false
-    ) {
+    public function __construct(PDO $pdo, array $options = [],)
+    {
         $this->pdo = $pdo;
         $this->setOptions($options);
+    }
 
-        if ($gc) {
-            $this->sessionGc();
-        }
-
+    public function startSession(ServerRequestInterface $request): void
+    {
         $id = (string) ($request->getCookieParams()[$this->cookieName] ?? '');
 
         if (! empty($id)) {
             $this->id = $id;
-            $this->data = $this->originalData = $this->sessionRead($id);
+            $stmt = $this->pdo->prepare('SELECT * FROM `system__session` WHERE `session_id` = :id');
+            $stmt->bindParam(':id', $id);
+            $stmt->execute();
+            /** @var array|false $result */
+            $result = $stmt->fetch();
+
+            if ($result !== false && $result['modified'] > time() - $this->lifeTime) {
+                $this->data = (array) unserialize((string) $result['data'], ['allowed_classes' => false]);
+            }
         }
     }
 
@@ -100,6 +102,13 @@ final class SessionHandler implements SessionInterface
         return $response->withHeader('Pragma', 'no-cache');
     }
 
+    public function garbageCollector(): void
+    {
+        $stmt = $this->pdo->prepare('DELETE FROM `system__session` WHERE `modified` < :duration');
+        $stmt->bindValue(':duration', time() - $this->lifeTime, PDO::PARAM_INT);
+        $stmt->execute();
+    }
+
     private function setOptions(array $options): void
     {
         if (isset($options['cookie_name'])) {
@@ -127,24 +136,6 @@ final class SessionHandler implements SessionInterface
         }
     }
 
-    /**
-     * @psalm-suppress MixedInferredReturnType
-     */
-    private function sessionRead(string $id): array
-    {
-        $stmt = $this->pdo->prepare('SELECT * FROM `system__session` WHERE `session_id` = :id');
-        $stmt->bindParam(':id', $id);
-        $stmt->execute();
-        /** @var array|false $result */
-        $result = $stmt->fetch();
-
-        if ($result !== false && $result['modified'] > time() - $this->lifeTime) {
-            return (array) unserialize((string) $result['data'], ['allowed_classes' => false]);
-        }
-
-        return [];
-    }
-
     private function sessionWrite(string $id, array $data): void
     {
         $stmt = $this->pdo->prepare(
@@ -159,13 +150,6 @@ final class SessionHandler implements SessionInterface
         $stmt->bindParam(':id', $id);
         $stmt->bindValue(':modified', time(), PDO::PARAM_INT);
         $stmt->bindValue(':data', serialize($data));
-        $stmt->execute();
-    }
-
-    private function sessionGc(): void
-    {
-        $stmt = $this->pdo->prepare('DELETE FROM `system__session` WHERE `modified` < :duration');
-        $stmt->bindValue(':duration', time() - $this->lifeTime, PDO::PARAM_INT);
         $stmt->execute();
     }
 }
