@@ -37,21 +37,21 @@ class SessionMiddlewareFactoryTest extends MysqlTestCase
 
         $factory = new SessionMiddlewareFactory();
         $this->expectException(RuntimeException::class);
-        $factory->checkNeedGc($file, 3600);
+        $factory->checkGc($file, 3600);
     }
 
     public function testNeedGc(): void
     {
         touch($this->file, time() - 10000);
         $factory = new SessionMiddlewareFactory();
-        $this->assertTrue($factory->checkNeedGc($this->file, 3600));
+        $this->assertTrue($factory->checkGc($this->file, 3600));
     }
 
     public function testNotNeedGc(): void
     {
         touch($this->file);
         $factory = new SessionMiddlewareFactory();
-        $this->assertFalse($factory->checkNeedGc($this->file, 3600));
+        $this->assertFalse($factory->checkGc($this->file, 3600));
     }
 
     public function testFactoryReturnsSessionMiddlewareInstance()

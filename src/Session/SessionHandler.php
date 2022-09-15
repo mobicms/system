@@ -36,6 +36,7 @@ final class SessionHandler implements SessionInterface
 
         if (! empty($id)) {
             $this->id = $id;
+
             $stmt = $this->pdo->prepare('SELECT * FROM `system__session` WHERE `session_id` = :id');
             $stmt->bindParam(':id', $id);
             $stmt->execute();
@@ -79,27 +80,26 @@ final class SessionHandler implements SessionInterface
             return $response;
         }
 
-        $id = '' === $this->id ? bin2hex(random_bytes(16)) : $this->id;
-        $this->sessionWrite($id, $this->data);
+        $id =
+            '' === $this->id
+                ? bin2hex(random_bytes(16))
+                : $this->id;
 
-        $manager = new CookieManager();
-        $manager->set(
-            new Cookie(
-                $this->cookieName,
-                $id,
-                null,
-                $this->cookieDomain,
-                $this->cookiePath,
-                $this->cookieSecure,
-                $this->cookieHttpOnly
-            )
+        $stmt = $this->pdo->prepare(
+            'INSERT INTO `system__session`
+            (`session_id`, `modified`, `data`)
+            VALUES(:id, :modified, :data)
+            ON DUPLICATE KEY UPDATE
+            `modified` = :modified,
+            `data` = :data'
         );
 
-        $response = $manager->send($response);
-        $response = $response->withHeader('Expires', 'Thu, 19 Nov 1981 08:52:00 GMT');
-        $response = $response->withHeader('Cache-Control', 'no-store, no-cache, must-revalidate');
+        $stmt->bindParam(':id', $id);
+        $stmt->bindValue(':modified', time(), PDO::PARAM_INT);
+        $stmt->bindValue(':data', serialize($this->data));
+        $stmt->execute();
 
-        return $response->withHeader('Pragma', 'no-cache');
+        return $this->sendCookies($id, $response);
     }
 
     public function garbageCollector(): void
@@ -136,20 +136,25 @@ final class SessionHandler implements SessionInterface
         }
     }
 
-    private function sessionWrite(string $id, array $data): void
+    private function sendCookies(string $id, ResponseInterface $response): ResponseInterface
     {
-        $stmt = $this->pdo->prepare(
-            'INSERT INTO `system__session`
-            (`session_id`, `modified`, `data`)
-            VALUES(:id, :modified, :data)
-            ON DUPLICATE KEY UPDATE
-            `modified` = :modified,
-            `data` = :data'
+        $manager = new CookieManager();
+        $manager->set(
+            new Cookie(
+                $this->cookieName,
+                $id,
+                null,
+                $this->cookieDomain,
+                $this->cookiePath,
+                $this->cookieSecure,
+                $this->cookieHttpOnly
+            )
         );
 
-        $stmt->bindParam(':id', $id);
-        $stmt->bindValue(':modified', time(), PDO::PARAM_INT);
-        $stmt->bindValue(':data', serialize($data));
-        $stmt->execute();
+        $response = $manager->send($response);
+        $response = $response->withHeader('Expires', 'Thu, 19 Nov 1981 08:52:00 GMT');
+        $response = $response->withHeader('Cache-Control', 'no-store, no-cache, must-revalidate');
+
+        return $response->withHeader('Pragma', 'no-cache');
     }
 }

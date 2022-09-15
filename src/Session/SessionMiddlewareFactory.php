@@ -12,27 +12,25 @@ use RuntimeException;
 
 class SessionMiddlewareFactory implements FactoryInterface
 {
-    /**
-     * @psalm-suppress MixedArgument
-     */
     public function create(ContainerInterface $container): SessionMiddleware
     {
         /** @var ConfigInterface $configContainer */
         $configContainer = $container->get(ConfigInterface::class);
         $config = (array) $configContainer->get('session', []);
+        $session = new SessionHandler($container->get(PDO::class), $config);
 
-        return new SessionMiddleware(
-            $container->get(PDO::class),
-            $config,
-            $this->checkNeedGc(
-                $config['gc_timestamp_file'] ?? '',
-                $config['gc_period'] ?? 3600
-            )
-        );
+        if ($this->checkGc($config)) {
+            $session->garbageCollector();
+        }
+
+        return new SessionMiddleware($session);
     }
 
-    public function checkNeedGc(string $file, int $gcPeriod): bool
+    public function checkGc(array $config): bool
     {
+        $file = (string) ($config['gc_timestamp_file'] ?? '');
+        $gcPeriod = (int) ($config['gc_period'] ?? 3600);
+
         if (file_exists($file)) {
             if (filemtime($file) < time() - $gcPeriod) {
                 touch($file);

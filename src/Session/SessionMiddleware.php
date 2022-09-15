@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace Mobicms\System\Session;
 
-use PDO;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
 use Psr\Http\Server\MiddlewareInterface;
@@ -12,28 +11,18 @@ use Psr\Http\Server\RequestHandlerInterface;
 
 class SessionMiddleware implements MiddlewareInterface
 {
-    private PDO $pdo;
-    private array $options;
-    private bool $gc;
+    private SessionHandler $session;
 
-    public function __construct(PDO $pdo, array $options, bool $gc)
+    public function __construct(SessionHandler $session)
     {
-        $this->pdo = $pdo;
-        $this->options = $options;
-        $this->gc = $gc;
+        $this->session = $session;
     }
 
     public function process(ServerRequestInterface $request, RequestHandlerInterface $handler): ResponseInterface
     {
-        $session = new SessionHandler($this->pdo, $this->options);
-        $session->startSession($request);
+        $this->session->startSession($request);
+        $response = $handler->handle($request->withAttribute(SessionInterface::class, $this->session));
 
-        if ($this->gc) {
-            $session->garbageCollector();
-        }
-
-        $response = $handler->handle($request->withAttribute(SessionInterface::class, $session));
-
-        return $session->persistSession($response);
+        return $this->session->persistSession($response);
     }
 }
