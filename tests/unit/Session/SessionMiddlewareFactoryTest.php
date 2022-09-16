@@ -5,13 +5,13 @@ declare(strict_types=1);
 namespace MobicmsTest\System\Session;
 
 use Mobicms\System\Config\ConfigInterface;
+use Mobicms\System\Session\Exception\CannotWhiteTimestampException;
 use Mobicms\System\Session\SessionMiddleware;
 use Mobicms\System\Session\SessionMiddlewareFactory;
 use Mobicms\Testutils\MysqlTestCase;
 use Mobicms\Testutils\SqlDumpLoader;
 use PDO;
 use Psr\Container\ContainerInterface;
-use RuntimeException;
 
 use function is_file;
 use function time;
@@ -38,7 +38,7 @@ class SessionMiddlewareFactoryTest extends MysqlTestCase
 
     public function testExceptionIfTimestampFileIsNotWritable(): void
     {
-        $this->expectException(RuntimeException::class);
+        $this->expectException(CannotWhiteTimestampException::class);
         $this->factory->checkGc(
             [
                 'gc_timestamp_file' => 'unknown/gc.timestamp',

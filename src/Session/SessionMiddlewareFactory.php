@@ -6,9 +6,9 @@ namespace Mobicms\System\Session;
 
 use Devanych\Di\FactoryInterface;
 use Mobicms\System\Config\ConfigInterface;
+use Mobicms\System\Session\Exception\CannotWhiteTimestampException;
 use PDO;
 use Psr\Container\ContainerInterface;
-use RuntimeException;
 
 class SessionMiddlewareFactory implements FactoryInterface
 {
@@ -35,8 +35,8 @@ class SessionMiddlewareFactory implements FactoryInterface
         $gcPeriod = (int) ($config['gc_period'] ?? 3600);
 
         if (! is_writable(dirname($file))) {
-            throw new RuntimeException('Cannot white session GC timestamp file ' . $file);
-        };
+            throw new CannotWhiteTimestampException($file);
+        }
 
         if (file_exists($file)) {
             if (filemtime($file) < time() - $gcPeriod) {
