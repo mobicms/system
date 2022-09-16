@@ -21,7 +21,7 @@ final class SessionHandler implements SessionInterface
     private bool $cookieHttpOnly = true;
     private int $lifeTime = 10800;
 
-    private string $id = '';
+    private string $sessionId = '';
     private array $data = [];
 
     public function __construct(PDO $pdo, array $options = [],)
@@ -58,7 +58,7 @@ final class SessionHandler implements SessionInterface
         $id = (string) ($request->getCookieParams()[$this->cookieName] ?? '');
 
         if (! empty($id)) {
-            $this->id = $id;
+            $this->sessionId = $id;
 
             $stmt = $this->pdo->prepare('SELECT * FROM `system__session` WHERE `session_id` = :id');
             $stmt->bindParam(':id', $id);
@@ -102,11 +102,11 @@ final class SessionHandler implements SessionInterface
      */
     public function persistSession(ResponseInterface $response): ResponseInterface
     {
-        if ('' === $this->id && [] === $this->data) {
+        if ('' === $this->sessionId && [] === $this->data) {
             return $response;
         }
 
-        $id = '' === $this->id ? bin2hex(random_bytes(16)) : $this->id;
+        $id = '' === $this->sessionId ? bin2hex(random_bytes(16)) : $this->sessionId;
 
         $stmt = $this->pdo->prepare(
             'INSERT INTO `system__session`

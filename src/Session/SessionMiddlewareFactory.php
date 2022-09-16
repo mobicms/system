@@ -34,16 +34,16 @@ class SessionMiddlewareFactory implements FactoryInterface
         $file = (string) ($config['gc_timestamp_file'] ?? '');
         $gcPeriod = (int) ($config['gc_period'] ?? 3600);
 
+        if (! is_writable(dirname($file))) {
+            throw new RuntimeException('Cannot white session GC timestamp file ' . $file);
+        };
+
         if (file_exists($file)) {
             if (filemtime($file) < time() - $gcPeriod) {
                 touch($file);
                 return true;
             }
         } else {
-            if (! is_writable(dirname($file))) {
-                throw new RuntimeException('Cannot white session GC timestamp file ' . $file);
-            };
-
             touch($file);
         }
 
