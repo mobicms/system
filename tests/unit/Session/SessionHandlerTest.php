@@ -37,7 +37,7 @@ class SessionHandlerTest extends MysqlTestCase
         $this->request = $this->createMock(ServerRequestInterface::class);
         $this->request
             ->method('getCookieParams')
-            ->willReturn(['TESTSESSION' => 'testsessionid']);
+            ->willReturn(['TESTSESSION' => 'ssssssssssssssssssssssssssssssss']);
     }
 
     public function testImplementsSessionInterface(): void
@@ -112,7 +112,9 @@ class SessionHandlerTest extends MysqlTestCase
     {
         $this->initializeSessionWithData(30000);
         $this->session->garbageCollector();
-        $query = self::getPdo()->query("SELECT * FROM `system__session` WHERE `session_id` = 'testsessionid'");
+        $query = self::getPdo()->query(
+            "SELECT * FROM `system__session` WHERE `session_id` = 'ssssssssssssssssssssssssssssssss'"
+        );
         $this->assertEquals(0, $query->rowCount());
     }
 
@@ -160,7 +162,7 @@ class SessionHandlerTest extends MysqlTestCase
                  `session_id` = ?,
                  `modified` = ?,
                  `data` = ?"
-        )->execute(['testsessionid', time() - $modified, 'a:1:{s:3:"foo";s:12:"test-session";}']);
+        )->execute(['ssssssssssssssssssssssssssssssss', time() - $modified, 'a:1:{s:3:"foo";s:12:"test-session";}']);
         $this->session->startSession($this->request);
     }
 }

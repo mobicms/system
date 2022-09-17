@@ -55,9 +55,9 @@ final class SessionHandler implements SessionInterface
 
     public function startSession(ServerRequestInterface $request): void
     {
-        $id = (string) ($request->getCookieParams()[$this->cookieName] ?? '');
+        $id = trim($request->getCookieParams()[$this->cookieName] ?? '');
 
-        if (! empty($id)) {
+        if (! empty($id) && strlen($id) == 32) {
             $this->sessionId = $id;
 
             $stmt = $this->pdo->prepare('SELECT * FROM `system__session` WHERE `session_id` = :id');
