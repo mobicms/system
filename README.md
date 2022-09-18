@@ -5,7 +5,6 @@
 [![Packagist](https://img.shields.io/packagist/dt/mobicms/system)](https://packagist.org/packages/mobicms/system)
 
 [![CI-Analysis](https://github.com/mobicms/system/workflows/Analysis/badge.svg)](https://github.com/mobicms/system/actions?query=workflow%3AAnalysis)
-[![CI-Tests](https://github.com/mobicms/system/workflows/Security/badge.svg)](https://github.com/mobicms/system/actions?query=workflow%3ASecurity)
 [![CI-Tests](https://github.com/mobicms/system/workflows/Tests/badge.svg)](https://github.com/mobicms/system/actions?query=workflow%3ATests)
 [![Sonar Coverage](https://img.shields.io/sonar/coverage/mobicms_system?server=https%3A%2F%2Fsonarcloud.io)](https://sonarcloud.io/code?id=mobicms_system)
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=mobicms_system&metric=alert_status)](https://sonarcloud.io/summary/overall?id=mobicms_system)
