@@ -6,9 +6,11 @@ namespace Mobicms\Db;
 
 use Devanych\Di\FactoryInterface;
 use Mobicms\Config\ConfigInterface;
-use Mobicms\Db\Exception\CommonException;
-use Mobicms\Db\Exception\InvalidDatabaseException;
-use Mobicms\Db\Exception\InvalidCredentialsException;
+use Mobicms\Db\Exception\{
+    CommonException,
+    InvalidDatabaseException,
+    InvalidCredentialsException
+};
 use PDO;
 use PDOException;
 use Psr\Container\ContainerInterface;

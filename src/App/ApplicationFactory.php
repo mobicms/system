@@ -5,14 +5,18 @@ declare(strict_types=1);
 namespace Mobicms\App;
 
 use Devanych\Di\FactoryInterface;
-use HttpSoft\Basis\Application;
-use HttpSoft\Emitter\EmitterInterface;
-use HttpSoft\Router\RouteCollector;
-use HttpSoft\Runner\MiddlewarePipelineInterface;
-use HttpSoft\Runner\MiddlewareResolverInterface;
-use Mobicms\Render\Engine;
-use Mobicms\Config\ConfigInterface;
-use Mobicms\ErrorHandler\NotFoundHandler;
+use HttpSoft\{
+    Basis\Application,
+    Emitter\EmitterInterface,
+    Router\RouteCollector,
+    Runner\MiddlewarePipelineInterface,
+    Runner\MiddlewareResolverInterface
+};
+use Mobicms\{
+    Render\Engine,
+    Config\ConfigInterface,
+    ErrorHandler\NotFoundHandler
+};
 use Psr\Container\ContainerInterface;
 use Psr\Http\Message\ResponseFactoryInterface;
 
