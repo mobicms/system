@@ -1,6 +1,6 @@
 # `mobicms/system`
 
-[![GitHub](https://img.shields.io/github/license/mobicms/system?color=green)](https://github.com/mobicms/system/blob/develop/LICENSE)
+[![GitHub](https://img.shields.io/github/license/mobicms/system?color=green)](https://github.com/mobicms/system/blob/main/LICENSE)
 [![GitHub release (latest SemVer)](https://img.shields.io/github/v/release/mobicms/system)](https://github.com/mobicms/system/releases)
 [![Packagist](https://img.shields.io/packagist/dt/mobicms/system)](https://packagist.org/packages/mobicms/system)
 
@@ -16,9 +16,9 @@ For system requirements and installation instructions  see [mobicms/mobicms](htt
 
 
 ## Contributing
-Contributions are welcome! Please read [CONTRIBUTING](https://github.com/mobicms/system/blob/develop/.github/CONTRIBUTING.md) for details.
+Contributions are welcome! Please read [CONTRIBUTING][CONTRIBUTING] for details.
 
-This project adheres to a [Contributor Code of Conduct](https://github.com/mobicms/system/blob/develop/.github/CODE_OF_CONDUCT.md).
+This project adheres to a [Contributor Code of Conduct][Code of Conduct].
 By participating in this project and its community, you are expected to uphold this code.
 
 [![YAGNI](https://img.shields.io/badge/principle-YAGNI-blueviolet.svg)](https://en.wikipedia.org/wiki/YAGNI)
@@ -30,7 +30,7 @@ The source code should not have extra unnecessary functionality and should be as
 
 ## License
 This package is licensed for use under the GPL-3 License.  
-Please see [LICENSE](https://github.com/mobicms/system/blob/develop/LICENSE) for more information.
+Please see [LICENSE][LICENSE] for more information.
 
 
 ## Copyright
@@ -42,3 +42,7 @@ All rights to used third-party libraries, fonts, images, etc. reserved by their 
 - [**Project Website**](https://mobicms.org) and support forum
 - [**Facebook**](https://www.facebook.com/mobicms)
 - [**Twitter**](https://twitter.com/mobicms)
+
+[CONTRIBUTING]: https://github.com/mobicms/system/blob/main/.github/CONTRIBUTING.md
+[Code of Conduct]: https://github.com/mobicms/system/blob/main/.github/CODE_OF_CONDUCT.md
+[LICENSE]: https://github.com/mobicms/system/blob/main/LICENSE
