@@ -2,13 +2,13 @@
 
 declare(strict_types=1);
 
-namespace Mobicms\System\Db;
+namespace Mobicms\Db;
 
 use Devanych\Di\FactoryInterface;
-use Mobicms\System\Config\ConfigInterface;
-use Mobicms\System\Db\Exception\CommonException;
-use Mobicms\System\Db\Exception\InvalidDatabaseException;
-use Mobicms\System\Db\Exception\InvalidCredentialsException;
+use Mobicms\Config\ConfigInterface;
+use Mobicms\Db\Exception\CommonException;
+use Mobicms\Db\Exception\InvalidDatabaseException;
+use Mobicms\Db\Exception\InvalidCredentialsException;
 use PDO;
 use PDOException;
 use Psr\Container\ContainerInterface;

@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Mobicms\System\Session\Exception;
+namespace Mobicms\Session\Exception;
 
 use RuntimeException;
 

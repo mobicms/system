@@ -4,10 +4,10 @@ declare(strict_types=1);
 
 namespace MobicmsTest\System\Session;
 
-use Mobicms\System\Config\ConfigInterface;
-use Mobicms\System\Session\Exception\CannotWhiteTimestampException;
-use Mobicms\System\Session\SessionMiddleware;
-use Mobicms\System\Session\SessionMiddlewareFactory;
+use Mobicms\Config\ConfigInterface;
+use Mobicms\Session\Exception\CannotWhiteTimestampException;
+use Mobicms\Session\SessionMiddleware;
+use Mobicms\Session\SessionMiddlewareFactory;
 use Mobicms\Testutils\MysqlTestCase;
 use Mobicms\Testutils\SqlDumpLoader;
 use PDO;

@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Mobicms\System\Session;
+namespace Mobicms\Session;
 
 interface SessionInterface
 {

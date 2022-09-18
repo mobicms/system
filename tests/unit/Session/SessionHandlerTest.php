@@ -5,8 +5,8 @@ declare(strict_types=1);
 namespace MobicmsTest\System\Session;
 
 use HttpSoft\Message\Response;
-use Mobicms\System\Session\SessionHandler;
-use Mobicms\System\Session\SessionInterface;
+use Mobicms\Session\SessionHandler;
+use Mobicms\Session\SessionInterface;
 use Mobicms\Testutils\MysqlTestCase;
 use Mobicms\Testutils\SqlDumpLoader;
 use Psr\Http\Message\ServerRequestInterface;

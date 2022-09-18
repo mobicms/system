@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Mobicms\System\Config;
+namespace Mobicms\Config;
 
 use InvalidArgumentException;
 

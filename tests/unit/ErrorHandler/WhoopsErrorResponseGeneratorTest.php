@@ -7,7 +7,7 @@ namespace MobicmsTest\System\ErrorHandler;
 use HttpSoft\Basis\Exception\ForbiddenHttpException;
 use HttpSoft\Basis\Exception\InternalServerErrorHttpException;
 use HttpSoft\Message\ServerRequest;
-use Mobicms\System\ErrorHandler\WhoopsErrorResponseGenerator;
+use Mobicms\ErrorHandler\WhoopsErrorResponseGenerator;
 use PHPUnit\Framework\TestCase;
 use Whoops\Handler\JsonResponseHandler;
 use Whoops\Run;

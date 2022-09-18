@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Mobicms\System\ErrorHandler;
+namespace Mobicms\ErrorHandler;
 
 use Devanych\Di\FactoryInterface;
 use HttpSoft\Basis\ErrorHandler\LogErrorListener;

@@ -6,7 +6,7 @@ namespace MobicmsTest\System\ErrorHandler;
 
 use HttpSoft\Basis\Response\CustomResponseFactory;
 use Mobicms\Render\Engine;
-use Mobicms\System\ErrorHandler\NotFoundHandler;
+use Mobicms\ErrorHandler\NotFoundHandler;
 use PHPUnit\Framework\TestCase;
 use Psr\Http\Message\ResponseFactoryInterface;
 use Psr\Http\Message\ServerRequestInterface;

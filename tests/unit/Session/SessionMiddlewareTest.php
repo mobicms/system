@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace MobicmsTest\System\Session;
 
-use Mobicms\System\Session\SessionHandler;
-use Mobicms\System\Session\SessionMiddleware;
+use Mobicms\Session\SessionHandler;
+use Mobicms\Session\SessionMiddleware;
 use Mobicms\Testutils\MysqlTestCase;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;

@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace Mobicms\System\View;
+namespace Mobicms\View;
 
 use Devanych\Di\FactoryInterface;
 use Mobicms\Render\Engine;
-use Mobicms\System\Config\ConfigInterface;
+use Mobicms\Config\ConfigInterface;
 use Psr\Container\ContainerInterface;
 
 class EngineFactory implements FactoryInterface

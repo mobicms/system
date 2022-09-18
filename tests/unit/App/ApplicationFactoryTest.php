@@ -15,8 +15,8 @@ use HttpSoft\Runner\MiddlewarePipeline;
 use HttpSoft\Runner\MiddlewarePipelineInterface;
 use HttpSoft\Runner\MiddlewareResolver;
 use HttpSoft\Runner\MiddlewareResolverInterface;
-use Mobicms\System\App\ApplicationFactory;
-use Mobicms\System\Config\ConfigInterface;
+use Mobicms\App\ApplicationFactory;
+use Mobicms\Config\ConfigInterface;
 use PHPUnit\Framework\TestCase;
 use Psr\Http\Message\ResponseFactoryInterface;
 

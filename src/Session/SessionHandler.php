@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Mobicms\System\Session;
+namespace Mobicms\Session;
 
 use HttpSoft\Cookie\Cookie;
 use HttpSoft\Cookie\CookieManager;
@@ -55,7 +55,7 @@ final class SessionHandler implements SessionInterface
 
     public function startSession(ServerRequestInterface $request): void
     {
-        $id = trim($request->getCookieParams()[$this->cookieName] ?? '');
+        $id = trim((string) ($request->getCookieParams()[$this->cookieName] ?? ''));
 
         if (! empty($id) && strlen($id) == 32) {
             $this->sessionId = $id;

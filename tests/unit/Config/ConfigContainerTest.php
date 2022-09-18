@@ -5,8 +5,8 @@ declare(strict_types=1);
 namespace MobicmsTest\System\Config;
 
 use InvalidArgumentException;
-use Mobicms\System\Config\ConfigContainer;
-use Mobicms\System\Config\ConfigInterface;
+use Mobicms\Config\ConfigContainer;
+use Mobicms\Config\ConfigInterface;
 use PHPUnit\Framework\TestCase;
 
 class ConfigContainerTest extends TestCase

@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace Mobicms\System\Session;
+namespace Mobicms\Session;
 
 use Devanych\Di\FactoryInterface;
-use Mobicms\System\Config\ConfigInterface;
-use Mobicms\System\Session\Exception\CannotWhiteTimestampException;
+use Mobicms\Config\ConfigInterface;
+use Mobicms\Session\Exception\CannotWhiteTimestampException;
 use PDO;
 use Psr\Container\ContainerInterface;
 

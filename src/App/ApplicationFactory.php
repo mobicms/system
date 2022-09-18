@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Mobicms\System\App;
+namespace Mobicms\App;
 
 use Devanych\Di\FactoryInterface;
 use HttpSoft\Basis\Application;
@@ -11,8 +11,8 @@ use HttpSoft\Router\RouteCollector;
 use HttpSoft\Runner\MiddlewarePipelineInterface;
 use HttpSoft\Runner\MiddlewareResolverInterface;
 use Mobicms\Render\Engine;
-use Mobicms\System\Config\ConfigInterface;
-use Mobicms\System\ErrorHandler\NotFoundHandler;
+use Mobicms\Config\ConfigInterface;
+use Mobicms\ErrorHandler\NotFoundHandler;
 use Psr\Container\ContainerInterface;
 use Psr\Http\Message\ResponseFactoryInterface;
 
