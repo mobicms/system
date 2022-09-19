@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace MobicmsTest\Session;
 
-use Mobicms\Config\ConfigInterface;
+use Mobicms\Interface\ConfigInterface;
 use Mobicms\Session\Exception\CannotWhiteTimestampException;
 use Mobicms\Session\SessionMiddleware;
 use Mobicms\Session\SessionMiddlewareFactory;

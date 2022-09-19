@@ -13,8 +13,8 @@ use HttpSoft\{
     Runner\MiddlewareResolverInterface
 };
 use Mobicms\{
+    Interface\ConfigInterface,
     Render\Engine,
-    Config\ConfigInterface,
     ErrorHandler\NotFoundHandler
 };
 use Psr\Container\ContainerInterface;

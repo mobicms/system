@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "a064ad4987ec267acef531f866e4898f",
+    "content-hash": "770e204f11b3bf39a0cddebc8eaffd37",
     "packages": [
         {
             "name": "devanych/di-container",
@@ -733,15 +733,16 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/mobicms/config.git",
-                "reference": "698c9e06eea6296b52f50ef171cacde61db2b8a9"
+                "reference": "bad213e36649b9ad4a0f655c0fa88dc5cc905c78"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/mobicms/config/zipball/698c9e06eea6296b52f50ef171cacde61db2b8a9",
-                "reference": "698c9e06eea6296b52f50ef171cacde61db2b8a9",
+                "url": "https://api.github.com/repos/mobicms/config/zipball/bad213e36649b9ad4a0f655c0fa88dc5cc905c78",
+                "reference": "bad213e36649b9ad4a0f655c0fa88dc5cc905c78",
                 "shasum": ""
             },
             "require": {
+                "mobicms/interface": "dev-main",
                 "php": "~8.1.0"
             },
             "require-dev": {
@@ -782,7 +783,63 @@
                 "issues": "https://github.com/mobicms/config/issues",
                 "source": "https://github.com/mobicms/config"
             },
-            "time": "2022-09-18T16:04:04+00:00"
+            "time": "2022-09-19T11:16:12+00:00"
+        },
+        {
+            "name": "mobicms/interface",
+            "version": "dev-main",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/mobicms/interface.git",
+                "reference": "a023b2aa4acd92b0e48239316281a5f8cf925c1b"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/mobicms/interface/zipball/a023b2aa4acd92b0e48239316281a5f8cf925c1b",
+                "reference": "a023b2aa4acd92b0e48239316281a5f8cf925c1b",
+                "shasum": ""
+            },
+            "require": {
+                "php": "~8.1.0"
+            },
+            "require-dev": {
+                "slevomat/coding-standard": "^7.2",
+                "squizlabs/php_codesniffer": "^3.7",
+                "vimeo/psalm": "^4.27"
+            },
+            "default-branch": true,
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Mobicms\\Interface\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL-3.0-only"
+            ],
+            "authors": [
+                {
+                    "name": "Oleg Kasyanov",
+                    "email": "oleg@batumi.org",
+                    "homepage": "https://github.com/batumibiz",
+                    "role": "Team Lead, Developer"
+                },
+                {
+                    "name": "mobiCMS Contributors",
+                    "homepage": "https://github.com/mobicms/interface/graphs/contributors"
+                }
+            ],
+            "description": "mobiCMS Config Subsystem",
+            "keywords": [
+                "config",
+                "mobicms"
+            ],
+            "support": {
+                "issues": "https://github.com/mobicms/interface/issues",
+                "source": "https://github.com/mobicms/interface"
+            },
+            "time": "2022-09-19T10:58:58+00:00"
         },
         {
             "name": "mobicms/render",
@@ -790,12 +847,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/mobicms/render.git",
-                "reference": "5a290946d351cde876a16393140a7eeaf757d983"
+                "reference": "22a4c63cc3ddd9a2f74a6b84f2ba33c10561bb96"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/mobicms/render/zipball/5a290946d351cde876a16393140a7eeaf757d983",
-                "reference": "5a290946d351cde876a16393140a7eeaf757d983",
+                "url": "https://api.github.com/repos/mobicms/render/zipball/22a4c63cc3ddd9a2f74a6b84f2ba33c10561bb96",
+                "reference": "22a4c63cc3ddd9a2f74a6b84f2ba33c10561bb96",
                 "shasum": ""
             },
             "require": {
@@ -803,10 +860,9 @@
             },
             "require-dev": {
                 "phpunit/phpunit": "^9.5",
-                "psalm/plugin-phpunit": "^0.15",
                 "slevomat/coding-standard": "^7.2",
-                "squizlabs/php_codesniffer": "^3.6",
-                "vimeo/psalm": "^4.23"
+                "squizlabs/php_codesniffer": "^3.7",
+                "vimeo/psalm": "^4.27"
             },
             "default-branch": true,
             "type": "library",
@@ -837,7 +893,7 @@
                 "issues": "https://github.com/mobicms/render/issues",
                 "source": "https://github.com/mobicms/render/tree/main"
             },
-            "time": "2022-08-09T10:49:41+00:00"
+            "time": "2022-09-19T00:11:15+00:00"
         },
         {
             "name": "monolog/monolog",
@@ -5108,8 +5164,9 @@
     "aliases": [],
     "minimum-stability": "dev",
     "stability-flags": {
-        "mobicms/render": 20,
-        "mobicms/config": 20
+        "mobicms/config": 20,
+        "mobicms/interface": 20,
+        "mobicms/render": 20
     },
     "prefer-stable": true,
     "prefer-lowest": false,
@@ -5118,5 +5175,5 @@
         "ext-pdo": "*"
     },
     "platform-dev": [],
-    "plugin-api-version": "2.3.0"
+    "plugin-api-version": "2.1.0"
 }

@@ -5,12 +5,12 @@ declare(strict_types=1);
 namespace Mobicms\Db;
 
 use Devanych\Di\FactoryInterface;
-use Mobicms\Config\ConfigInterface;
 use Mobicms\Db\Exception\{
     CommonException,
     InvalidDatabaseException,
     InvalidCredentialsException
 };
+use Mobicms\Interface\ConfigInterface;
 use PDO;
 use PDOException;
 use Psr\Container\ContainerInterface;

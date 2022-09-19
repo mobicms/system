@@ -5,8 +5,8 @@ declare(strict_types=1);
 namespace Mobicms\View;
 
 use Devanych\Di\FactoryInterface;
+use Mobicms\Interface\ConfigInterface;
 use Mobicms\Render\Engine;
-use Mobicms\Config\ConfigInterface;
 use Psr\Container\ContainerInterface;
 
 class EngineFactory implements FactoryInterface

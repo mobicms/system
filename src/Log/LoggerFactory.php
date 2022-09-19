@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace Mobicms\Log;
 
 use Devanych\Di\FactoryInterface;
-use Mobicms\Config\ConfigInterface;
+use Mobicms\Interface\ConfigInterface;
 use Monolog\Handler\StreamHandler;
 use Monolog\Logger;
 use Psr\Container\ContainerInterface;

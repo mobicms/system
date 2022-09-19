@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace MobicmsTest\View;
 
+use Mobicms\Interface\ConfigInterface;
 use Mobicms\Render\Engine;
-use Mobicms\Config\ConfigInterface;
 use Mobicms\View\EngineFactory;
 use PHPUnit\Framework\TestCase;
 use Psr\Container\ContainerInterface;
