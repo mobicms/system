@@ -41,9 +41,6 @@ jobs:
       - name: Install dependencies
         run: composer install --no-progress --no-interaction
 
-      - name: Start MySQL
-        run: sudo /etc/init.d/mysql start
-
       - name: PhpUnit test
         if: matrix.php-versions != '8.1'
         run: composer test
