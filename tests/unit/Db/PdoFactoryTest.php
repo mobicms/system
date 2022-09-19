@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace MobicmsTest\System\Db;
+namespace MobicmsTest\Db;
 
 use Devanych\Di\FactoryInterface;
 use Mobicms\Config\ConfigInterface;

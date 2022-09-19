@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace MobicmsTest\System\View;
+namespace MobicmsTest\View;
 
 use Mobicms\Render\Engine;
 use Mobicms\Config\ConfigInterface;

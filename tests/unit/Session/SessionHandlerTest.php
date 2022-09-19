@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace MobicmsTest\System\Session;
+namespace MobicmsTest\Session;
 
 use HttpSoft\Message\Response;
 use Mobicms\Session\SessionHandler;

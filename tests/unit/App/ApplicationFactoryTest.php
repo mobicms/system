@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace MobicmsTest\System\App;
+namespace MobicmsTest\App;
 
 use Devanych\Di\Container;
 use Devanych\Di\Exception\NotFoundException;

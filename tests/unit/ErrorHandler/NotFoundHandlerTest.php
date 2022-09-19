@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace MobicmsTest\System\ErrorHandler;
+namespace MobicmsTest\ErrorHandler;
 
 use HttpSoft\Basis\Response\CustomResponseFactory;
 use Mobicms\Render\Engine;

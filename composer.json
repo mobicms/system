@@ -59,7 +59,7 @@
     },
     "autoload-dev": {
         "psr-4": {
-            "MobicmsTest\\System\\": "tests/unit/"
+            "MobicmsTest\\": "tests/unit/"
         }
     },
     "scripts": {

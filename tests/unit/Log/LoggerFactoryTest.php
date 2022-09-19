@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace MobicmsTest\System\Log;
+namespace MobicmsTest\Log;
 
 use Mobicms\Config\ConfigInterface;
 use Mobicms\Log\LoggerFactory;

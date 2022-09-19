@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace MobicmsTest\System\Middleware;
+namespace MobicmsTest\Middleware;
 
 use Mobicms\Middleware\IpAndUserAgentMiddleware;
 use PHPUnit\Framework\MockObject\MockObject;
