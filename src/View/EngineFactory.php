@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Mobicms\View;
 
-use Devanych\Di\FactoryInterface;
+use Mobicms\Container\FactoryInterface;
 use Mobicms\Interface\ConfigInterface;
 use Mobicms\Render\Engine;
 use Psr\Container\ContainerInterface;
@@ -21,7 +21,7 @@ class EngineFactory implements FactoryInterface
 
         /**
          * @var string $namespace
-         * @var array $pathArray
+         * @var array  $pathArray
          */
         foreach ($paths as $namespace => $pathArray) {
             /** @var string $path */

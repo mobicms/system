@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace Mobicms\App;
 
-use Devanych\Di\FactoryInterface;
 use HttpSoft\{
     Basis\Application,
     Emitter\EmitterInterface,
@@ -13,6 +12,7 @@ use HttpSoft\{
     Runner\MiddlewareResolverInterface
 };
 use Mobicms\{
+    Container\FactoryInterface,
     Interface\ConfigInterface,
     Render\Engine,
     ErrorHandler\NotFoundHandler

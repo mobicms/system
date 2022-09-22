@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace Mobicms\ErrorHandler;
 
-use Devanych\Di\FactoryInterface;
 use HttpSoft\Basis\ErrorHandler\LogErrorListener;
 use HttpSoft\ErrorHandler\ErrorHandlerMiddleware;
+use Mobicms\Container\FactoryInterface;
 use Psr\Container\ContainerInterface;
 use Psr\Log\LoggerInterface;
 

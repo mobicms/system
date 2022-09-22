@@ -37,7 +37,6 @@
     "require": {
         "php": "~8.1.0",
         "ext-pdo": "*",
-        "devanych/di-container": "^2.1",
         "filp/whoops": "^2.14",
         "httpsoft/http-basis": "^1.0",
         "mobicms/config": "dev-main",
@@ -80,5 +79,11 @@
             "@putenv XDEBUG_MODE=coverage",
             "phpunit --colors=always --coverage-clover clover.xml --log-junit report.xml"
         ]
-    }
+    },
+    "repositories": [
+        {
+            "type": "path",
+            "url": "../container"
+        }
+    ]
 }
