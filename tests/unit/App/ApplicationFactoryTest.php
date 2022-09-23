@@ -4,8 +4,6 @@ declare(strict_types=1);
 
 namespace MobicmsTest\App;
 
-use Devanych\Di\Container;
-use Devanych\Di\Exception\NotFoundException;
 use HttpSoft\Basis\Application;
 use HttpSoft\Basis\Response\CustomResponseFactory;
 use HttpSoft\Emitter\EmitterInterface;
@@ -16,6 +14,8 @@ use HttpSoft\Runner\MiddlewarePipelineInterface;
 use HttpSoft\Runner\MiddlewareResolver;
 use HttpSoft\Runner\MiddlewareResolverInterface;
 use Mobicms\App\ApplicationFactory;
+use Mobicms\Container\Container;
+use Mobicms\Container\Exception\NotFoundException;
 use Mobicms\Interface\ConfigInterface;
 use PHPUnit\Framework\TestCase;
 use Psr\Http\Message\ResponseFactoryInterface;

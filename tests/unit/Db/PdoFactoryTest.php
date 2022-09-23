@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace MobicmsTest\Db;
 
-use Devanych\Di\FactoryInterface;
 use Mobicms\Db\Exception\CommonException;
 use Mobicms\Db\Exception\InvalidCredentialsException;
 use Mobicms\Db\Exception\InvalidDatabaseException;
@@ -35,7 +34,6 @@ class PdoFactoryTest extends MysqlTestCase
         ];
 
         $factory = new PdoFactory();
-        $this->assertInstanceOf(FactoryInterface::class, $factory);
         $this->assertInstanceOf(PDO::class, $factory->create($this->getContainer($config)));
     }
 

@@ -6,11 +6,10 @@ namespace MobicmsTest\Log;
 
 use Mobicms\Interface\ConfigInterface;
 use Mobicms\Log\LoggerFactory;
-use Devanych\Di\Container;
-use Devanych\Di\Exception\NotFoundException;
 use Monolog\Handler\StreamHandler;
 use Monolog\Logger;
 use PHPUnit\Framework\TestCase;
+use Psr\Container\ContainerInterface;
 use Psr\Log\LoggerInterface;
 
 class LoggerFactoryTest extends TestCase
@@ -32,12 +31,11 @@ class LoggerFactoryTest extends TestCase
             ->method('get')
             ->withConsecutive(['log_file'], ['debug'])
             ->willReturn('test.log', $debug);
-
-        $container = new Container(
-            [
-                ConfigInterface::class => $config,
-            ]
-        );
+        $container = $this->createMock(ContainerInterface::class);
+        $container
+            ->method('get')
+            ->with(ConfigInterface::class)
+            ->willReturn($config);
 
         /** @var Logger $logger */
         $logger = $this->factory->create($container);
@@ -48,12 +46,6 @@ class LoggerFactoryTest extends TestCase
         foreach ($logger->getHandlers() as $handler) {
             $this->assertInstanceOf(StreamHandler::class, $handler);
         }
-    }
-
-    public function testCreateThrowNotFoundExceptionIfConfigIsNotSet(): void
-    {
-        $this->expectException(NotFoundException::class);
-        $this->factory->create(new Container());
     }
 
     /**
