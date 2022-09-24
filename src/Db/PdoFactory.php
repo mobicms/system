@@ -4,20 +4,17 @@ declare(strict_types=1);
 
 namespace Mobicms\Db;
 
-use Mobicms\Db\Exception\{
-    CommonException,
-    InvalidDatabaseException,
-    InvalidCredentialsException
-};
-use Mobicms\Container\FactoryInterface;
+use Mobicms\Db\Exception\CommonException;
+use Mobicms\Db\Exception\InvalidDatabaseException;
+use Mobicms\Db\Exception\InvalidCredentialsException;
 use Mobicms\Interface\ConfigInterface;
 use PDO;
 use PDOException;
 use Psr\Container\ContainerInterface;
 
-class PdoFactory implements FactoryInterface
+class PdoFactory
 {
-    public function create(ContainerInterface $container): PDO
+    public function __invoke(ContainerInterface $container): PDO
     {
         /** @var ConfigInterface $configContainer */
         $configContainer = $container->get(ConfigInterface::class);

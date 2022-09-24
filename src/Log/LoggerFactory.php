@@ -4,16 +4,15 @@ declare(strict_types=1);
 
 namespace Mobicms\Log;
 
-use Mobicms\Container\FactoryInterface;
 use Mobicms\Interface\ConfigInterface;
 use Monolog\Handler\StreamHandler;
 use Monolog\Logger;
 use Psr\Container\ContainerInterface;
 use Psr\Log\LoggerInterface;
 
-final class LoggerFactory implements FactoryInterface
+final class LoggerFactory
 {
-    public function create(ContainerInterface $container): LoggerInterface
+    public function __invoke(ContainerInterface $container): LoggerInterface
     {
         /** @var ConfigInterface $configContainer */
         $configContainer = $container->get(ConfigInterface::class);

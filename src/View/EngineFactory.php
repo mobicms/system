@@ -4,14 +4,13 @@ declare(strict_types=1);
 
 namespace Mobicms\View;
 
-use Mobicms\Container\FactoryInterface;
 use Mobicms\Interface\ConfigInterface;
 use Mobicms\Render\Engine;
 use Psr\Container\ContainerInterface;
 
-class EngineFactory implements FactoryInterface
+class EngineFactory
 {
-    public function create(ContainerInterface $container): Engine
+    public function __invoke(ContainerInterface $container): Engine
     {
         /** @var ConfigInterface $config */
         $config = $container->get(ConfigInterface::class);
@@ -21,7 +20,7 @@ class EngineFactory implements FactoryInterface
 
         /**
          * @var string $namespace
-         * @var array  $pathArray
+         * @var array $pathArray
          */
         foreach ($paths as $namespace => $pathArray) {
             /** @var string $path */

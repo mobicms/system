@@ -4,15 +4,14 @@ declare(strict_types=1);
 
 namespace Mobicms\Session;
 
-use Mobicms\Container\FactoryInterface;
 use Mobicms\Interface\ConfigInterface;
 use Mobicms\Session\Exception\CannotWhiteTimestampException;
 use PDO;
 use Psr\Container\ContainerInterface;
 
-class SessionMiddlewareFactory implements FactoryInterface
+class SessionMiddlewareFactory
 {
-    public function create(ContainerInterface $container): SessionMiddleware
+    public function __invoke(ContainerInterface $container): SessionMiddleware
     {
         /** @var ConfigInterface $configContainer */
         $configContainer = $container->get(ConfigInterface::class);
@@ -29,7 +28,7 @@ class SessionMiddlewareFactory implements FactoryInterface
         return new SessionMiddleware($session);
     }
 
-    public function checkGc(array $config): bool
+    private function checkGc(array $config): bool
     {
         $file = (string) ($config['gc_timestamp_file'] ?? '');
         $gcPeriod = (int) ($config['gc_period'] ?? 3600);

@@ -6,13 +6,12 @@ namespace Mobicms\ErrorHandler;
 
 use HttpSoft\Basis\ErrorHandler\LogErrorListener;
 use HttpSoft\ErrorHandler\ErrorHandlerMiddleware;
-use Mobicms\Container\FactoryInterface;
 use Psr\Container\ContainerInterface;
 use Psr\Log\LoggerInterface;
 
-final class ErrorHandlerMiddlewareFactory implements FactoryInterface
+final class ErrorHandlerMiddlewareFactory
 {
-    public function create(ContainerInterface $container): ErrorHandlerMiddleware
+    public function __invoke(ContainerInterface $container): ErrorHandlerMiddleware
     {
         $errorHandler = new ErrorHandlerMiddleware(new WhoopsErrorResponseGenerator());
         /** @var LoggerInterface $logger */
