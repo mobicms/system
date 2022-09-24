@@ -79,11 +79,5 @@
             "@putenv XDEBUG_MODE=coverage",
             "phpunit --colors=always --coverage-clover clover.xml --log-junit report.xml"
         ]
-    },
-    "repositories": [
-        {
-            "type": "path",
-            "url": "../container"
-        }
-    ]
+    }
 }
