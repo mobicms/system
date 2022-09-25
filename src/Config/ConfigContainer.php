@@ -8,6 +8,7 @@ use Mobicms\Config\Exception\KeyAlreadyExistsException;
 use Mobicms\Interface\ConfigInterface;
 
 use function array_key_exists;
+use function is_array;
 
 class ConfigContainer implements ConfigInterface
 {
