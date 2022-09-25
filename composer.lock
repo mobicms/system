@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "41bde27176b5474eef1950481fae0a68",
+    "content-hash": "a617344c8054e4e257813dc65b21326e",
     "packages": [
         {
             "name": "filp/whoops",
@@ -1999,64 +1999,6 @@
                 "source": "https://github.com/felixfbecker/php-language-server-protocol/tree/v1.5.2"
             },
             "time": "2022-03-02T22:36:06+00:00"
-        },
-        {
-            "name": "mobicms/container",
-            "version": "dev-main",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/mobicms/container.git",
-                "reference": "bda3093339ea38b031569176eed84556c61a1ccf"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/mobicms/container/zipball/bda3093339ea38b031569176eed84556c61a1ccf",
-                "reference": "bda3093339ea38b031569176eed84556c61a1ccf",
-                "shasum": ""
-            },
-            "require": {
-                "php": "~8.1.0",
-                "psr/container": "^1.0 || ^2.0"
-            },
-            "require-dev": {
-                "phpunit/phpunit": "^9.5",
-                "slevomat/coding-standard": "^7.2",
-                "squizlabs/php_codesniffer": "^3.7",
-                "vimeo/psalm": "^4.27"
-            },
-            "default-branch": true,
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "Mobicms\\Container\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "GPL-3.0-only"
-            ],
-            "authors": [
-                {
-                    "name": "Oleg Kasyanov",
-                    "email": "oleg@batumi.org",
-                    "homepage": "https://github.com/batumibiz",
-                    "role": "Team Lead, Developer"
-                },
-                {
-                    "name": "mobiCMS Contributors",
-                    "homepage": "https://github.com/mobicms/container/graphs/contributors"
-                }
-            ],
-            "description": "Dependency Injection Container",
-            "keywords": [
-                "container",
-                "mobicms"
-            ],
-            "support": {
-                "issues": "https://github.com/mobicms/container/issues",
-                "source": "https://github.com/mobicms/container"
-            },
-            "time": "2022-09-24T15:12:57+00:00"
         },
         {
             "name": "mobicms/testutils",
@@ -5169,8 +5111,7 @@
     "stability-flags": {
         "mobicms/config": 20,
         "mobicms/interface": 20,
-        "mobicms/render": 20,
-        "mobicms/container": 20
+        "mobicms/render": 20
     },
     "prefer-stable": true,
     "prefer-lowest": false,
