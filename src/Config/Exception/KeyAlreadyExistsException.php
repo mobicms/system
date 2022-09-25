@@ -1,0 +1,15 @@
+<?php
+
+declare(strict_types=1);
+
+namespace Mobicms\Config\Exception;
+
+use InvalidArgumentException;
+
+class KeyAlreadyExistsException extends InvalidArgumentException
+{
+    public function __construct(string $key)
+    {
+        parent::__construct('This key "' . $key . '" already exists');
+    }
+}

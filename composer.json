@@ -39,7 +39,6 @@
         "ext-pdo": "*",
         "filp/whoops": "^2.14",
         "httpsoft/http-basis": "^1.0",
-        "mobicms/config": "dev-main",
         "mobicms/interface": "dev-main",
         "mobicms/render": "dev-main",
         "monolog/monolog": "^2.8",
