@@ -42,14 +42,10 @@ class ErrorHandlerMiddlewareFactoryTest extends TestCase
             ->withConsecutive(['log_file'], ['debug'])
             ->willReturn('test.log', $debug);
 
-        $container = new Container(
-            [
-                ConfigInterface::class => $config,
-                LoggerInterface::class => LoggerFactory::class,
-            ]
-        );
+        $container = new Container([ConfigInterface::class => $config]);
+        $container->setFactory(LoggerInterface::class, LoggerFactory::class);
 
-        $errorHandler = $this->factory->create($container);
+        $errorHandler = (new ErrorHandlerMiddlewareFactory())($container);
         $this->assertInstanceOf(MiddlewareInterface::class, $errorHandler);
         $this->assertInstanceOf(ErrorHandlerMiddleware::class, $errorHandler);
     }
@@ -57,12 +53,12 @@ class ErrorHandlerMiddlewareFactoryTest extends TestCase
     public function testCreateThrowNotFoundExceptionIfConfigIsNotSet(): void
     {
         $this->expectException(NotFoundException::class);
-        $this->factory->create(new Container());
+        (new ErrorHandlerMiddlewareFactory())(new Container());
     }
 
     public function testCreateThrowNotFoundExceptionIfLoggerInterfaceIsNotSet(): void
     {
         $this->expectException(NotFoundException::class);
-        $this->factory->create(new Container(['debug' => true, 'log_file' => 'test.log']));
+        (new ErrorHandlerMiddlewareFactory())(new Container(['debug' => true, 'log_file' => 'test.log']));
     }
 }

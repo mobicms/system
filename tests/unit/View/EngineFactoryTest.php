@@ -41,7 +41,7 @@ class EngineFactoryTest extends TestCase
 
     public function testFactoryReturnsInstanceOfEngine(): Engine
     {
-        $engine = (new EngineFactory())->create($this->container);
+        $engine = (new EngineFactory())($this->container);
         $this->assertInstanceOf(Engine::class, $engine);
         return $engine;
     }

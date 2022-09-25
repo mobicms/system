@@ -14,13 +14,6 @@ use Psr\Log\LoggerInterface;
 
 class LoggerFactoryTest extends TestCase
 {
-    private LoggerFactory $factory;
-
-    public function setUp(): void
-    {
-        $this->factory = new LoggerFactory();
-    }
-
     /**
      * @dataProvider debugDataProvider
      */
@@ -38,7 +31,7 @@ class LoggerFactoryTest extends TestCase
             ->willReturn($config);
 
         /** @var Logger $logger */
-        $logger = $this->factory->create($container);
+        $logger = (new LoggerFactory())($container);
         $this->assertInstanceOf(LoggerInterface::class, $logger);
         $this->assertInstanceOf(Logger::class, $logger);
         $this->assertTrue($logger->isHandling($debug ? Logger::DEBUG : Logger::WARNING));

@@ -22,8 +22,6 @@ use Psr\Http\Message\ResponseFactoryInterface;
 
 class ApplicationFactoryTest extends TestCase
 {
-    private ApplicationFactory $factory;
-
     public function setUp(): void
     {
         $this->factory = new ApplicationFactory();
@@ -48,7 +46,7 @@ class ApplicationFactoryTest extends TestCase
             ->with('debug')
             ->willReturn($debug);
 
-        $app = $this->factory->create(
+        $app = (new ApplicationFactory())(
             new Container(
                 [
                     ConfigInterface::class             => $config,
@@ -65,7 +63,7 @@ class ApplicationFactoryTest extends TestCase
     public function testCreateThrowNotFoundExceptionIfConfigIsNotSet(): void
     {
         $this->expectException(NotFoundException::class);
-        $this->factory->create(
+        (new ApplicationFactory())(
             new Container(
                 [
                     RouteCollector::class              => RouteCollector::class,
@@ -107,6 +105,6 @@ class ApplicationFactoryTest extends TestCase
     public function testCreateThrowNotFoundExceptionIfOneOfDependenciesIsNotSet(array $dependencies): void
     {
         $this->expectException(NotFoundException::class);
-        $this->factory->create(new Container(['debug' => true, 'log_file' => 'test.log'] + $dependencies));
+        (new ApplicationFactory())(new Container(['debug' => true, 'log_file' => 'test.log'] + $dependencies));
     }
 }

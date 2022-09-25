@@ -93,7 +93,7 @@ class SessionMiddlewareFactoryTest extends MysqlTestCase
         }
 
         touch($this->file, time() - 10000);
-        $result = $this->factory->create($this->getContainer(['gc_timestamp_file' => $this->file]));
+        $result = (new SessionMiddlewareFactory())($this->getContainer(['gc_timestamp_file' => $this->file]));
         $this->assertInstanceOf(SessionMiddleware::class, $result);
     }
 

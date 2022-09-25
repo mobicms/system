@@ -28,7 +28,7 @@ class SessionMiddlewareFactory
         return new SessionMiddleware($session);
     }
 
-    private function checkGc(array $config): bool
+    public function checkGc(array $config): bool
     {
         $file = (string) ($config['gc_timestamp_file'] ?? '');
         $gcPeriod = (int) ($config['gc_period'] ?? 3600);

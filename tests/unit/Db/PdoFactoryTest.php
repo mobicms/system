@@ -33,8 +33,7 @@ class PdoFactoryTest extends MysqlTestCase
             'pass'   => $this->config->password(),
         ];
 
-        $factory = new PdoFactory();
-        $this->assertInstanceOf(PDO::class, $factory->create($this->getContainer($config)));
+        $this->assertInstanceOf(PDO::class, (new PdoFactory())($this->getContainer($config)));
     }
 
     public function testInvalidPasswordThrowInvalidCredentialsException(): void
@@ -48,7 +47,7 @@ class PdoFactoryTest extends MysqlTestCase
         ];
 
         $this->expectException(InvalidCredentialsException::class);
-        (new PdoFactory())->create($this->getContainer($config));
+        (new PdoFactory())($this->getContainer($config));
     }
 
     public function testInvalidUserThrowInvalidCredentialsException(): void
@@ -62,7 +61,7 @@ class PdoFactoryTest extends MysqlTestCase
         ];
 
         $this->expectException(InvalidCredentialsException::class);
-        (new PdoFactory())->create($this->getContainer($config));
+        (new PdoFactory())($this->getContainer($config));
     }
 
     public function testInvalidDatabaseNameThrowInvalidDatabaseException(): void
@@ -76,7 +75,7 @@ class PdoFactoryTest extends MysqlTestCase
         ];
 
         $this->expectException(InvalidDatabaseException::class);
-        (new PdoFactory())->create($this->getContainer($config));
+        (new PdoFactory())($this->getContainer($config));
     }
 
     public function testInvalidHostThrowUnableToConnectException(): void
@@ -90,7 +89,7 @@ class PdoFactoryTest extends MysqlTestCase
         ];
 
         $this->expectException(CommonException::class);
-        (new PdoFactory())->create($this->getContainer($config));
+        (new PdoFactory())($this->getContainer($config));
     }
 
     public function testInvalidPortThrowUnableToConnectException(): void
@@ -104,7 +103,7 @@ class PdoFactoryTest extends MysqlTestCase
         ];
 
         $this->expectException(CommonException::class);
-        (new PdoFactory())->create($this->getContainer($config));
+        (new PdoFactory())($this->getContainer($config));
     }
 
     private function getContainer(array $values): ContainerInterface
