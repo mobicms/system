@@ -51,8 +51,8 @@ jobs:
         working-directory: ./
         run: |
           composer test-coverage
-          sed -i 's/\/home\/runner\/work\/mobicms\/mobicms\//\/github\/workspace\//g' report.xml
-          sed -i 's/\/home\/runner\/work\/mobicms\/mobicms\//\/github\/workspace\//g' clover.xml
+          sed -i 's/\/home\/runner\/work\/system\/system\//\/github\/workspace\//g' report.xml
+          sed -i 's/\/home\/runner\/work\/system\/system\//\/github\/workspace\//g' clover.xml
 
       - name: Upload coverage report
         if: matrix.php-versions == '8.1'
@@ -63,8 +63,8 @@ jobs:
         with:
           args: >
             -Dsonar.organization=mobicms
-            -Dsonar.projectName=config
-            -Dsonar.projectKey=mobicms_config
+            -Dsonar.projectName=system
+            -Dsonar.projectKey=mobicms_system
             -Dsonar.sources=./src
             -Dsonar.tests=./tests
             -Dsonar.sourceEncoding=UTF-8
