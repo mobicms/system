@@ -24,27 +24,27 @@ class ConfigContainer implements ConfigInterface
         return array_key_exists($key, $this->data);
     }
 
-    /**
-     * @psalm-suppress MixedAssignment
-     */
     public function get(string|array $key, mixed $default = null): mixed
     {
-        if (is_string($key)) {
-            return array_key_exists($key, $this->data) ? $this->data[$key] : $default;
-        }
+        if (is_array($key)) {
+            $value = $this->data;
 
-        $value = $this->data;
+            /** @var string $nested */
+            foreach ($key as $nested) {
+                if (! is_array($value) || ! array_key_exists($nested, $value)) {
+                    return $default;
+                }
 
-        /** @var string $nested */
-        foreach ($key as $nested) {
-            if (! is_array($value) || ! array_key_exists($nested, $value)) {
-                return $default;
+                /** @var array|mixed $value */
+                $value = $value[$nested];
             }
 
-            $value = $value[$nested];
+            return $value;
         }
 
-        return $value;
+        return array_key_exists($key, $this->data)
+            ? $this->data[$key]
+            : $default;
     }
 
     public function set(string $key, mixed $value): void
