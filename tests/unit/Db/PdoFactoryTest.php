@@ -8,7 +8,7 @@ use Mobicms\Db\Exception\CommonException;
 use Mobicms\Db\Exception\InvalidCredentialsException;
 use Mobicms\Db\Exception\InvalidDatabaseException;
 use Mobicms\Db\PdoFactory;
-use Mobicms\Interface\ConfigInterface;
+use Mobicms\Config\ConfigInterface;
 use Mobicms\Testutils\ConfigLoader;
 use Mobicms\Testutils\MysqlTestCase;
 use PDO;

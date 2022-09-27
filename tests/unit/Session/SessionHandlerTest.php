@@ -6,7 +6,7 @@ namespace MobicmsTest\Session;
 
 use HttpSoft\Message\Response;
 use Mobicms\Session\SessionHandler;
-use Mobicms\Interface\SessionInterface;
+use Mobicms\Session\SessionInterface;
 use Mobicms\Testutils\MysqlTestCase;
 use Mobicms\Testutils\SqlDumpLoader;
 use Psr\Http\Message\ServerRequestInterface;

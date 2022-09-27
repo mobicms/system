@@ -6,7 +6,7 @@ namespace MobicmsTest\Config;
 
 use Mobicms\Config\ConfigContainer;
 use Mobicms\Config\Exception\KeyAlreadyExistsException;
-use Mobicms\Interface\ConfigInterface;
+use Mobicms\Config\ConfigInterface;
 use PHPUnit\Framework\TestCase;
 
 class ConfigContainerTest extends TestCase

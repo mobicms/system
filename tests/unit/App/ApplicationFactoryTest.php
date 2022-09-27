@@ -16,7 +16,7 @@ use HttpSoft\Runner\MiddlewareResolverInterface;
 use Mobicms\App\ApplicationFactory;
 use Mobicms\Container\Container;
 use Mobicms\Container\Exception\NotFoundException;
-use Mobicms\Interface\ConfigInterface;
+use Mobicms\Config\ConfigInterface;
 use PHPUnit\Framework\TestCase;
 use Psr\Http\Message\ResponseFactoryInterface;
 

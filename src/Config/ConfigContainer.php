@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace Mobicms\Config;
 
 use Mobicms\Config\Exception\KeyAlreadyExistsException;
-use Mobicms\Interface\ConfigInterface;
 
 use function array_key_exists;
 use function is_array;

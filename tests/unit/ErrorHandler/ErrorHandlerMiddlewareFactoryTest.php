@@ -8,7 +8,7 @@ use HttpSoft\ErrorHandler\ErrorHandlerMiddleware;
 use Mobicms\Container\Container;
 use Mobicms\Container\Exception\NotFoundException;
 use Mobicms\ErrorHandler\ErrorHandlerMiddlewareFactory;
-use Mobicms\Interface\ConfigInterface;
+use Mobicms\Config\ConfigInterface;
 use Mobicms\Log\LoggerFactory;
 use PHPUnit\Framework\TestCase;
 use Psr\Http\Server\MiddlewareInterface;

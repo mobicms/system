@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Mobicms\Session;
 
-use Mobicms\Interface\ConfigInterface;
+use Mobicms\Config\ConfigInterface;
 use Mobicms\Session\Exception\CannotWhiteTimestampException;
 use PDO;
 use Psr\Container\ContainerInterface;

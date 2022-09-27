@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Mobicms\Log;
 
-use Mobicms\Interface\ConfigInterface;
+use Mobicms\Config\ConfigInterface;
 use Monolog\Handler\StreamHandler;
 use Monolog\Logger;
 use Psr\Container\ContainerInterface;
