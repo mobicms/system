@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "7c0aa33b04e409d8dddd4dd728d48cd9",
+    "content-hash": "cda9fb1ec01aa1a0733df7f31079df4d",
     "packages": [
         {
             "name": "filp/whoops",
@@ -667,62 +667,6 @@
                 "source": "https://github.com/httpsoft/http-server-request"
             },
             "time": "2021-07-20T14:36:14+00:00"
-        },
-        {
-            "name": "mobicms/interface",
-            "version": "dev-main",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/mobicms/interface.git",
-                "reference": "99548ba5f7b48964ad4d5eb5bdadd5c7164c013a"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/mobicms/interface/zipball/99548ba5f7b48964ad4d5eb5bdadd5c7164c013a",
-                "reference": "99548ba5f7b48964ad4d5eb5bdadd5c7164c013a",
-                "shasum": ""
-            },
-            "require": {
-                "php": "~8.1.0"
-            },
-            "require-dev": {
-                "slevomat/coding-standard": "^7.2",
-                "squizlabs/php_codesniffer": "^3.7",
-                "vimeo/psalm": "^4.27"
-            },
-            "default-branch": true,
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "Mobicms\\Interface\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "GPL-3.0-only"
-            ],
-            "authors": [
-                {
-                    "name": "Oleg Kasyanov",
-                    "email": "oleg@batumi.org",
-                    "homepage": "https://github.com/batumibiz",
-                    "role": "Team Lead, Developer"
-                },
-                {
-                    "name": "mobiCMS Contributors",
-                    "homepage": "https://github.com/mobicms/interface/graphs/contributors"
-                }
-            ],
-            "description": "mobiCMS Config Subsystem",
-            "keywords": [
-                "config",
-                "mobicms"
-            ],
-            "support": {
-                "issues": "https://github.com/mobicms/interface/issues",
-                "source": "https://github.com/mobicms/interface"
-            },
-            "time": "2022-09-19T21:23:53+00:00"
         },
         {
             "name": "mobicms/render",
@@ -5051,7 +4995,6 @@
     "aliases": [],
     "minimum-stability": "dev",
     "stability-flags": {
-        "mobicms/interface": 20,
         "mobicms/render": 20
     },
     "prefer-stable": true,
