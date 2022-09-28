@@ -24,7 +24,7 @@ final class SessionHandler implements SessionInterface
     private string $sessionId = '';
     private array $data = [];
 
-    public function __construct(PDO $pdo, array $options = [],)
+    public function __construct(PDO $pdo, array $options = [])
     {
         $this->pdo = $pdo;
 
