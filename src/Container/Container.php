@@ -34,10 +34,10 @@ final class Container implements ContainerInterface
         }
     }
 
-    public function setFactory(string $name, string|callable $factory): void
+    public function setFactory(string $id, string|callable $factory): void
     {
         //TODO: добавить проверку на уже имеющийся сервис
-        $this->factories[$name] = $factory;
+        $this->factories[$id] = $factory;
     }
 
     public function set(string $id, mixed $definition): void
@@ -59,30 +59,33 @@ final class Container implements ContainerInterface
         return $this->services[$id] = $this->getNew($id);
     }
 
+    /**
+     * @psalm-suppress MixedArgument
+     */
     public function getNew(string $id): mixed
     {
-        if (isset($this->factories[$id])) {
-            /** @var mixed $result */
-            $result = $this->createFromFactory($id);
-        } elseif (! array_key_exists($id, $this->definitions)) {
-            if (class_exists($id)) {
-                /** @var object $result */
-                $result = $this->createObject($id);
-            } else {
-                throw new NotFoundException(sprintf('`%s` is not set in container and is not a class name.', $id));
-            }
-        } elseif ($this->definitions[$id] instanceof Closure) {
-            /** @var mixed $result */
-            $result = $this->definitions[$id]($this);
-        } elseif (is_string($this->definitions[$id]) && class_exists($this->definitions[$id])) {
-            /** @var object $result */
-            $result = $this->createObject($this->definitions[$id]);
-        } else {
-            /** @var mixed $result */
-            $result = $this->definitions[$id];
-        }
+        return match (true) {
+            isset($this->factories[$id])
+            => $this->createFromFactory($id),
 
-        return $result;
+            ! array_key_exists($id, $this->definitions)
+            => (function () use ($id) {
+                if (! class_exists($id)) {
+                    throw new NotFoundException(sprintf('`%s` is not set in container and is not a class name.', $id));
+                }
+
+                return $this->createObject($id);
+            })(),
+
+            $this->definitions[$id] instanceof Closure
+            => $this->definitions[$id]($this),
+
+            is_string($this->definitions[$id]) && class_exists($this->definitions[$id])
+            => $this->createObject($this->definitions[$id]),
+
+            default
+            => $this->definitions[$id]
+        };
     }
 
     public function has(string $id): bool
