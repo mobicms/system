@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace MobicmsTest\Session;
 
+use HttpSoft\Cookie\CookieManagerInterface;
 use HttpSoft\Message\Response;
 use Mobicms\Session\SessionHandler;
 use Mobicms\Session\SessionInterface;
@@ -33,7 +34,11 @@ class SessionHandlerTest extends MysqlTestCase
             $this->fail(implode("\n", $loader->getErrors()));
         }
 
-        $this->session = new SessionHandler(self::getPdo(), $this->options);
+        $this->session = new SessionHandler(
+            self::getPdo(),
+            $this->createMock(CookieManagerInterface::class),
+            $this->options
+        );
         $this->request = $this->createMock(ServerRequestInterface::class);
         $this->request
             ->method('getCookieParams')
@@ -124,7 +129,11 @@ class SessionHandlerTest extends MysqlTestCase
         $this->session->set('baz', 'bat');
         $this->session->persistSession(new Response());
 
-        $session2 = new SessionHandler(self::getPdo(), $this->options);
+        $session2 = new SessionHandler(
+            self::getPdo(),
+            $this->createMock(CookieManagerInterface::class),
+            $this->options
+        );
         $session2->startSession($this->request);
         $this->assertEquals('bat', $session2->get('baz'));
     }
@@ -141,7 +150,11 @@ class SessionHandlerTest extends MysqlTestCase
             ->method('getCookieParams')
             ->willReturn(['TESTSESSION' => $id]);
 
-        $newSession = new SessionHandler(self::getPdo(), $this->options);
+        $newSession = new SessionHandler(
+            self::getPdo(),
+            $this->createMock(CookieManagerInterface::class),
+            $this->options
+        );
         $newSession->startSession($request);
         $this->assertEquals('bat', $newSession->get('baz'));
     }

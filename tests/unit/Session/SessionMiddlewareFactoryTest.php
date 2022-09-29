@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace MobicmsTest\Session;
 
+use HttpSoft\Cookie\CookieManagerInterface;
 use Mobicms\Config\ConfigInterface;
 use Mobicms\Session\Exception\CannotWhiteTimestampException;
 use Mobicms\Session\SessionMiddleware;
@@ -108,8 +109,8 @@ class SessionMiddlewareFactoryTest extends MysqlTestCase
         $container = $this->createMock(ContainerInterface::class);
         $container
             ->method('get')
-            ->withConsecutive([ConfigInterface::class], [PDO::class])
-            ->willReturn($config, self::getPdo());
+            ->withConsecutive([ConfigInterface::class], [PDO::class], [CookieManagerInterface::class])
+            ->willReturn($config, self::getPdo(), $this->createMock(CookieManagerInterface::class));
 
         return $container;
     }
