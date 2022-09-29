@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace Mobicms\Session;
 
 use HttpSoft\Cookie\Cookie;
-use HttpSoft\Cookie\CookieManager;
+use HttpSoft\Cookie\CookieManagerInterface;
 use PDO;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
@@ -13,6 +13,7 @@ use Psr\Http\Message\ServerRequestInterface;
 final class SessionHandler implements SessionInterface
 {
     private PDO $pdo;
+    private CookieManagerInterface $cookieManager;
 
     private string $cookieName = 'SESSID';
     private ?string $cookieDomain = null;
@@ -24,9 +25,10 @@ final class SessionHandler implements SessionInterface
     private string $sessionId = '';
     private array $data = [];
 
-    public function __construct(PDO $pdo, array $options = [])
+    public function __construct(PDO $pdo, CookieManagerInterface $cookieManager, array $options = [])
     {
         $this->pdo = $pdo;
+        $this->cookieManager = $cookieManager;
 
         if (isset($options['cookie_name'])) {
             $this->cookieName = (string) $options['cookie_name'];
@@ -134,8 +136,7 @@ final class SessionHandler implements SessionInterface
 
     private function sendCookies(string $id, ResponseInterface $response): ResponseInterface
     {
-        $manager = new CookieManager();
-        $manager->set(
+        $this->cookieManager->set(
             new Cookie(
                 $this->cookieName,
                 $id,
@@ -147,7 +148,6 @@ final class SessionHandler implements SessionInterface
             )
         );
 
-        $response = $manager->send($response);
         $response = $response->withHeader('Expires', 'Thu, 19 Nov 1981 08:52:00 GMT');
         $response = $response->withHeader('Cache-Control', 'no-store, no-cache, must-revalidate');
 

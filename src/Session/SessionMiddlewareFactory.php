@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Mobicms\Session;
 
+use HttpSoft\Cookie\CookieManagerInterface;
 use Mobicms\Config\ConfigInterface;
 use Mobicms\Session\Exception\CannotWhiteTimestampException;
 use PDO;
@@ -11,15 +12,20 @@ use Psr\Container\ContainerInterface;
 
 class SessionMiddlewareFactory
 {
+    /**
+     * @psalm-suppress MixedArgument
+     */
     public function __invoke(ContainerInterface $container): SessionMiddleware
     {
         /** @var ConfigInterface $configContainer */
         $configContainer = $container->get(ConfigInterface::class);
-        /** @var PDO $pdo */
-        $pdo = $container->get(PDO::class);
-
         $config = (array) $configContainer->get('session', []);
-        $session = new SessionHandler($pdo, $config);
+
+        $session = new SessionHandler(
+            $container->get(PDO::class),
+            $container->get(CookieManagerInterface::class),
+            $config
+        );
 
         if ($this->checkGc($config)) {
             $session->garbageCollector();
