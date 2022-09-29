@@ -42,7 +42,13 @@ class ErrorHandlerMiddlewareFactoryTest extends TestCase
             ->withConsecutive(['log_file'], ['debug'])
             ->willReturn('test.log', $debug);
 
-        $container = new Container([ConfigInterface::class => $config]);
+        $container = new Container(
+            [
+                'services' => [
+                    ConfigInterface::class => $config,
+                ],
+            ]
+        );
         $container->setFactory(LoggerInterface::class, LoggerFactory::class);
 
         $errorHandler = (new ErrorHandlerMiddlewareFactory())($container);

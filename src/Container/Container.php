@@ -15,24 +15,54 @@ use ReflectionMethod;
 
 use function array_key_exists;
 use function class_exists;
+use function is_callable;
 use function is_string;
 use function sprintf;
 
 final class Container implements ContainerInterface
 {
+    private array $services = [];
     private array $factories = [];
     private array $definitions = [];
-    private array $services = [];
 
-    public function __construct(array $definitions = [])
+    public function __construct(array $config = [])
     {
+        $services = (array) ($config['services'] ?? []);
+        $factories = (array) ($config['factories'] ?? []);
+        $definitions = (array) ($config['definitions'] ?? []);
+
         /**
-         * @var string $id
-         * @var string|int|bool|callable|array|object  $definition
+         * @var string       $serviceId
+         * @var array|object $service
          */
-        foreach ($definitions as $id => $definition) {
-            $this->set($id, $definition);
+        foreach ($services as $serviceId => $service) {
+            $this->setService($serviceId, $service);
         }
+
+        /**
+         * @var string          $factoryId
+         * @var string|callable $factory
+         */
+        foreach ($factories as $factoryId => $factory) {
+            $this->setFactory($factoryId, $factory);
+        }
+
+        /**
+         * @var string                 $definitionId
+         * @var callable|object|string $definition
+         */
+        foreach ($definitions as $definitionId => $definition) {
+            $this->setDefinition($definitionId, $definition);
+        }
+    }
+
+    public function setService(string $id, array|object $service): void
+    {
+        if ($this->has($id)) {
+            throw new ServiceAlreadyExistsException($id);
+        }
+
+        $this->services[$id] = $service;
     }
 
     public function setFactory(string $id, string|callable $factory): void
@@ -44,13 +74,20 @@ final class Container implements ContainerInterface
         $this->factories[$id] = $factory;
     }
 
-    public function set(string $id, string|int|bool|callable|array|object $definition): void
+    public function setDefinition(string $id, string|callable|object $definition): void
     {
         if ($this->has($id)) {
             throw new ServiceAlreadyExistsException($id);
         }
 
         $this->definitions[$id] = $definition;
+    }
+
+    public function has(string $id): bool
+    {
+        return array_key_exists($id, $this->services)
+            || isset($this->factories[$id])
+            || isset($this->definitions[$id]);
     }
 
     public function get($id): mixed
@@ -87,13 +124,8 @@ final class Container implements ContainerInterface
             => $this->createObject($this->definitions[$id]),
 
             default
-            => $this->definitions[$id]
+            => throw new NotFoundException(sprintf('`%s` is not a class name.', $id))
         };
-    }
-
-    public function has(string $id): bool
-    {
-        return array_key_exists($id, $this->factories) || array_key_exists($id, $this->definitions);
     }
 
     /**
