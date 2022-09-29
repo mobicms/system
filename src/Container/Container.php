@@ -7,6 +7,7 @@ namespace Mobicms\Container;
 use Closure;
 use Mobicms\Container\Exception\NotFoundException;
 use Mobicms\Container\Exception\ContainerException;
+use Mobicms\Container\Exception\ServiceAlreadyExistsException;
 use Psr\Container\ContainerInterface;
 use ReflectionClass;
 use ReflectionException;
@@ -36,15 +37,17 @@ final class Container implements ContainerInterface
 
     public function setFactory(string $id, string|callable $factory): void
     {
-        //TODO: добавить проверку на уже имеющийся сервис
+        if ($this->has($id)) {
+            throw new ServiceAlreadyExistsException($id);
+        }
+
         $this->factories[$id] = $factory;
     }
 
-    public function set(string $id, mixed $definition): void
+    public function set(string $id, string|int|bool|callable|array|object $definition): void
     {
-        //TODO: добавить проверку на уже имеющийся сервис
-        if (array_key_exists($id, $this->services)) {
-            unset($this->services[$id]);//TODO: разобраться
+        if ($this->has($id)) {
+            throw new ServiceAlreadyExistsException($id);
         }
 
         $this->definitions[$id] = $definition;
