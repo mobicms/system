@@ -28,7 +28,7 @@ final class Container implements ContainerInterface
     {
         /**
          * @var string $id
-         * @var mixed  $definition
+         * @var string|int|bool|callable|array|object  $definition
          */
         foreach ($definitions as $id => $definition) {
             $this->set($id, $definition);
@@ -122,11 +122,12 @@ final class Container implements ContainerInterface
     {
         try {
             $reflection = new ReflectionClass($className);
+            $constructor = $reflection->getConstructor();
         } catch (ReflectionException $e) {
             throw new ContainerException(sprintf('Unable to create object `%s`.', $className), 0, $e);
         }
 
-        if (($constructor = $reflection->getConstructor()) === null) {
+        if (null === $constructor) {
             return $reflection->newInstance();
         }
 
@@ -148,38 +149,14 @@ final class Container implements ContainerInterface
             if (null !== $type) {
                 $typeName = $type->getName();
 
-                if (! $type->isBuiltin() && ($this->has($typeName) || class_exists($typeName))) {
+                if (! $type->isBuiltin() && $this->has($typeName)) {
                     $arguments[] = $this->get($typeName);
-                    continue;
-                }
-
-                if ($type->isBuiltin() && $typeName === 'array' && ! $parameter->isDefaultValueAvailable()) {
-                    $arguments[] = [];
-                    continue;
                 }
             }
 
             if ($parameter->isDefaultValueAvailable()) {
-                try {
-                    $arguments[] = $parameter->getDefaultValue();
-                    continue;
-                } catch (ReflectionException $e) {
-                    throw new ContainerException(
-                        sprintf(
-                            'Unable to create object `%s`. Unable to get default value of constructor parameter: `%s`.',
-                            $constructor->getName(),
-                            $parameter->getName()
-                        )
-                    );
-                }
+                $arguments[] = $parameter->getDefaultValue();
             }
-
-            throw new ContainerException(
-                sprintf(
-                    'Unable to create object. Unable to process a constructor parameter: `%s`.',
-                    $parameter->getName()
-                )
-            );
         }
 
         return $arguments;
