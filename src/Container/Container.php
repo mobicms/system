@@ -6,11 +6,9 @@ namespace Mobicms\Container;
 
 use Mobicms\Container\Exception\InvalidAliasException;
 use Mobicms\Container\Exception\NotFoundException;
-use Mobicms\Container\Exception\ContainerException;
 use Mobicms\Container\Exception\AlreadyExistsException;
 use Psr\Container\ContainerInterface;
 use ReflectionClass;
-use ReflectionException;
 use ReflectionMethod;
 
 use function array_key_exists;
@@ -204,12 +202,8 @@ final class Container implements ContainerInterface
      */
     private function createObject(string $className): object
     {
-        try {
-            $reflection = new ReflectionClass($className);
-            $constructor = $reflection->getConstructor();
-        } catch (ReflectionException $e) {
-            throw new ContainerException(sprintf('Unable to create object `%s`.', $className), 0, $e);
-        }
+        $reflection = new ReflectionClass($className);
+        $constructor = $reflection->getConstructor();
 
         if (null === $constructor) {
             return $reflection->newInstance();
