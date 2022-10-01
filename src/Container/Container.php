@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace Mobicms\Container;
 
-use Closure;
 use Mobicms\Container\Exception\NotFoundException;
 use Mobicms\Container\Exception\ContainerException;
 use Mobicms\Container\Exception\ServiceAlreadyExistsException;
@@ -48,8 +47,8 @@ final class Container implements ContainerInterface
         }
 
         /**
-         * @var string                 $definitionId
-         * @var callable|object|string $definition
+         * @var string $definitionId
+         * @var string $definition
          */
         foreach ($definitions as $definitionId => $definition) {
             $this->setDefinition($definitionId, $definition);
@@ -74,7 +73,7 @@ final class Container implements ContainerInterface
         $this->factories[$id] = $factory;
     }
 
-    public function setDefinition(string $id, string|callable|object $definition): void
+    public function setDefinition(string $id, string $definition): void
     {
         if ($this->has($id)) {
             throw new ServiceAlreadyExistsException($id);
@@ -117,10 +116,7 @@ final class Container implements ContainerInterface
                 return $this->createObject($id);
             })(),
 
-            $this->definitions[$id] instanceof Closure
-            => $this->definitions[$id]($this),
-
-            is_string($this->definitions[$id]) && class_exists($this->definitions[$id])
+            class_exists($this->definitions[$id])
             => $this->createObject($this->definitions[$id]),
 
             default
