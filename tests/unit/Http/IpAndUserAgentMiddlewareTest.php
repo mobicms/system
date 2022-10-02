@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace MobicmsTest\Middleware;
+namespace MobicmsTest\Http;
 
-use Mobicms\Middleware\IpAndUserAgentMiddleware;
+use Mobicms\Http\IpAndUserAgentMiddleware;
 use PHPUnit\Framework\MockObject\MockObject;
 use PHPUnit\Framework\TestCase;
 use Psr\Http\Message\ResponseInterface;

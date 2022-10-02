@@ -20,6 +20,11 @@ class PdoFactory
         $configContainer = $container->get(ConfigInterface::class);
         $config = (array) $configContainer->get('database', []);
 
+        return $this->connect($config);
+    }
+
+    private function connect(array $config): PDO
+    {
         try {
             return new PDO(
                 sprintf(
