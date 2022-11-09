@@ -63,7 +63,7 @@ final class SessionHandler implements SessionInterface
             $this->sessionId = $id;
 
             $stmt = $this->pdo->prepare('SELECT * FROM `system__session` WHERE `session_id` = :id');
-            $stmt->bindParam(':id', $id);
+            $stmt->bindValue(':id', $id);
             $stmt->execute();
             /** @var array|false $result */
             $result = $stmt->fetch();
@@ -119,7 +119,7 @@ final class SessionHandler implements SessionInterface
             `data` = :data'
         );
 
-        $stmt->bindParam(':id', $id);
+        $stmt->bindValue(':id', $id);
         $stmt->bindValue(':modified', time(), PDO::PARAM_INT);
         $stmt->bindValue(':data', serialize($this->data));
         $stmt->execute();
