@@ -29,30 +29,7 @@ final class SessionHandler implements SessionInterface
     {
         $this->pdo = $pdo;
         $this->cookieManager = $cookieManager;
-
-        if (isset($options['cookie_name'])) {
-            $this->cookieName = (string) $options['cookie_name'];
-        }
-
-        if (isset($options['cookie_domain'])) {
-            $this->cookieDomain = (string) $options['cookie_domain'];
-        }
-
-        if (isset($options['cookie_path'])) {
-            $this->cookiePath = (string) $options['cookie_path'];
-        }
-
-        if (isset($options['cookie_secure'])) {
-            $this->cookieSecure = (bool) $options['cookie_secure'];
-        }
-
-        if (isset($options['cookie_http_only'])) {
-            $this->cookieHttpOnly = (bool) $options['cookie_http_only'];
-        }
-
-        if (isset($options['lifetime'])) {
-            $this->lifeTime = (int) $options['lifetime'];
-        }
+        $this->resolveOptions($options);
     }
 
     public function startSession(ServerRequestInterface $request): void
@@ -152,5 +129,32 @@ final class SessionHandler implements SessionInterface
         $response = $response->withHeader('Cache-Control', 'no-store, no-cache, must-revalidate');
 
         return $response->withHeader('Pragma', 'no-cache');
+    }
+
+    private function resolveOptions(array $options): void
+    {
+        if (isset($options['cookie_name'])) {
+            $this->cookieName = (string) $options['cookie_name'];
+        }
+
+        if (isset($options['cookie_domain'])) {
+            $this->cookieDomain = (string) $options['cookie_domain'];
+        }
+
+        if (isset($options['cookie_path'])) {
+            $this->cookiePath = (string) $options['cookie_path'];
+        }
+
+        if (isset($options['cookie_secure'])) {
+            $this->cookieSecure = (bool) $options['cookie_secure'];
+        }
+
+        if (isset($options['cookie_http_only'])) {
+            $this->cookieHttpOnly = (bool) $options['cookie_http_only'];
+        }
+
+        if (isset($options['lifetime'])) {
+            $this->lifeTime = (int) $options['lifetime'];
+        }
     }
 }
