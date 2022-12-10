@@ -24,7 +24,6 @@ final class ApplicationFactory
 
         /**
          * @psalm-suppress MixedArgument
-         * @psalm-suppress MixedArrayAccess
          */
         return new Application(
             $container->get(RouteCollector::class),

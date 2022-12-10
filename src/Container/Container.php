@@ -152,9 +152,6 @@ final class Container implements ContainerInterface
         return $this->services[$id] = $this->getNew($id);
     }
 
-    /**
-     * @psalm-suppress MixedArgument
-     */
     public function getNew(string $id): mixed
     {
         return match (true) {
@@ -183,7 +180,6 @@ final class Container implements ContainerInterface
      */
     private function createFromFactory(string $id): mixed
     {
-        /** @var string|callable $factory */
         $factory = $this->factories[$id];
 
         if (is_string($factory) && class_exists($factory)) {
