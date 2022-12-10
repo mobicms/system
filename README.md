@@ -17,10 +17,10 @@ This package is part of **mobiCMS**. For installation instructions  see [main re
 ## Contributing
 Contributions are welcome! Please read [Contributing][contributing] for details.
 
-[![YAGNI](https://img.shields.io/badge/principle-YAGNI-blueviolet.svg)](https://en.wikipedia.org/wiki/YAGNI)
-[![KISS](https://img.shields.io/badge/principle-KISS-blueviolet.svg)](https://en.wikipedia.org/wiki/KISS_principle)
+[![YAGNI](https://img.shields.io/badge/principle-YAGNI-blueviolet.svg)][yagni]
+[![KISS](https://img.shields.io/badge/principle-KISS-blueviolet.svg)][kiss]
 
-In our development, we follow the principles of [YAGNI](https://en.wikipedia.org/wiki/YAGNI) and [KISS](https://en.wikipedia.org/wiki/KISS_principle).
+In our development, we follow the principles of [YAGNI][yagni] and [KISS][kiss].
 The source code should not have extra unnecessary functionality and should be as simple and efficient as possible.
 
 
@@ -40,6 +40,7 @@ All rights to used third-party libraries, fonts, images, etc. reserved by their 
 - [**Twitter**](https://twitter.com/mobicms)
 
 [website]: https://mobicms.org
-[main repository]: https://github.com/mobicms/mobicms
+[yagni]: https://en.wikipedia.org/wiki/YAGNI
+[kiss]: https://en.wikipedia.org/wiki/KISS_principle
 [contributing]: https://github.com/mobicms/system/blob/main/.github/CONTRIBUTING.md
 [license]: https://github.com/mobicms/system/blob/main/LICENSE
