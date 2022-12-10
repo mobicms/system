@@ -76,9 +76,6 @@ final class SessionHandler implements SessionInterface
         $this->data = [];
     }
 
-    /**
-     * @psalm-suppress MixedArgument
-     */
     public function persistSession(ResponseInterface $response): ResponseInterface
     {
         if ('' === $this->sessionId && [] === $this->data) {
