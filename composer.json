@@ -38,18 +38,24 @@
         "php": "~8.2.0",
         "ext-pdo": "*",
         "filp/whoops": "^2.14",
-        "httpsoft/http-basis": "^1.0",
+        "httpsoft/http-basis": "dev-master",
         "mobicms/render": "dev-main",
-        "monolog/monolog": "^2.8",
+        "monolog/monolog": "^3.2",
         "psr/container": "^1.1"
     },
     "require-dev": {
         "mobicms/testutils": "^1.1",
         "phpunit/phpunit": "^9.5",
-        "slevomat/coding-standard": "^8.6",
+        "slevomat/coding-standard": "^8.7",
         "squizlabs/php_codesniffer": "^3.7",
-        "vimeo/psalm": "^5.1"
+        "vimeo/psalm": "^5.2"
     },
+    "repositories": [
+        {
+            "type": "git",
+            "url": "git@github.com:batumibiz/http-basis.git"
+        }
+    ],
     "autoload": {
         "psr-4": {
             "Mobicms\\": "src/"

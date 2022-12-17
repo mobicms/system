@@ -6,6 +6,7 @@ namespace Mobicms\Log;
 
 use Mobicms\Config\ConfigInterface;
 use Monolog\Handler\StreamHandler;
+use Monolog\Level;
 use Monolog\Logger;
 use Psr\Container\ContainerInterface;
 use Psr\Log\LoggerInterface;
@@ -20,7 +21,7 @@ final class LoggerFactory
         $debug = (bool) $configContainer->get('debug');
 
         $logger = new Logger('App');
-        $logger->pushHandler(new StreamHandler($logFile, $debug ? Logger::DEBUG : Logger::WARNING));
+        $logger->pushHandler(new StreamHandler($logFile, $debug ? Level::Debug : Level::Warning));
 
         return $logger;
     }
