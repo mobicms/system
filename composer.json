@@ -36,26 +36,21 @@
     "prefer-stable": true,
     "require": {
         "php": "~8.2.0",
+        "ext-random": "*",
         "ext-pdo": "*",
         "filp/whoops": "^2.14",
-        "httpsoft/http-basis": "dev-master",
-        "mobicms/render": "dev-main",
+        "httpsoft/http-basis": "^1.0.2",
+        "mobicms/render": "4.0",
         "monolog/monolog": "^3.2",
-        "psr/container": "^1.1"
+        "psr/container": "^2.0"
     },
     "require-dev": {
         "mobicms/testutils": "^1.1",
         "phpunit/phpunit": "^9.5",
         "slevomat/coding-standard": "^8.7",
         "squizlabs/php_codesniffer": "^3.7",
-        "vimeo/psalm": "^5.2"
+        "vimeo/psalm": "^5.4"
     },
-    "repositories": [
-        {
-            "type": "git",
-            "url": "git@github.com:batumibiz/http-basis.git"
-        }
-    ],
     "autoload": {
         "psr-4": {
             "Mobicms\\": "src/"
@@ -77,7 +72,6 @@
         "cs-fix": "phpcbf",
         "static-analysis": "psalm --show-info=true",
         "taint-analysis": "psalm --taint-analysis --show-info=true --report=results.sarif",
-        "psalm-fix": "psalm --alter --issues=MissingParamType --dry-run",
         "test": "phpunit --colors=always",
         "test-coverage": [
             "@putenv XDEBUG_MODE=coverage",

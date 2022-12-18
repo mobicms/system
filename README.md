@@ -40,6 +40,7 @@ All rights to used third-party libraries, fonts, images, etc. reserved by their 
 - [**Twitter**](https://twitter.com/mobicms)
 
 [website]: https://mobicms.org
+[main repository]: https://github.com/mobicms/mobicms
 [yagni]: https://en.wikipedia.org/wiki/YAGNI
 [kiss]: https://en.wikipedia.org/wiki/KISS_principle
 [contributing]: https://github.com/mobicms/system/blob/main/.github/CONTRIBUTING.md
