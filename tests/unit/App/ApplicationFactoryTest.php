@@ -20,14 +20,6 @@ use Psr\Http\Message\ResponseFactoryInterface;
 
 class ApplicationFactoryTest extends TestCase
 {
-    public function debugDataProvider(): array
-    {
-        return [
-            'debug-true'  => [true],
-            'debug-false' => [false],
-        ];
-    }
-
     /**
      * @dataProvider debugDataProvider
      */
@@ -55,5 +47,13 @@ class ApplicationFactoryTest extends TestCase
             )
         );
         $this->assertInstanceOf(Application::class, $app);
+    }
+
+    public static function debugDataProvider(): array
+    {
+        return [
+            'debug-true'  => [true],
+            'debug-false' => [false],
+        ];
     }
 }

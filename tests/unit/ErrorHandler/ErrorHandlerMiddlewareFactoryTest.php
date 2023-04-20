@@ -16,21 +16,6 @@ use Psr\Log\LoggerInterface;
 
 class ErrorHandlerMiddlewareFactoryTest extends TestCase
 {
-    private ErrorHandlerMiddlewareFactory $factory;
-
-    public function setUp(): void
-    {
-        $this->factory = new ErrorHandlerMiddlewareFactory();
-    }
-
-    public function debugDataProvider(): array
-    {
-        return [
-            'debug-true'  => [true],
-            'debug-false' => [false],
-        ];
-    }
-
     /**
      * @dataProvider debugDataProvider
      */
@@ -39,8 +24,12 @@ class ErrorHandlerMiddlewareFactoryTest extends TestCase
         $config = $this->createMock(ConfigInterface::class);
         $config
             ->method('get')
-            ->withConsecutive(['log_file'], ['debug'])
-            ->willReturn('test.log', $debug);
+            ->willReturnCallback(
+                fn(string $val) => match ($val) {
+                    'log_file' => 'test.log',
+                    'debug' => $debug
+                }
+            );
 
         $container = new Container(
             [
@@ -66,5 +55,13 @@ class ErrorHandlerMiddlewareFactoryTest extends TestCase
     {
         $this->expectException(NotFoundException::class);
         (new ErrorHandlerMiddlewareFactory())(new Container(['debug' => true, 'log_file' => 'test.log']));
+    }
+
+    public static function debugDataProvider(): array
+    {
+        return [
+            'debug-true'  => [true],
+            'debug-false' => [false],
+        ];
     }
 }

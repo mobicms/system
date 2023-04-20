@@ -22,8 +22,12 @@ class LoggerFactoryTest extends TestCase
         $config = $this->createMock(ConfigInterface::class);
         $config
             ->method('get')
-            ->withConsecutive(['log_file'], ['debug'])
-            ->willReturn('test.log', $debug);
+            ->willReturnCallback(
+                fn($val) => match ($val) {
+                    'log_file' => 'test.log',
+                    'debug' => $debug
+                }
+            );
         $container = $this->createMock(ContainerInterface::class);
         $container
             ->method('get')
@@ -44,7 +48,7 @@ class LoggerFactoryTest extends TestCase
     /**
      * @return iterable<array-key, array<array-key, bool|null>>
      */
-    public function debugDataProvider(): iterable
+    public static function debugDataProvider(): iterable
     {
         return [
             'debug-true'  => [true],

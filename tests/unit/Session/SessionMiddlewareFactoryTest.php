@@ -109,8 +109,13 @@ class SessionMiddlewareFactoryTest extends MysqlTestCase
         $container = $this->createMock(ContainerInterface::class);
         $container
             ->method('get')
-            ->withConsecutive([ConfigInterface::class], [PDO::class], [CookieManagerInterface::class])
-            ->willReturn($config, self::getPdo(), $this->createMock(CookieManagerInterface::class));
+            ->willReturnCallback(
+                fn($val) => match ($val) {
+                    ConfigInterface::class => $config,
+                    PDO::class => self::getPdo(),
+                    CookieManagerInterface::class => $this->createMock(CookieManagerInterface::class)
+                }
+            );
 
         return $container;
     }

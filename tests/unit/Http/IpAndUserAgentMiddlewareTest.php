@@ -30,10 +30,9 @@ class IpAndUserAgentMiddlewareTest extends TestCase
         $this->assertSame('31.23.209.1', $middleware->determineIpAddress($this->request));
     }
 
-    public function testDetermineIpAddressWithInvalidIp(): void
+    public function testDetermineIpAddressWithInvalidIpReturnsNull(): void
     {
         $this->request
-            ->expects($this->once())
             ->method('getServerParams')
             ->willReturn(['REMOTE_ADDR' => '392.268.0.9']);
         $middleware = new IpAndUserAgentMiddleware();
@@ -174,35 +173,42 @@ class IpAndUserAgentMiddlewareTest extends TestCase
 
     public function testProcess(): void
     {
-        // Check determime IP
         $this->request
             ->method('getServerParams')
             ->willReturn(['REMOTE_ADDR' => '192.168.0.9']);
-        $this->request
-            ->method('withAttribute')
-            ->withConsecutive(
-                [IpAndUserAgentMiddleware::IP_ADDR, '192.168.0.9'],
-                [IpAndUserAgentMiddleware::IP_VIA_PROXY_ADDR, '212.58.119.76'],
-                [IpAndUserAgentMiddleware::USER_AGENT, 'Test User Agent']
-            )
-            ->willReturn($this->request);
+
         $this->request
             ->method('hasHeader')
-            ->withConsecutive(
-                ['Forwarded'],
-                ['User-Agent']
-            )
-            ->willReturn(true);
+            ->willReturnCallback(
+                fn($val) => match ($val) {
+                    'Forwarded' => true,
+                    'User-Agent' => true,
+                    default => false,
+                }
+            );
+
         $this->request
             ->method('getHeaderLine')
-            ->withConsecutive(
-                ['Forwarded'],
-                ['User-Agent']
-            )
-            ->willReturn(
-                '212.58.119.76, 91.221.6.36',
-                'Test User Agent'
+            ->willReturnCallback(
+                fn($val) => match ($val) {
+                    'Forwarded' => '212.58.119.76, 91.221.6.36',
+                    'User-Agent' => 'Test User Agent',
+                    default => '',
+                }
             );
+
+        $this->request
+            ->expects($this->exactly(3))
+            ->method('withAttribute')
+            ->willReturnCallback(
+                fn($key, $value) => match ([$key, $value]) {
+                    [IpAndUserAgentMiddleware::IP_ADDR, '192.168.0.9'],
+                    [IpAndUserAgentMiddleware::USER_AGENT, 'Test User Agent'],
+                    [IpAndUserAgentMiddleware::IP_VIA_PROXY_ADDR, '212.58.119.76']
+                    => $this->request
+                }
+            );
+
         $handler = $this->createMock(RequestHandlerInterface::class);
         $handler
             ->expects($this->once())
