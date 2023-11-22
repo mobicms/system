@@ -7,6 +7,7 @@
         findUnusedPsalmSuppress="true"
         findUnusedVariablesAndParams="true"
         findUnusedCode="true"
+        cacheDirectory=".cache"
 >
     <projectFiles>
         <directory name="src"/>
@@ -27,4 +28,8 @@
             </errorLevel>
         </PossiblyUnusedMethod>
     </issueHandlers>
+
+    <enableExtensions>
+        <extension name="random"/>
+    </enableExtensions>
 </psalm>
