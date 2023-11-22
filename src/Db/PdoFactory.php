@@ -44,7 +44,7 @@ class PdoFactory
             $code = (int) $exception->getCode();
 
             throw match ($code) {
-                1045 => new InvalidCredentialsException('Invalid database credentials (user, password)', $code),
+                1045, 2054 => new InvalidCredentialsException('Invalid database credentials (user, password)', $code),
                 1049 => new InvalidDatabaseException('Unknown database', $code),
                 default => new CommonException($exception->getMessage(), $code)
             };
