@@ -35,9 +35,9 @@
     "minimum-stability": "dev",
     "prefer-stable": true,
     "require": {
-        "php": "~8.2.0",
-        "ext-random": "*",
+        "php": "~8.2 || ~8.3",
         "ext-pdo": "*",
+        "ext-random": "*",
         "filp/whoops": "^2.15",
         "httpsoft/http-basis": "^1.1",
         "mobicms/render": "4.0",
