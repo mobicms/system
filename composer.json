@@ -3,13 +3,9 @@
     "description": "mobiCMS core framework",
     "type": "library",
     "license": "GPL-3.0-only",
+    "homepage": "https://mobicms.org",
     "keywords": [
-        "mobicms",
-        "cms",
-        "psr-7",
-        "psr-11",
-        "psr-15",
-        "mysql"
+        "mobicms"
     ],
     "authors": [
         {
