@@ -61,7 +61,11 @@ class IpAndUserAgentMiddleware implements MiddlewareInterface
         foreach ($this->headersToInspect as $header) {
             if (
                 $request->hasHeader($header)
-                && preg_match_all('#\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}#s', $request->getHeaderLine($header), $vars)
+                && preg_match_all(
+                    '#\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}#s',
+                    $request->getHeaderLine($header),
+                    $vars
+                ) !== false
                 && null !== ($ip = $this->extractIp($request, $vars))
             ) {
                 return $ip;
