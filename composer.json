@@ -36,6 +36,7 @@
         "ext-random": "*",
         "filp/whoops": "^2.15",
         "httpsoft/http-basis": "^1.1",
+        "mobicms/config": "^1.0",
         "mobicms/render": "4.0",
         "monolog/monolog": "^3.5",
         "psr/container": "^2.0"
