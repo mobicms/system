@@ -38,6 +38,7 @@
         "httpsoft/http-basis": "^1.1",
         "mobicms/config": "^1.0",
         "mobicms/render": "4.0",
+        "mobicms/session": "dev-main",
         "monolog/monolog": "^3.5",
         "psr/container": "^2.0"
     },
