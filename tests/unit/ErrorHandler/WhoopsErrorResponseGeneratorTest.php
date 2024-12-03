@@ -22,9 +22,9 @@ class WhoopsErrorResponseGeneratorTest extends TestCase
         $exception = new InternalServerErrorHttpException();
         $response = $generator->generate($exception, new ServerRequest());
 
-        $this->assertSame($exception->getStatusCode(), $response->getStatusCode());
-        $this->assertSame($exception->getReasonPhrase(), $response->getReasonPhrase());
-        $this->assertSame('text/html', $response->getHeaderLine('content-type'));
+        self::assertSame($exception->getStatusCode(), $response->getStatusCode());
+        self::assertSame($exception->getReasonPhrase(), $response->getReasonPhrase());
+        self::assertSame('text/html', $response->getHeaderLine('content-type'));
     }
 
     public function testGenerateWithPassedJsonResponseHandler(): void
@@ -42,9 +42,9 @@ class WhoopsErrorResponseGeneratorTest extends TestCase
         $exception = new ForbiddenHttpException();
         $response = $generator->generate($exception, new ServerRequest());
 
-        $this->assertSame($exception->getStatusCode(), $response->getStatusCode());
-        $this->assertSame($exception->getReasonPhrase(), $response->getReasonPhrase());
-        $this->assertSame('application/json', $response->getHeaderLine('content-type'));
+        self::assertSame($exception->getStatusCode(), $response->getStatusCode());
+        self::assertSame($exception->getReasonPhrase(), $response->getReasonPhrase());
+        self::assertSame('application/json', $response->getHeaderLine('content-type'));
 
         $exceptionData = json_encode(
             [
@@ -58,6 +58,6 @@ class WhoopsErrorResponseGeneratorTest extends TestCase
             ]
         );
 
-        $this->assertSame($exceptionData, (string) $response->getBody());
+        self::assertSame($exceptionData, (string) $response->getBody());
     }
 }

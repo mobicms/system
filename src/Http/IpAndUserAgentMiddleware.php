@@ -75,6 +75,9 @@ class IpAndUserAgentMiddleware implements MiddlewareInterface
         return null;
     }
 
+    /**
+     * @param array<array<string>> $vars
+     */
     private function extractIp(ServerRequestInterface $request, array $vars): ?string
     {
         /** @var string $ip */

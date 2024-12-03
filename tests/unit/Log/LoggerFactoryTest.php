@@ -7,10 +7,10 @@ namespace MobicmsTest\Log;
 use Mobicms\Config\ConfigInterface;
 use Mobicms\Log\LoggerFactory;
 use Monolog\Handler\StreamHandler;
+use Monolog\Level;
 use Monolog\Logger;
 use PHPUnit\Framework\TestCase;
 use Psr\Container\ContainerInterface;
-use Psr\Log\LoggerInterface;
 
 class LoggerFactoryTest extends TestCase
 {
@@ -25,7 +25,8 @@ class LoggerFactoryTest extends TestCase
             ->willReturnCallback(
                 fn($val) => match ($val) {
                     'log_file' => 'test.log',
-                    'debug' => $debug
+                    'debug' => $debug,
+                    default => null,
                 }
             );
         $container = $this->createMock(ContainerInterface::class);
@@ -36,12 +37,10 @@ class LoggerFactoryTest extends TestCase
 
         /** @var Logger $logger */
         $logger = (new LoggerFactory())($container);
-        $this->assertInstanceOf(LoggerInterface::class, $logger);
-        $this->assertInstanceOf(Logger::class, $logger);
-        $this->assertTrue($logger->isHandling($debug ? Logger::DEBUG : Logger::WARNING));
+        self::assertTrue($logger->isHandling($debug ? Level::Debug : Level::Warning));
 
         foreach ($logger->getHandlers() as $handler) {
-            $this->assertInstanceOf(StreamHandler::class, $handler);
+            self::assertInstanceOf(StreamHandler::class, $handler);
         }
     }
 

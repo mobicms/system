@@ -20,7 +20,7 @@ class EngineFactory
 
         /**
          * @var string $namespace
-         * @var array $pathArray
+         * @var array<string> $pathArray
          */
         foreach ($paths as $namespace => $pathArray) {
             /** @var string $path */

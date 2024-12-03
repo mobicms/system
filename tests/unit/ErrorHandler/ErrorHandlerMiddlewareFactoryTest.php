@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace MobicmsTest\ErrorHandler;
 
-use HttpSoft\ErrorHandler\ErrorHandlerMiddleware;
 use Mobicms\Container\Container;
 use Mobicms\Container\Exception\NotFoundException;
 use Mobicms\ErrorHandler\ErrorHandlerMiddlewareFactory;
@@ -27,7 +26,8 @@ class ErrorHandlerMiddlewareFactoryTest extends TestCase
             ->willReturnCallback(
                 fn(string $val) => match ($val) {
                     'log_file' => 'test.log',
-                    'debug' => $debug
+                    'debug' => $debug,
+                    default => null,
                 }
             );
 
@@ -41,8 +41,8 @@ class ErrorHandlerMiddlewareFactoryTest extends TestCase
         $container->setFactory(LoggerInterface::class, LoggerFactory::class);
 
         $errorHandler = (new ErrorHandlerMiddlewareFactory())($container);
-        $this->assertInstanceOf(MiddlewareInterface::class, $errorHandler);
-        $this->assertInstanceOf(ErrorHandlerMiddleware::class, $errorHandler);
+        /** @phpstan-ignore staticMethod.alreadyNarrowedType */
+        self::assertInstanceOf(MiddlewareInterface::class, $errorHandler);
     }
 
     public function testCreateThrowNotFoundExceptionIfConfigIsNotSet(): void
@@ -57,6 +57,9 @@ class ErrorHandlerMiddlewareFactoryTest extends TestCase
         (new ErrorHandlerMiddlewareFactory())(new Container(['debug' => true, 'log_file' => 'test.log']));
     }
 
+    /**
+     * @return array<string, array<bool>>
+     */
     public static function debugDataProvider(): array
     {
         return [

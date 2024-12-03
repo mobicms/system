@@ -42,7 +42,8 @@ class EngineFactoryTest extends TestCase
     public function testFactoryReturnsInstanceOfEngine(): Engine
     {
         $engine = (new EngineFactory())($this->container);
-        $this->assertInstanceOf(Engine::class, $engine);
+        /** @phpstan-ignore staticMethod.alreadyNarrowedType */
+        self::assertInstanceOf(Engine::class, $engine);
         return $engine;
     }
 
@@ -52,6 +53,6 @@ class EngineFactoryTest extends TestCase
     public function testEngineHasConfiguredFolder(Engine $engine): void
     {
         $result = $engine->getPath('test');
-        $this->assertEquals('path1', $result[0]);
+        self::assertEquals('path1', $result[0]);
     }
 }

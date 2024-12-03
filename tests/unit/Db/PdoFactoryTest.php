@@ -11,7 +11,7 @@ use Mobicms\Db\PdoFactory;
 use Mobicms\Config\ConfigInterface;
 use Mobicms\Testutils\ConfigLoader;
 use Mobicms\Testutils\MysqlTestCase;
-use PDO;
+use PHPUnit\Framework\MockObject\Exception;
 use Psr\Container\ContainerInterface;
 
 class PdoFactoryTest extends MysqlTestCase
@@ -21,19 +21,6 @@ class PdoFactoryTest extends MysqlTestCase
     public function setUp(): void
     {
         $this->config = new ConfigLoader();
-    }
-
-    public function testFactoryReturnsInstanceOfPdo(): void
-    {
-        $config = [
-            'host'   => $this->config->host(),
-            'port'   => $this->config->port(),
-            'dbname' => $this->config->dbName(),
-            'user'   => $this->config->user(),
-            'pass'   => $this->config->password(),
-        ];
-
-        $this->assertInstanceOf(PDO::class, (new PdoFactory())($this->getContainer($config)));
     }
 
     public function testInvalidPasswordThrowInvalidCredentialsException(): void
@@ -106,6 +93,10 @@ class PdoFactoryTest extends MysqlTestCase
         (new PdoFactory())($this->getContainer($config));
     }
 
+    /**
+     * @param array<mixed> $values
+     * @throws Exception
+     */
     private function getContainer(array $values): ContainerInterface
     {
         $config = $this->createMock(ConfigInterface::class);

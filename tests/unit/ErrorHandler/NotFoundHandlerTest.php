@@ -35,13 +35,13 @@ class NotFoundHandlerTest extends TestCase
     {
         $handler = new NotFoundHandler($this->responseFactory, $this->renderer, 'template-not-found', false);
         $response = $handler->handle($this->request);
-        $this->assertSame('404 Not Found', trim((string) $response->getBody()));
+        self::assertSame('404 Not Found', trim((string) $response->getBody()));
     }
 
     public function testHandleWithDebugMode(): void
     {
         $handler = new NotFoundHandler($this->responseFactory, $this->renderer, 'template-not-found', true);
         $response = $handler->handle($this->request);
-        $this->assertSame('DEBUG: 404', trim((string) $response->getBody()));
+        self::assertSame('DEBUG: 404', trim((string) $response->getBody()));
     }
 }

@@ -46,9 +46,14 @@ class ApplicationFactoryTest extends TestCase
                 ]
             )
         );
-        $this->assertInstanceOf(Application::class, $app);
+
+        /** @phpstan-ignore staticMethod.alreadyNarrowedType */
+        self::assertInstanceOf(Application::class, $app);
     }
 
+    /**
+     * @return array<string, array<bool>>
+     */
     public static function debugDataProvider(): array
     {
         return [

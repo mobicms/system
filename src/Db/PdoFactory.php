@@ -23,6 +23,9 @@ class PdoFactory
         return $this->connect($config);
     }
 
+    /**
+     * @param array<string, mixed> $config
+     */
     private function connect(array $config): PDO
     {
         try {
