@@ -9,15 +9,22 @@ use Mobicms\Container\Exception\NotFoundException;
 use Mobicms\ErrorHandler\ErrorHandlerMiddlewareFactory;
 use Mobicms\Config\ConfigInterface;
 use Mobicms\Log\LoggerFactory;
+use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\TestCase;
 use Psr\Http\Server\MiddlewareInterface;
 use Psr\Log\LoggerInterface;
 
 class ErrorHandlerMiddlewareFactoryTest extends TestCase
 {
-    /**
-     * @dataProvider debugDataProvider
-     */
+    public function tearDown(): void
+    {
+        parent::tearDown();
+
+        restore_error_handler();
+        restore_exception_handler();
+    }
+
+    #[DataProvider('debugDataProvider')]
     public function testCreate(bool $debug): void
     {
         $config = $this->createMock(ConfigInterface::class);

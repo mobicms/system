@@ -16,6 +16,14 @@ use function json_encode;
 
 class WhoopsErrorResponseGeneratorTest extends TestCase
 {
+    public function tearDown(): void
+    {
+        parent::tearDown();
+
+        restore_error_handler();
+        restore_exception_handler();
+    }
+
     public function testGenerateWithDefaultPrettyPageHandler(): void
     {
         $generator = new WhoopsErrorResponseGenerator();
@@ -49,15 +57,15 @@ class WhoopsErrorResponseGeneratorTest extends TestCase
         $exceptionData = json_encode(
             [
                 'error' => [
-                    'type'    => $exception::class,
+                    'type' => $exception::class,
                     'message' => $exception->getMessage(),
-                    'code'    => $exception->getCode(),
-                    'file'    => $exception->getFile(),
-                    'line'    => $exception->getLine(),
+                    'code' => $exception->getCode(),
+                    'file' => $exception->getFile(),
+                    'line' => $exception->getLine(),
                 ],
             ]
         );
 
-        self::assertSame($exceptionData, (string) $response->getBody());
+        self::assertSame($exceptionData, (string)$response->getBody());
     }
 }

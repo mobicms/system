@@ -7,6 +7,7 @@ namespace MobicmsTest\View;
 use Mobicms\Config\ConfigInterface;
 use Mobicms\Render\Engine;
 use Mobicms\View\EngineFactory;
+use PHPUnit\Framework\Attributes\Depends;
 use PHPUnit\Framework\TestCase;
 use Psr\Container\ContainerInterface;
 
@@ -47,9 +48,7 @@ class EngineFactoryTest extends TestCase
         return $engine;
     }
 
-    /**
-     * @depends testFactoryReturnsInstanceOfEngine
-     */
+    #[Depends('testFactoryReturnsInstanceOfEngine')]
     public function testEngineHasConfiguredFolder(Engine $engine): void
     {
         $result = $engine->getPath('test');

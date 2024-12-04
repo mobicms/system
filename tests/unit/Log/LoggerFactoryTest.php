@@ -9,14 +9,13 @@ use Mobicms\Log\LoggerFactory;
 use Monolog\Handler\StreamHandler;
 use Monolog\Level;
 use Monolog\Logger;
+use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\TestCase;
 use Psr\Container\ContainerInterface;
 
 class LoggerFactoryTest extends TestCase
 {
-    /**
-     * @dataProvider debugDataProvider
-     */
+    #[DataProvider('debugDataProvider')]
     public function testCreate(?bool $debug): void
     {
         $config = $this->createMock(ConfigInterface::class);

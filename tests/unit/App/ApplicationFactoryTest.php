@@ -15,14 +15,13 @@ use HttpSoft\Runner\MiddlewareResolverInterface;
 use Mobicms\App\ApplicationFactory;
 use Mobicms\Container\Container;
 use Mobicms\Config\ConfigInterface;
+use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\TestCase;
 use Psr\Http\Message\ResponseFactoryInterface;
 
 class ApplicationFactoryTest extends TestCase
 {
-    /**
-     * @dataProvider debugDataProvider
-     */
+    #[DataProvider('debugDataProvider')]
     public function testCreate(bool $debug): void
     {
         $config = $this->createMock(ConfigInterface::class);
