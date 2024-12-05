@@ -34,7 +34,7 @@
     "minimum-stability": "dev",
     "prefer-stable": true,
     "require": {
-        "php": "~8.2 || ~8.3",
+        "php": "~8.2 || ~8.3 || ~8.4",
         "ext-pdo": "*",
         "ext-random": "*",
         "filp/whoops": "^2.16",
