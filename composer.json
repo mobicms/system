@@ -37,7 +37,6 @@
         "ext-random": "*",
         "filp/whoops": "^2.18",
         "httpsoft/http-basis": "^1.1",
-        "mobicms/config": "dev-main",
         "mobicms/render": "dev-main",
         "mobicms/session": "dev-main",
         "monolog/monolog": "^3.9",

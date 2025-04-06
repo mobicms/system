@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "d541669d968b674e6fe9a79baaf1b910",
+    "content-hash": "a865675b07e40acfd229a14574e4fa68",
     "packages": [
         {
             "name": "filp/whoops",
@@ -668,63 +668,6 @@
                 "source": "https://github.com/httpsoft/http-server-request"
             },
             "time": "2024-11-25T06:32:39+00:00"
-        },
-        {
-            "name": "mobicms/config",
-            "version": "dev-main",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/mobicms/config.git",
-                "reference": "4d3dd1ac91b038cd98aedc712c99574017cacc66"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/mobicms/config/zipball/4d3dd1ac91b038cd98aedc712c99574017cacc66",
-                "reference": "4d3dd1ac91b038cd98aedc712c99574017cacc66",
-                "shasum": ""
-            },
-            "require": {
-                "php": "~8.2 || ~8.3 || ~8.4"
-            },
-            "require-dev": {
-                "pestphp/pest": "^3.7",
-                "slevomat/coding-standard": "^8.16",
-                "squizlabs/php_codesniffer": "^3.11",
-                "vimeo/psalm": "^6.8"
-            },
-            "default-branch": true,
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "Mobicms\\Config\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "GPL-3.0-only"
-            ],
-            "authors": [
-                {
-                    "name": "Oleg Kasyanov",
-                    "email": "oleg@batumi.org",
-                    "homepage": "https://github.com/batumibiz",
-                    "role": "Team Lead, Developer"
-                },
-                {
-                    "name": "mobiCMS Contributors",
-                    "homepage": "https://github.com/mobicms/config/graphs/contributors"
-                }
-            ],
-            "description": "Config subsystem",
-            "homepage": "https://mobicms.org",
-            "keywords": [
-                "mobicms"
-            ],
-            "support": {
-                "issues": "https://github.com/mobicms/config/issues",
-                "source": "https://github.com/mobicms/config"
-            },
-            "time": "2025-03-16T15:12:53+00:00"
         },
         {
             "name": "mobicms/render",
@@ -7156,7 +7099,6 @@
     "aliases": [],
     "minimum-stability": "dev",
     "stability-flags": {
-        "mobicms/config": 20,
         "mobicms/container": 20,
         "mobicms/render": 20,
         "mobicms/session": 20
