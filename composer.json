@@ -48,10 +48,7 @@
         "phpunit/phpunit": "^11.5",
         "slevomat/coding-standard": "^8.16",
         "squizlabs/php_codesniffer": "^3.12",
-        "phpstan/phpstan": "^2.1",
-        "phpstan/phpstan-deprecation-rules": "^2.0",
-        "phpstan/phpstan-phpunit": "^2.0",
-        "phpstan/phpstan-strict-rules": "^2.0"
+        "vimeo/psalm": "^6.10"
     },
     "autoload": {
         "psr-4": {
@@ -71,7 +68,7 @@
         ],
         "cs-check": "phpcs",
         "cs-fix": "phpcbf",
-        "static-analysis": "phpstan analyse",
+        "static-analysis": "psalm --no-diff --show-info=true",
         "test": "phpunit --colors=always",
         "test-coverage": [
             "@putenv XDEBUG_MODE=coverage",
