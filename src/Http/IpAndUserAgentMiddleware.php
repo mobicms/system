@@ -11,6 +11,9 @@ use Psr\Http\Server\RequestHandlerInterface;
 
 use function mb_substr;
 
+/**
+ * @psalm-api
+ */
 class IpAndUserAgentMiddleware implements MiddlewareInterface
 {
     public const IP_ADDR = 'ip_address';
@@ -28,6 +31,7 @@ class IpAndUserAgentMiddleware implements MiddlewareInterface
         'Client-Ip',
     ];
 
+    #[\Override]
     public function process(ServerRequestInterface $request, RequestHandlerInterface $handler): ResponseInterface
     {
         if (null !== ($ip = $this->determineIpAddress($request))) {
@@ -80,7 +84,6 @@ class IpAndUserAgentMiddleware implements MiddlewareInterface
      */
     private function extractIp(ServerRequestInterface $request, array $vars): ?string
     {
-        /** @var string $ip */
         foreach ($vars[0] as $ip) {
             if (
                 $this->isValidIp($ip)

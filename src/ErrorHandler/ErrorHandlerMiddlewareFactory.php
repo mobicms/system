@@ -9,6 +9,9 @@ use HttpSoft\ErrorHandler\ErrorHandlerMiddleware;
 use Psr\Container\ContainerInterface;
 use Psr\Log\LoggerInterface;
 
+/**
+ * @psalm-api
+ */
 final class ErrorHandlerMiddlewareFactory
 {
     public function __invoke(ContainerInterface $container): ErrorHandlerMiddleware

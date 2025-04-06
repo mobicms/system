@@ -12,6 +12,9 @@ use PDO;
 use PDOException;
 use Psr\Container\ContainerInterface;
 
+/**
+ * @psalm-api
+ */
 class PdoFactory
 {
     public function __invoke(ContainerInterface $container): PDO
@@ -24,7 +27,7 @@ class PdoFactory
     }
 
     /**
-     * @param array<string, mixed> $config
+     * @param array<array-key, mixed> $config
      */
     private function connect(array $config): PDO
     {

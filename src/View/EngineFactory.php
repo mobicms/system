@@ -8,6 +8,9 @@ use Mobicms\Config\ConfigInterface;
 use Mobicms\Render\Engine;
 use Psr\Container\ContainerInterface;
 
+/**
+ * @psalm-api
+ */
 class EngineFactory
 {
     public function __invoke(ContainerInterface $container): Engine
@@ -23,7 +26,6 @@ class EngineFactory
          * @var array<string> $pathArray
          */
         foreach ($paths as $namespace => $pathArray) {
-            /** @var string $path */
             foreach ($pathArray as $path) {
                 $engine->addPath($path, $namespace);
             }

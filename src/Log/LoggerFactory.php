@@ -11,6 +11,9 @@ use Monolog\Logger;
 use Psr\Container\ContainerInterface;
 use Psr\Log\LoggerInterface;
 
+/**
+ * @psalm-api
+ */
 final class LoggerFactory
 {
     public function __invoke(ContainerInterface $container): LoggerInterface

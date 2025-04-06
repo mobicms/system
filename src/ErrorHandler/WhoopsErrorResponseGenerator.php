@@ -46,6 +46,7 @@ final class WhoopsErrorResponseGenerator implements ErrorResponseGeneratorInterf
      *
      * @psalm-suppress MixedAssignment
      */
+    #[\Override]
     public function generate(Throwable $error, ServerRequestInterface $request): ResponseInterface
     {
         $response = new Response($this->extractErrorStatusCode($error));

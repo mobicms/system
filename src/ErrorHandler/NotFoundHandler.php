@@ -11,7 +11,7 @@ use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
 use Psr\Http\Server\RequestHandlerInterface;
 
-class NotFoundHandler implements RequestHandlerInterface
+final class NotFoundHandler implements RequestHandlerInterface
 {
     private ResponseFactoryInterface $responseFactory;
     private Engine $template;
@@ -30,6 +30,7 @@ class NotFoundHandler implements RequestHandlerInterface
         $this->debug = $debug;
     }
 
+    #[\Override]
     public function handle(ServerRequestInterface $request): ResponseInterface
     {
         $response = $this->responseFactory->createResponse(ErrorResponseGeneratorInterface::STATUS_NOT_FOUND);

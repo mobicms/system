@@ -15,6 +15,9 @@ use Mobicms\Render\Engine;
 use Psr\Container\ContainerInterface;
 use Psr\Http\Message\ResponseFactoryInterface;
 
+/**
+ * @psalm-api
+ */
 final class ApplicationFactory
 {
     public function __invoke(ContainerInterface $container): Application
