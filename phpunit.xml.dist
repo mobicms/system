@@ -2,23 +2,29 @@
 <phpunit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:noNamespaceSchemaLocation="vendor/phpunit/phpunit/phpunit.xsd"
          bootstrap="vendor/autoload.php"
-         executionOrder="depends,defects"
-         beStrictAboutCoversAnnotation="true"
-         beStrictAboutOutputDuringTests="true"
-         beStrictAboutTodoAnnotatedTests="true"
+         colors="true"
          failOnRisky="true"
          failOnWarning="true"
-         verbose="true"
-         colors="true">
+         beStrictAboutCoverageMetadata="true"
+         cacheDirectory=".cache">
+
     <testsuites>
         <testsuite name="default">
             <directory>tests</directory>
         </testsuite>
     </testsuites>
 
-    <coverage processUncoveredFiles="true">
+    <source>
         <include>
-            <directory suffix=".php">src</directory>
+            <directory>src</directory>
         </include>
-    </coverage>
+    </source>
+
+    <php>
+        <var name="test_db_host" value="127.0.0.1"/>
+        <var name="test_db_port" value="3306"/>
+        <var name="test_db_user" value="root"/>
+        <var name="test_db_pass" value="root"/>
+        <var name="test_db_name" value="tmp_test_database"/>
+    </php>
 </phpunit>

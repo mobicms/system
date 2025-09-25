@@ -3,21 +3,16 @@
     "description": "mobiCMS core framework",
     "type": "library",
     "license": "GPL-3.0-only",
+    "homepage": "https://mobicms.org",
     "keywords": [
-        "mobicms",
-        "cms",
-        "middleware",
-        "psr-7",
-        "psr-11",
-        "psr-15",
-        "mysql"
+        "mobicms"
     ],
     "authors": [
         {
             "name": "Oleg Kasyanov",
             "role": "Team Lead, Developer",
             "homepage": "https://github.com/batumibiz",
-            "email": "oleg@mobicms.org"
+            "email": "oleg@batumi.org"
         },
         {
             "name": "mobiCMS Contributors",
@@ -29,49 +24,40 @@
         "issues": "https://github.com/mobicms/system/issues"
     },
     "config": {
-        "sort-packages": true
+        "allow-plugins": {
+            "dealerdirect/phpcodesniffer-composer-installer": true,
+            "pestphp/pest-plugin": true
+        }
     },
     "minimum-stability": "dev",
     "prefer-stable": true,
     "require": {
-        "php": "~8.0.0 || ~8.1.0",
-        "ext-pdo": "*"
+        "php": "~8.3 || ~8.4"
     },
     "require-dev": {
-        "mockery/mockery": "^1.4",
-        "phpunit/phpunit": "^9.5",
-        "psalm/plugin-mockery": "^0.9",
-        "psalm/plugin-phpunit": "^0.16",
-        "roave/security-advisories": "dev-master",
-        "slevomat/coding-standard": "^7.0",
-        "squizlabs/php_codesniffer": "^3.6",
-        "vimeo/psalm": "^4.13"
+        "pestphp/pest": "^3.8",
+        "slevomat/coding-standard": "^8.22",
+        "squizlabs/php_codesniffer": "^3.13",
+        "vimeo/psalm": "^6.13"
     },
     "autoload": {
         "psr-4": {
             "Mobicms\\System\\": "src/"
         }
     },
-    "autoload-dev": {
-        "psr-4": {
-            "MobicmsTest\\System\\": "tests/unit/"
-        }
-    },
     "scripts": {
         "check": [
             "@cs-check",
             "@static-analysis",
-            "@security-analysis",
             "@test"
         ],
         "cs-check": "phpcs",
         "cs-fix": "phpcbf",
-        "static-analysis": "psalm --show-info=true",
-        "security-analysis": "psalm --taint-analysis --show-info=true --report=results.sarif",
-        "test": "phpunit --colors=always",
+        "static-analysis": "psalm --no-diff --show-info=true",
+        "test": "pest --colors=always",
         "test-coverage": [
             "@putenv XDEBUG_MODE=coverage",
-            "phpunit --colors=always --coverage-clover clover.xml"
+            "pest --colors=always --coverage --coverage-clover clover.xml --log-junit report.xml"
         ]
     }
 }
