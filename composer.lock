@@ -4,8 +4,61 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "75b9bebcfb77cb8274630551f1feec50",
-    "packages": [],
+    "content-hash": "a5f3b7134270772e760bee7efa1aeb01",
+    "packages": [
+        {
+            "name": "mobicms/contract",
+            "version": "dev-main",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/mobicms/contract.git",
+                "reference": "36dc578a7419f38074d1b827332e4780a28ac79c"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/mobicms/contract/zipball/36dc578a7419f38074d1b827332e4780a28ac79c",
+                "reference": "36dc578a7419f38074d1b827332e4780a28ac79c",
+                "shasum": ""
+            },
+            "require": {
+                "php": "~8.3 || ~8.4"
+            },
+            "require-dev": {
+                "slevomat/coding-standard": "^8.22",
+                "squizlabs/php_codesniffer": "^3.13",
+                "vimeo/psalm": "^6.13"
+            },
+            "default-branch": true,
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Mobicms\\Contract\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL-3.0-only"
+            ],
+            "authors": [
+                {
+                    "name": "Oleg Kasyanov",
+                    "email": "oleg@batumi.org",
+                    "homepage": "https://github.com/batumibiz",
+                    "role": "Team Lead, Developer"
+                },
+                {
+                    "name": "Our Contributors",
+                    "homepage": "https://github.com/mobicms/contract/graphs/contributors"
+                }
+            ],
+            "description": "mobiCMS Interfaces",
+            "support": {
+                "issues": "https://github.com/mobicms/contract/issues",
+                "source": "https://github.com/mobicms/contract/tree/main"
+            },
+            "time": "2025-10-08T21:23:15+00:00"
+        }
+    ],
     "packages-dev": [
         {
             "name": "amphp/amp",
@@ -6183,7 +6236,9 @@
     ],
     "aliases": [],
     "minimum-stability": "dev",
-    "stability-flags": {},
+    "stability-flags": {
+        "mobicms/contract": 20
+    },
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {
