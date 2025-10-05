@@ -32,7 +32,8 @@
     "minimum-stability": "dev",
     "prefer-stable": true,
     "require": {
-        "php": "~8.3 || ~8.4"
+        "php": "~8.3 || ~8.4",
+        "mobicms/contract": "dev-main"
     },
     "require-dev": {
         "pestphp/pest": "^3.8",
