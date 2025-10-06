@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "a5f3b7134270772e760bee7efa1aeb01",
+    "content-hash": "57837beab0856d94a4370fa734b1fd2f",
     "packages": [
         {
             "name": "mobicms/contract",
@@ -1939,6 +1939,67 @@
                 }
             ],
             "time": "2024-12-08T08:18:47+00:00"
+        },
+        {
+            "name": "mobicms/testutils",
+            "version": "2.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/mobicms/testutils.git",
+                "reference": "f999e33c76cecdd00ef7746917c55dffa5cb5362"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/mobicms/testutils/zipball/f999e33c76cecdd00ef7746917c55dffa5cb5362",
+                "reference": "f999e33c76cecdd00ef7746917c55dffa5cb5362",
+                "shasum": ""
+            },
+            "require": {
+                "ext-pdo": "*",
+                "php": "~8.2 || ~8.3 || ~8.4",
+                "phpunit/phpunit": "^11.4"
+            },
+            "require-dev": {
+                "phpstan/phpstan": "^2.0",
+                "phpstan/phpstan-deprecation-rules": "^2.0",
+                "phpstan/phpstan-phpunit": "^2.0",
+                "phpstan/phpstan-strict-rules": "^2.0",
+                "slevomat/coding-standard": "^8.15",
+                "squizlabs/php_codesniffer": "^3.11"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Mobicms\\Testutils\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Oleg Kasyanov",
+                    "email": "oleg@mobicms.org",
+                    "homepage": "https://github.com/batumibiz",
+                    "role": "Team Lead, Developer"
+                },
+                {
+                    "name": "Our Contributors",
+                    "homepage": "https://github.com/mobicms/testutils/graphs/contributors"
+                }
+            ],
+            "description": "mobiCMS test utilities",
+            "keywords": [
+                "mobicms",
+                "test",
+                "utilities"
+            ],
+            "support": {
+                "issues": "https://github.com/mobicms/testutils/issues",
+                "source": "https://github.com/mobicms/testutils"
+            },
+            "time": "2024-11-26T20:58:58+00:00"
         },
         {
             "name": "myclabs/deep-copy",
