@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "57837beab0856d94a4370fa734b1fd2f",
+    "content-hash": "6e6b9426de370a5bea840bb8899a818b",
     "packages": [
         {
             "name": "mobicms/contract",
@@ -6303,7 +6303,8 @@
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {
-        "php": "~8.3 || ~8.4"
+        "php": "~8.3 || ~8.4",
+        "ext-pdo": "*"
     },
     "platform-dev": {},
     "plugin-api-version": "2.6.0"

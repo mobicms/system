@@ -33,6 +33,7 @@
     "prefer-stable": true,
     "require": {
         "php": "~8.3 || ~8.4",
+        "ext-pdo": "*",
         "mobicms/contract": "dev-main"
     },
     "require-dev": {
@@ -45,6 +46,11 @@
     "autoload": {
         "psr-4": {
             "Mobicms\\System\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "MobicmsTest\\": "tests/unit/"
         }
     },
     "scripts": {
