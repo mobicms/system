@@ -2,8 +2,6 @@
 
 declare(strict_types=1);
 
-namespace MobicmsTest\System\Config;
-
 use Mobicms\System\Config\ConfigContainer;
 use Mobicms\System\Config\Exception\KeyAlreadyExistsException;
 
