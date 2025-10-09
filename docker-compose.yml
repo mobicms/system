@@ -1,0 +1,15 @@
+name: mobicms-system
+
+services:
+  mariadb:
+    image: mariadb:lts
+    restart: unless-stopped
+    ports:
+      - 3306:3306
+    volumes:
+      - db:/var/lib/mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: 'root'
+
+volumes:
+  db:
