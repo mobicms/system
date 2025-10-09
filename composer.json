@@ -34,6 +34,7 @@
     "require": {
         "php": "~8.4",
         "ext-pdo": "*",
+        "httpsoft/http-basis": "^1.1",
         "mobicms/contract": "dev-main"
     },
     "require-dev": {
