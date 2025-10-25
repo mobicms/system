@@ -63,8 +63,8 @@ jobs:
         with:
           args: >
             -Dsonar.organization=mobicms
-            -Dsonar.projectName=mobicms
-            -Dsonar.projectKey=mobicms_mobicms
+            -Dsonar.projectName=system
+            -Dsonar.projectKey=mobicms_system
             -Dsonar.sources=./src
             -Dsonar.tests=./tests
             -Dsonar.sourceEncoding=UTF-8
