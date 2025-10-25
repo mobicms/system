@@ -36,7 +36,8 @@
         "ext-pdo": "*",
         "httpsoft/http-basis": "^1.1",
         "mobicms/contract": "dev-main",
-        "mobicms/render": "dev-main"
+        "mobicms/render": "dev-main",
+        "monolog/monolog": "^3.9"
     },
     "require-dev": {
         "mobicms/testutils": "^3.0",
