@@ -4,8 +4,79 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "12522b079d055db1c2dceae000385dbf",
+    "content-hash": "30627a603613be50ba247a4ab0178996",
     "packages": [
+        {
+            "name": "filp/whoops",
+            "version": "2.18.4",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/filp/whoops.git",
+                "reference": "d2102955e48b9fd9ab24280a7ad12ed552752c4d"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/filp/whoops/zipball/d2102955e48b9fd9ab24280a7ad12ed552752c4d",
+                "reference": "d2102955e48b9fd9ab24280a7ad12ed552752c4d",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^7.1 || ^8.0",
+                "psr/log": "^1.0.1 || ^2.0 || ^3.0"
+            },
+            "require-dev": {
+                "mockery/mockery": "^1.0",
+                "phpunit/phpunit": "^7.5.20 || ^8.5.8 || ^9.3.3",
+                "symfony/var-dumper": "^4.0 || ^5.0"
+            },
+            "suggest": {
+                "symfony/var-dumper": "Pretty print complex values better with var-dumper available",
+                "whoops/soap": "Formats errors as SOAP responses"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.7-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Whoops\\": "src/Whoops/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Filipe Dobreira",
+                    "homepage": "https://github.com/filp",
+                    "role": "Developer"
+                }
+            ],
+            "description": "php error handling for cool kids",
+            "homepage": "https://filp.github.io/whoops/",
+            "keywords": [
+                "error",
+                "exception",
+                "handling",
+                "library",
+                "throwable",
+                "whoops"
+            ],
+            "support": {
+                "issues": "https://github.com/filp/whoops/issues",
+                "source": "https://github.com/filp/whoops/tree/2.18.4"
+            },
+            "funding": [
+                {
+                    "url": "https://github.com/denis-sokolov",
+                    "type": "github"
+                }
+            ],
+            "time": "2025-08-08T12:00:00+00:00"
+        },
         {
             "name": "httpsoft/http-basis",
             "version": "1.1.2",
@@ -597,6 +668,66 @@
                 "source": "https://github.com/httpsoft/http-server-request"
             },
             "time": "2024-11-25T06:32:39+00:00"
+        },
+        {
+            "name": "mobicms/container",
+            "version": "dev-main",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/mobicms/container.git",
+                "reference": "f070cc85f39e2bd61d1ecb553a8fe53cd59b4440"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/mobicms/container/zipball/f070cc85f39e2bd61d1ecb553a8fe53cd59b4440",
+                "reference": "f070cc85f39e2bd61d1ecb553a8fe53cd59b4440",
+                "shasum": ""
+            },
+            "require": {
+                "php": "~8.2 || ~8.3 || ~8.4",
+                "psr/container": "^1.1 || ^2.0"
+            },
+            "require-dev": {
+                "pestphp/pest": "^3.8",
+                "slevomat/coding-standard": "^8.20",
+                "squizlabs/php_codesniffer": "^3.13",
+                "vimeo/psalm": "^6.13"
+            },
+            "default-branch": true,
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Mobicms\\Container\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL-3.0-only"
+            ],
+            "authors": [
+                {
+                    "name": "Oleg Kasyanov",
+                    "email": "oleg@batumi.org",
+                    "homepage": "https://github.com/batumibiz",
+                    "role": "Team Lead, Developer"
+                },
+                {
+                    "name": "mobiCMS Contributors",
+                    "homepage": "https://github.com/mobicms/container/graphs/contributors"
+                }
+            ],
+            "description": "PSR-11 dependency injection container",
+            "homepage": "https://mobicms.org",
+            "keywords": [
+                "PSR-11",
+                "container",
+                "mobicms"
+            ],
+            "support": {
+                "issues": "https://github.com/mobicms/container/issues",
+                "source": "https://github.com/mobicms/container"
+            },
+            "time": "2025-08-30T06:48:40+00:00"
         },
         {
             "name": "mobicms/contract",
@@ -6086,6 +6217,7 @@
     "aliases": [],
     "minimum-stability": "dev",
     "stability-flags": {
+        "mobicms/container": 20,
         "mobicms/contract": 20,
         "mobicms/render": 20
     },

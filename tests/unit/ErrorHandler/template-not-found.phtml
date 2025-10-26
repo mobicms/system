@@ -1,0 +1,15 @@
+<?php
+
+declare(strict_types=1);
+
+/**
+ * @var Mobicms\Render\Template\Template        $this
+ * @var Psr\Http\Message\ServerRequestInterface $request
+ * @var bool                                    $debug
+ */
+
+if ($debug) {
+    echo 'DEBUG: 404';
+} else {
+    echo '404 Not Found';
+}

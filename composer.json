@@ -34,7 +34,9 @@
     "require": {
         "php": "~8.4",
         "ext-pdo": "*",
+        "filp/whoops": "^2.18",
         "httpsoft/http-basis": "^1.1",
+        "mobicms/container": "dev-main",
         "mobicms/contract": "dev-main",
         "mobicms/render": "dev-main",
         "monolog/monolog": "^3.9"
